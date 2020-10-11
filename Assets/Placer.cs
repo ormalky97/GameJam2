@@ -36,7 +36,7 @@ public class Placer : MonoBehaviour
             {
                 {
                     Instantiate(building, transform.position, Quaternion.identity);
-                    DecreaseResources();
+                    res.DecreaseResources(foodCost, moneyCost, materialCost, populationCost);
                     Destroy(gameObject);
                 }
             }
@@ -65,12 +65,4 @@ public class Placer : MonoBehaviour
         }
     }
 
-
-    void DecreaseResources()
-    {
-        res.food -= foodCost;
-        res.money -= moneyCost;
-        res.materials -= materialCost;
-        res.population += populationCost;
-    }
 }

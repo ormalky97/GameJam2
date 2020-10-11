@@ -21,4 +21,11 @@ public class Resources : MonoBehaviour
     {
         
     }
+    public void DecreaseResources(int foodCost, int moneyCost, int materialCost, int populationCost)
+    {
+        food -= foodCost;
+        money -= moneyCost;
+        materials -= materialCost;
+        population += populationCost;
+    }
 }
