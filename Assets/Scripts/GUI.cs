@@ -26,6 +26,6 @@ public class GUI : MonoBehaviour
         food.text = "Food: " + res.food;
         money.text = "Money: " + res.money;
         materials.text = "Materials: " + res.materials;
-        population.text = "Population: " + res.population + "/" + res.maxPopulation;
+        population.text = "Population: " + res.usedPopulation + "/" + res.population + " (" + (res.maxPopulation - res.population) +")";
     }
 }

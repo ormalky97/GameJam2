@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject target;
     public int type;
+    public int maxHealth;
     public float moveSpeed;
     public float viewRange;
 
+    GameObject target;
     Rigidbody2D rb;
 
+    int health;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.Find("Colony Center");
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -24,9 +29,21 @@ public class Enemy : MonoBehaviour
         GoToTarget();
     }
 
+    public void RecieveDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
     void FindTarget()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, viewRange, LayerMask.GetMask("Buildings"));
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, viewRange, LayerMask.GetMask("Building"));
         if (hit != null)
             target = hit.gameObject;
     }

@@ -63,7 +63,7 @@ public class BuildButton : MonoBehaviour
         if(res.food >= foodCost &&
            res.money >= moneyCost &&
            res.materials >= materialCost &&
-           res.population + populationCost <= res.maxPopulation)
+           res.population - res.usedPopulation >= populationCost)
         {
             return true;
         }

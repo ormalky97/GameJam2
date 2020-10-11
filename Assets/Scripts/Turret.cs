@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public int damage;
     public float range;
+    public float fireRate;
 
     GameObject target;
     Rigidbody2D rb;
+
+    bool canShoot = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,8 +29,24 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            SetRotation();
+            if (Vector2.Distance(transform.position, target.transform.position) > range)
+                target = null;
+            else
+            {
+                if (canShoot)
+                    StartCoroutine("Shoot");
+
+                SetRotation();
+            }
         }
+    }
+
+    IEnumerator Shoot()
+    {
+        canShoot = false;
+        target.GetComponent<Enemy>().RecieveDamage(damage);
+        yield return new WaitForSeconds(1 / fireRate);
+        canShoot = true;
     }
 
     void SetRotation()
