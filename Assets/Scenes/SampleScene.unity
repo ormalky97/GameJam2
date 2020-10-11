@@ -987,7 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eda6b372bf74a64db2f24dc427b6a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 0.25
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1699,8 +1699,10 @@ GameObject:
   m_Component:
   - component: {fileID: 989771015}
   - component: {fileID: 989771014}
+  - component: {fileID: 989771016}
+  - component: {fileID: 989771017}
   - component: {fileID: 989771013}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1719,6 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0693c722f2274574f9372392b48d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 5
 --- !u!212 &989771014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1784,6 +1787,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &989771016
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989771012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5}
+      - {x: -0.4330127, y: -0.25000003}
+      - {x: 0.43301272, y: -0.24999996}
+--- !u!50 &989771017
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989771012}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1109803230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1183357231}
   - component: {fileID: 1183357230}
+  - component: {fileID: 1183357232}
   m_Layer: 0
   m_Name: Colony Center
   m_TagString: Untagged
@@ -2226,6 +2279,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1183357232
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183357229}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 1}
+      - {x: -0.86602545, y: 0.49999997}
+      - {x: -0.8660254, y: -0.50000006}
+      - {x: 0.00000008742278, y: -1}
+      - {x: 0.86602545, y: -0.4999999}
+      - {x: 0.86602545, y: 0.4999999}
 --- !u!1 &1273847552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,7 +2402,7 @@ GameObject:
   - component: {fileID: 1338682293}
   - component: {fileID: 1338682292}
   - component: {fileID: 1338682291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2377,6 +2461,7 @@ MonoBehaviour:
   target: {fileID: 1183357229}
   type: 0
   moveSpeed: 4
+  viewRange: 0
 --- !u!212 &1338682294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2539,7 +2624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1677359558
 RectTransform:
   m_ObjectHideFlags: 0

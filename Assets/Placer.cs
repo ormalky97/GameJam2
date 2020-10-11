@@ -65,6 +65,7 @@ public class Placer : MonoBehaviour
         }
     }
 
+
     void DecreaseResources()
     {
         res.food -= foodCost;

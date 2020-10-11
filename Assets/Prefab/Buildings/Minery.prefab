@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2508033955386369614}
   - component: {fileID: 2508033955386369613}
   - component: {fileID: 7386090692604246830}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Minery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
