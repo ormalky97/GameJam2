@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Placer : MonoBehaviour
 {
+    [Header("Inner Vars")]
     public GameObject building;
-    public int foodCost;
-    public int oilCost;
-    public int metalCost;
-    public int populationUsage;
+    public Sites site;
 
+    //Refs
     Camera cam;
     Resources res;
     SpriteRenderer spr;
@@ -22,6 +21,7 @@ public class Placer : MonoBehaviour
 
         cam = Camera.main;
         res = GameObject.Find("Game Manager").GetComponent<Resources>();
+        site = building.GetComponent<Sites>();
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class Placer : MonoBehaviour
             {
                 {
                     Instantiate(building, transform.position, Quaternion.identity);
-                    res.DecreaseResources(foodCost, oilCost, metalCost, populationUsage);
+                    res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
                     Destroy(gameObject);
                 }
             }
@@ -56,13 +56,9 @@ public class Placer : MonoBehaviour
     {
         Collider2D hit = Physics2D.OverlapPoint(transform.position);
         if (hit == null)
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
 }

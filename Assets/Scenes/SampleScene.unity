@@ -2285,10 +2285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d83b76b2af6a469cce3d55c363be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 500
-  oil: 0
-  metal: 0
-  population: 5
+  food: 1200
+  oil: 1200
+  metal: 1200
+  population: 20
   usedPopulation: 0
   maxPopulation: 0
 --- !u!4 &740974409
@@ -2318,9 +2318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  waveTime: 10
-  waveIncreaseTimer: 20
-  newEnemyTimer: 30
+  waveTime: 60
+  waveIncreaseTimer: 60
+  newEnemyTimer: 120
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 4725096637889953766, guid: bf5088b0e66259c4e86f6e9fe629819e, type: 3}

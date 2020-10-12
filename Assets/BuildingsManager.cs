@@ -18,7 +18,7 @@ public class BuildingsManager : MonoBehaviour
         return maxDistance;
     }
     
-    void NewBuilding(GameObject building)
+    public void NewBuilding(GameObject building)
     {
         buildings.Add(building);
 

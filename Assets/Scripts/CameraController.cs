@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Settings")]
     public float moveSpeed;
     public float maxZoom;
     public float minZoom;
 
+    //Refs & Vars
     Camera cam;
     Vector3 movement;
     float zoom;

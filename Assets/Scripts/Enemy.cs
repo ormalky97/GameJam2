@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //public int type;
+    [Header("Attributes")]
     public int damage;
     public int maxHealth;
     public float moveSpeed;
     public float viewRange;
     public float attackDistance;
     public float attackRate;
+
+    [Header("Pref Target")]
     public GameObject prefTarget;
     public bool onlyPref = false;
 
+    //Refs
     GameObject target;
     Rigidbody2D rb;
 
+    //Vars
     int health;
     bool canAttack = true;
 
