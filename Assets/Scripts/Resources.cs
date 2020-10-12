@@ -5,8 +5,8 @@ using UnityEngine;
 public class Resources : MonoBehaviour
 {
     public int food;
-    public int money;
-    public int materials;
+    public int oil;
+    public int metal;
     public int population;
     public int usedPopulation;
     public int maxPopulation;
@@ -41,11 +41,11 @@ public class Resources : MonoBehaviour
     }
 
 
-    public void DecreaseResources(int foodCost, int moneyCost, int materialCost, int populationCost)
+    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost)
     {
         food -= foodCost;
-        money -= moneyCost;
-        materials -= materialCost;
+        oil -= oilCost;
+        metal -= metalCost;
         usedPopulation += populationCost;
     }
 }
