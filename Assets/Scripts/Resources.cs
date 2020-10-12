@@ -37,16 +37,17 @@ public class Resources : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(60, 90));
             if(population < maxPopulation)
             {
-                int totalRes = food + metal + oil;
-                int personalConsumption = 15;
-                int popConsumption = population * personalConsumption;
-                int maxConsumption = maxPopulation * personalConsumption;
+                int trpc = (food + metal + oil)/15; //Total Resources Per Colonist
+                int maxColonyGrowth = maxPopulation - population;
+                int newColonists;
 
-                if (popConsumption < totalRes) //pop+
+                if (population < trpc) //pop+
                 {
-                    int newColonistsMin = Mathf.RoundToInt((1/3)*(maxConsumption - popConsumption) / personalConsumption);
-                    int newColonistsMax = Mathf.RoundToInt((3/4)*(maxConsumption - popConsumption) / personalConsumption);
-                    population += Mathf.RoundToInt(Random.Range(newColonistsMin, newColonistsMax));
+                    if ((trpc - population) >= (maxColonyGrowth))
+                        newColonists = maxColonyGrowth;
+                    else
+                        newColonists = trpc - population;
+                    population += Mathf.RoundToInt(Random.Range((1/3)*newColonists, (3/4)*newColonists));
                     Debug.Log("New Colonists Arrived");
                 }
                 //elif (popConsumption > totalRes) //pop-
