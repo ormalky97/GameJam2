@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2732481095218268646}
   - component: {fileID: 5520040359777395057}
   m_Layer: 9
-  m_Name: 1. Field
+  m_Name: 2. Cottage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -122,14 +122,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodCost: 0
-  oilCost: 300
-  metalCost: 300
-  populationUsage: 4
-  foodUp: 10
+  foodCost: 800
+  oilCost: 800
+  metalCost: 800
+  populationUsage: 0
+  foodUp: 0
   metalUp: 0
   oilUp: 0
   metalDown: 0
   oilDown: 0
-  maxHealth: 150
-  populationAdd: 0
+  maxHealth: 300
+  populationAdd: 6
