@@ -404,13 +404,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Minery
   desc: Generates 10 Materials per second
-  building: {fileID: 2508033955386369612, guid: 9dd71c559433eca4e863b5b81b9bd3d4, type: 3}
+  building: {fileID: 0}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 200
-  moneyCost: 200
-  materialCost: 0
-  populationCost: 1
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
 --- !u!114 &212914896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,8 +745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 1148099340}
-  money: {fileID: 874024460}
-  materials: {fileID: 1273847554}
+  oil: {fileID: 1273847554}
+  metal: {fileID: 874024460}
   population: {fileID: 906808782}
 --- !u!1 &354559109
 GameObject:
@@ -803,13 +803,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Pod
   desc: Increases Maximum Population by 2
-  building: {fileID: 8283732151876904644, guid: c15fcac5084cd944ca7760cde22122f4, type: 3}
+  building: {fileID: 0}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 250
-  moneyCost: 250
-  materialCost: 100
-  populationCost: 0
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
 --- !u!114 &354559112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,13 +1181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Lab
   desc: Generates 10 Money per scond
-  building: {fileID: 5301558842306529885, guid: b6cadfcc6b4c263498009a0fceb6fb28, type: 3}
+  building: {fileID: 0}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 200
-  moneyCost: 0
-  materialCost: 200
-  populationCost: 1
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
 --- !u!114 &740145377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,8 +1358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 500
-  money: 500
-  materials: 500
+  oil: 0
+  metal: 0
   population: 5
   usedPopulation: 0
   maxPopulation: 0
@@ -1392,9 +1392,10 @@ MonoBehaviour:
   waveSize: 5
   waveTime: 10
   waveIncreaseTimer: 20
-  newEnemyTimer: 60
+  newEnemyTimer: 30
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
+  - {fileID: 4725096637889953766, guid: bf5088b0e66259c4e86f6e9fe629819e, type: 3}
 --- !u!114 &740974411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,9 +1864,9 @@ MonoBehaviour:
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 0
-  moneyCost: 200
-  materialCost: 200
-  populationCost: 1
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
 --- !u!114 &1109803233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,13 +2289,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183357229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59f6a39d9e1a8e41a1e984f10663fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: Population
-  amount: 10
-  rate: 0
-  maxHealth: 1000
+  foodUp: 0
+  metalUp: 0
+  oilUp: 0
+  foodDown: 0
+  metalDown: 0
+  oilDown: 0
+  maxHealth: 100
 --- !u!1 &1273847552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,9 +2482,9 @@ MonoBehaviour:
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 50
-  moneyCost: 250
-  materialCost: 250
-  populationCost: 0
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
 --- !u!114 &1333924787
 MonoBehaviour:
   m_ObjectHideFlags: 0
