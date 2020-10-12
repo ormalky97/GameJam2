@@ -9,7 +9,7 @@ public class BuildButton : MonoBehaviour
     public string title;
     public string desc;
     
-    public GameObject site;
+    public GameObject building;
     public GameObject placer;
     public GameObject panel;
 
@@ -20,11 +20,13 @@ public class BuildButton : MonoBehaviour
 
     GameObject manager;
     Resources res;
+    Sites site;
 
     private void Awake()
     {
         manager = GameObject.Find("Game Manager");
         res = manager.GetComponent<Resources>();
+        site = building.GetComponent<Sites>();
     }
 
     public void ShowPanel()
@@ -51,7 +53,7 @@ public class BuildButton : MonoBehaviour
         GameObject newPlacer;
         newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
-        newPlacer.GetComponent<Placer>().site = site;
+        newPlacer.GetComponent<Placer>().building = building;
         newPlacer.GetComponent<Placer>().foodCost = foodCost;
         newPlacer.GetComponent<Placer>().oilCost = oilCost;
         newPlacer.GetComponent<Placer>().metalCost = metalCost;
