@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float attackDistance;
     public float attackRate;
     public GameObject prefTarget;
-    public bool onlyPref;
+    public bool onlyPref = false;
 
     GameObject target;
     Rigidbody2D rb;
@@ -24,23 +24,24 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.Find("Colony Center");
         health = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Move Toawrds Colony Center
-        Vector2 dir = Vector3.zero - transform.position;
-        rb.velocity = dir.normalized * moveSpeed;
-
         if (onlyPref)
             FindPrefTarget();
         else
             FindTarget();
 
-        if (target != null)
+        if (target == null)
+        {
+            //Move Toawrds Colony Center
+            Vector2 dir = Vector3.zero - transform.position;
+            rb.velocity = dir.normalized * moveSpeed;
+        }
+        else
         {
             if (Vector2.Distance(target.transform.position, transform.position) <= attackDistance)
             {
@@ -92,16 +93,14 @@ public class Enemy : MonoBehaviour
         {
             if (target == null)
                 target = hit.gameObject;
-            else if (prefTarget != null)
+            else
             {
-                if (hit.tag == prefTarget.tag)
+                if (prefTarget != null && hit.tag == prefTarget.tag)
                 {
                     target = hit.gameObject;
                     return;
                 }
             }
-            else
-                return;
         }
     }
 
