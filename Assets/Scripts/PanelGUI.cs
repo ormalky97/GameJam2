@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class PanelGUI : MonoBehaviour
 {
-    public string title;
-    public string desc;
-    public int foodCost;
-    public int moneyCost;
-    public int materialsCost;
-    public int populationCost;
+    string title;
+    string desc;
+    int foodCost;
+    int oilCost;
+    int metalCost;
+    int populationCost;
 
     public Text titleTxt;
     public Text descTxt;
     public Text foodTxt;
-    public Text moneyTxt;
-    public Text materialsTxt;
+    public Text oilTxt;
+    public Text metalTxt;
     public Text populationTxt;
 
     // Start is called before the first frame update
@@ -25,13 +25,13 @@ public class PanelGUI : MonoBehaviour
         
     }
 
-    public void SetPanel(string t, string d, int food, int mon, int mat, int pop)
+    public void SetPanel(string t, string d, int food, int oil, int met, int pop)
     {
         title = t;
         desc = d;
         foodCost = food;
-        moneyCost = mon;
-        materialsCost = mat;
+        oilCost = oil;
+        metalCost = met;
         populationCost = pop;
 
         UpdatePanel();
@@ -41,9 +41,9 @@ public class PanelGUI : MonoBehaviour
     {
         titleTxt.text = title;
         descTxt.text = desc;
-        foodTxt.text = "Food Cost: " +foodCost;
-        moneyTxt.text = "Money Cost: " + moneyCost;
-        materialsTxt.text = "Materials Cost: " + materialsCost;
+        foodTxt.text = "Food Cost: " + foodCost;
+        oilTxt.text = "Oil Cost: " + oilCost;
+        metalTxt.text = "Metal Cost: " + metalCost;
         populationTxt.text = "Population Needed: " + populationCost;
     }
 
