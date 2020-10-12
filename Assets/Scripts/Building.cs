@@ -68,8 +68,8 @@ public class Building : MonoBehaviour
                 res.money += amount;
                 break;
 
-            case "Materials":
-                res.materials += amount;
+            case "Metal":
+                res.metal += amount;
                 break;
         }
     }

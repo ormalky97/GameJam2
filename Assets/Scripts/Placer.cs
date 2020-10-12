@@ -7,8 +7,8 @@ public class Placer : MonoBehaviour
     public GameObject building;
     public int foodCost;
     public int moneyCost;
-    public int materialCost;
-    public int populationCost;
+    public int metalCost;
+    public int populationUsage;
 
     Camera cam;
     Resources res;
@@ -36,7 +36,7 @@ public class Placer : MonoBehaviour
             {
                 {
                     Instantiate(building, transform.position, Quaternion.identity);
-                    res.DecreaseResources(foodCost, moneyCost, materialCost, populationCost);
+                    res.DecreaseResources(foodCost, moneyCost, metalCost, populationUsage);
                     Destroy(gameObject);
                 }
             }
