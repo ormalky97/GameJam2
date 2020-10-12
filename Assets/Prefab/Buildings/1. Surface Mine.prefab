@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2508033955386369613}
   - component: {fileID: 7386090692604246830}
   m_Layer: 9
-  m_Name: Minery
+  m_Name: Surface Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,13 +93,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2508033955386369612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59f6a39d9e1a8e41a1e984f10663fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: Materials
-  amount: 10
-  rate: 60
-  maxHealth: 100
+  foodCost: 300
+  oilCost: 300
+  metalCost: 0
+  populationUsage: 4
+  foodUp: 0
+  metalUp: 10
+  oilUp: 0
+  metalDown: 0
+  oilDown: 0
+  maxHealth: 150
+  populationAdd: 0
 --- !u!61 &7386090692604246830
 BoxCollider2D:
   m_ObjectHideFlags: 0

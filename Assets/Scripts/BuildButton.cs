@@ -32,7 +32,7 @@ public class BuildButton : MonoBehaviour
     public void ShowPanel()
     {
         panel.SetActive(true);
-        panel.GetComponent<PanelGUI>().SetPanel(title, desc, foodCost, oilCost, metalCost, populationUsage);
+        panel.GetComponent<PanelGUI>().SetPanel(title, desc, site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
     }
 
     public void HidePanel()
@@ -54,18 +54,18 @@ public class BuildButton : MonoBehaviour
         newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
         newPlacer.GetComponent<Placer>().building = building;
-        newPlacer.GetComponent<Placer>().foodCost = foodCost;
-        newPlacer.GetComponent<Placer>().oilCost = oilCost;
-        newPlacer.GetComponent<Placer>().metalCost = metalCost;
-        newPlacer.GetComponent<Placer>().populationUsage = populationUsage;
+        newPlacer.GetComponent<Placer>().foodCost = site.foodCost;
+        newPlacer.GetComponent<Placer>().oilCost = site.oilCost;
+        newPlacer.GetComponent<Placer>().metalCost = site.metalCost;
+        newPlacer.GetComponent<Placer>().populationUsage = site.populationUsage;
     }
 
     bool CheckResources()
     {
-        if(res.food >= foodCost &&
-           res.oil >= oilCost &&
-           res.metal >= metalCost &&
-           res.population - res.usedPopulation >= populationUsage)
+        if(res.food >= site.foodCost &&
+           res.oil >= site.oilCost &&
+           res.metal >= site.metalCost &&
+           res.population - res.usedPopulation >= site.populationUsage)
         {
             return true;
         }
