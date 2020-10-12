@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Minery
-  desc: Generates Materials
+  desc: Generates 10 Materials per second
   building: {fileID: 2508033955386369612, guid: 9dd71c559433eca4e863b5b81b9bd3d4, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Pod
-  desc: Houses people. Increase Population by 2.
+  desc: Increases Maximum Population by 2
   building: {fileID: 8283732151876904644, guid: c15fcac5084cd944ca7760cde22122f4, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Lab
-  desc: Generates Money
+  desc: Generates 10 Money per scond
   building: {fileID: 5301558842306529885, guid: b6cadfcc6b4c263498009a0fceb6fb28, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
@@ -1805,6 +1805,7 @@ MonoBehaviour:
   damage: 1
   range: 5
   fireRate: 1
+  shotEffect: {fileID: 7881490575244311990, guid: 129adb0e43c6b114abb2975320374deb, type: 3}
 --- !u!212 &989771014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1864,9 +1865,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989771012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 1, z: 0}
+  m_LocalPosition: {x: -4, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1112806538}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1973,7 +1975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Farm
-  desc: Generates Food
+  desc: Generates 10 Food per second
   building: {fileID: 1396854937579035125, guid: c34e41cb5f9e35f4a88e84cee5939dcc, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
@@ -2119,6 +2121,36 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &1112806537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1112806538}
+  m_Layer: 9
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1112806538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112806537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 989771015}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118802400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,7 +2603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Turret
-  desc: Shoots at enemies
+  desc: 'Damage: X, Fire Rate: X, Range: X'
   building: {fileID: 989771012}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
@@ -2804,7 +2836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338682290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 5, z: 0}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2880,7 +2912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Generates food
+  m_Text: Generates 10 Food every 10 seconds
 --- !u!222 &1625587527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2907,7 +2939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1677359558
 RectTransform:
   m_ObjectHideFlags: 0

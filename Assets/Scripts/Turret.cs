@@ -9,7 +9,10 @@ public class Turret : MonoBehaviour
     public float range;
     public float fireRate;
 
+    public GameObject shotEffect;
+
     GameObject target;
+    GameObject firePoint;
     Rigidbody2D rb;
 
     bool canShoot = true;
@@ -17,6 +20,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        firePoint = transform.GetChild(0).gameObject;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,10 +37,9 @@ public class Turret : MonoBehaviour
                 target = null;
             else
             {
-                if (canShoot)
-                    StartCoroutine("Shoot");
-
                 SetRotation();
+                if (canShoot)
+                    StartCoroutine("Shoot");   
             }
         }
     }
@@ -44,6 +47,7 @@ public class Turret : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
+        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
         target.GetComponent<Enemy>().RecieveDamage(damage);
         yield return new WaitForSeconds(1 / fireRate);
         canShoot = true;
