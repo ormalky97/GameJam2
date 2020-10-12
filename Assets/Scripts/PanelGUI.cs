@@ -21,6 +21,12 @@ public class PanelGUI : MonoBehaviour
     int metalCost;
     int populationCost;
 
+    private void Update()
+    {
+        if (transform.position.x < 150f)
+            transform.position = new Vector2(150, transform.position.y);
+    }
+
     public void SetPanel(string t, string d, int food, int oil, int met, int pop)
     {
         title = t;
