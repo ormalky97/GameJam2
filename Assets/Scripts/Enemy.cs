@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
     public float moveSpeed;
     public float viewRange;
+    public float attackDistance;
+    public float attackRate;
 
     GameObject target;
     Rigidbody2D rb;
 
     int health;
+    bool canAttack = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -32,10 +35,19 @@ public class Enemy : MonoBehaviour
         FindTarget();
         GoToTarget();
 
-        if(Vector2.Distance(target.transform.position, transform.position) <= 1f)
+        if(Vector2.Distance(target.transform.position, transform.position) <= attackDistance)
         {
-            target.GetComponent<Building>().RecieveDamage(damage);
+            if(canAttack)
+                StartCoroutine("Attack");
         }
+    }
+
+    IEnumerator Attack()
+    {
+        canAttack = false;
+        target.GetComponent<Building>().RecieveDamage(damage);
+        yield return new WaitForSeconds(1 / attackRate);
+        canAttack = true;
     }
 
     public void RecieveDamage(int amount)
