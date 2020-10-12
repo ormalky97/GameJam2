@@ -404,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Minery
   desc: Generates 10 Materials per second
-  building: {fileID: 0}
+  building: {fileID: 2508033955386369612, guid: 9dd71c559433eca4e863b5b81b9bd3d4, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 200
@@ -1179,9 +1179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Lab
+  title: Oil Pump
   desc: Generates 10 Money per scond
-  building: {fileID: 0}
+  building: {fileID: 1396854937579035125, guid: dff126e3e0a54ae4cb699c7b5ddb6951, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
   panel: {fileID: 1677359557}
   foodCost: 200
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Farm
+  title: Field
   desc: Generates 10 Food per second
   building: {fileID: 1396854937579035125, guid: c34e41cb5f9e35f4a88e84cee5939dcc, type: 3}
   placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
@@ -2292,13 +2292,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foodCost: 0
+  oilCost: 0
+  metalCost: 0
+  populationUsage: 0
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  foodDown: 0
   metalDown: 0
   oilDown: 0
   maxHealth: 100
+  populationAdd: 0
 --- !u!1 &1273847552
 GameObject:
   m_ObjectHideFlags: 0

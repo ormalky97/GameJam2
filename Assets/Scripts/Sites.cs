@@ -18,6 +18,7 @@ public class Sites : MonoBehaviour
     public int oilDown; //per sec
 
     GameObject manager;
+    Resources res;
     public int maxHealth;
     public int populationAdd;
     int health;
@@ -25,13 +26,14 @@ public class Sites : MonoBehaviour
     private void Awake()
     {
         manager = GameObject.Find("Game Manager");
+        res = manager.GetComponent<Resources>();
         health = maxHealth;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("GetResource");
+        res.maxPopulation += populationAdd;
     }
 
     public void RecieveDamage(int damage)
@@ -53,12 +55,9 @@ public class Sites : MonoBehaviour
 
     void AddResource()
     {
-        Resources res = manager.GetComponent<Resources>();
-
         res.food += foodUp;
         res.metal += metalUp -= metalDown;
         res.oil += oilUp -= oilDown;
-        res.maxPopulation += populationAdd;
     }
 
     // Update is called once per frame
