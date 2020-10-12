@@ -2846,7 +2846,7 @@ MonoBehaviour:
   metal: 1200
   population: 20
   usedPopulation: 0
-  maxPopulation: 0
+  maxPopulation: 20
 --- !u!4 &740974409
 Transform:
   m_ObjectHideFlags: 0
@@ -4776,10 +4776,10 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 20
+  populationAdd: 0
   metalDown: 0
   oilDown: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!1 &1244823777
 GameObject:
   m_ObjectHideFlags: 0
