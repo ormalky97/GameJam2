@@ -13,11 +13,6 @@ public class BuildButton : MonoBehaviour
     public GameObject placer;
     public GameObject panel;
 
-    public int foodCost;
-    public int oilCost;
-    public int metalCost;
-    public int populationUsage;
-
     GameObject manager;
     Resources res;
     Sites site;
