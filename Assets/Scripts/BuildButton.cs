@@ -7,11 +7,11 @@ using UnityEngine.EventSystems;
 public class BuildButton : MonoBehaviour
 {
     [Header("Settings")]
+    public GameObject building;
     public string title;
     public string desc;
     
     [Header("Refs")]
-    public GameObject building;
     public GameObject placer;
     public GameObject panel;
 
