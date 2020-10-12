@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int type;
+    //public int type;
+    public int damage;
     public int maxHealth;
     public float moveSpeed;
     public float viewRange;
@@ -25,8 +26,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+            target = GameObject.Find("Colony Center");
+
         FindTarget();
         GoToTarget();
+
+        if(Vector2.Distance(target.transform.position, transform.position) <= 1f)
+        {
+            target.GetComponent<Building>().RecieveDamage(damage);
+        }
     }
 
     public void RecieveDamage(int amount)

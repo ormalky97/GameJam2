@@ -99,6 +99,7 @@ MonoBehaviour:
   resourceType: Materials
   amount: 10
   rate: 60
+  maxHealth: 100
 --- !u!61 &7386090692604246830
 BoxCollider2D:
   m_ObjectHideFlags: 0

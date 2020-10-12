@@ -99,6 +99,7 @@ MonoBehaviour:
   resourceType: Population
   amount: 2
   rate: 0
+  maxHealth: 100
 --- !u!61 &-247963082437502768
 BoxCollider2D:
   m_ObjectHideFlags: 0

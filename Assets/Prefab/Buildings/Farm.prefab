@@ -99,6 +99,7 @@ MonoBehaviour:
   resourceType: Food
   amount: 10
   rate: 60
+  maxHealth: 100
 --- !u!61 &-2732481095218268646
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -7,19 +7,42 @@ public class Building : MonoBehaviour
     public string resourceType;
     public int amount;
     public float rate;
+    public int maxHealth;
+    
 
     GameObject manager;
+    int health;
 
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         manager = GameObject.Find("Game Manager");
-        if(resourceType != "Population")
-            StartCoroutine("GetResource");
-        else
+        health = maxHealth;
+    }
+
+    void Start()
+    {    
+        switch (resourceType)
         {
-            manager.GetComponent<Resources>().maxPopulation += amount;
-        }
+            case "Population":
+                manager.GetComponent<Resources>().maxPopulation += amount;
+                break;
+
+            case "Turret":
+                break;
+
+            default:
+                StartCoroutine("GetResource");
+                break;
+        }     
+    }
+
+    public void RecieveDamage(int amount)
+    {
+        Debug.Log(health);
+        health -= amount;
+        if (health <= 0)
+            Destroy(gameObject);
     }
 
     IEnumerator GetResource()
