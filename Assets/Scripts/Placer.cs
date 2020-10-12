@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Placer : MonoBehaviour
 {
-    public GameObject building;
+    public GameObject site;
     public int foodCost;
-    public int moneyCost;
+    public int oilCost;
     public int metalCost;
     public int populationUsage;
 
@@ -18,7 +18,7 @@ public class Placer : MonoBehaviour
     void Start()
     {
         spr = GetComponent<SpriteRenderer>();
-        spr.sprite = building.GetComponent<SpriteRenderer>().sprite;
+        spr.sprite = site.GetComponent<SpriteRenderer>().sprite;
 
         cam = Camera.main;
         res = GameObject.Find("Game Manager").GetComponent<Resources>();
@@ -35,8 +35,8 @@ public class Placer : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 {
-                    Instantiate(building, transform.position, Quaternion.identity);
-                    res.DecreaseResources(foodCost, moneyCost, metalCost, populationUsage);
+                    Instantiate(site, transform.position, Quaternion.identity);
+                    res.DecreaseResources(foodCost, oilCost, metalCost, populationUsage);
                     Destroy(gameObject);
                 }
             }

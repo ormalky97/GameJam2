@@ -31,11 +31,22 @@ public class Resources : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(60, 180));
+            yield return new WaitForSeconds(Random.Range(60, 90));
             if(population < maxPopulation)
             {
-                population += Random.Range(0, maxPopulation - population);
-                Debug.Log("New Colonists Arrived");
+                int totalRes = food + metal + oil;
+                int personalConsumption = 15;
+                int popConsumption = population * personalConsumption;
+                int maxConsumption = maxPopulation * personalConsumption;
+
+                if (popConsumption < totalRes) //pop+
+                {
+                    int newColonistsMin = Mathf.RoundToInt((1/3)*(maxConsumption - popConsumption) / personalConsumption);
+                    int newColonistsMax = Mathf.RoundToInt((3/4)*(maxConsumption - popConsumption) / personalConsumption);
+                    population += Mathf.RoundToInt(Random.Range(newColonistsMin, newColonistsMax));
+                    Debug.Log("New Colonists Arrived");
+                }
+                //elif (popConsumption > totalRes) //pop-
             }
         }
     }

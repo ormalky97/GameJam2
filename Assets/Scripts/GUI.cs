@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class GUI : MonoBehaviour
 {
     public Text food;
-    public Text money;
-    public Text materials;
+    public Text oil;
+    public Text metal;
     public Text population;
 
     GameObject manager;
@@ -24,8 +24,8 @@ public class GUI : MonoBehaviour
     void Update()
     {
         food.text = "Food: " + res.food;
-        money.text = "Money: " + res.money;
-        materials.text = "Materials: " + res.materials;
+        oil.text = "Oil: " + res.oil;
+        metal.text = "Metal: " + res.metal;
         population.text = "Population: " + res.usedPopulation + "/" + res.population + " (" + (res.maxPopulation - res.population) +")";
     }
 }

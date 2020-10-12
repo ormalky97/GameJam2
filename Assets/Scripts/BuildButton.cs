@@ -9,12 +9,12 @@ public class BuildButton : MonoBehaviour
     public string title;
     public string desc;
     
-    public GameObject building;
+    public GameObject site;
     public GameObject placer;
     public GameObject panel;
 
     public int foodCost;
-    public int moneyCost;
+    public int oilCost;
     public int metalCost;
     public int populationUsage;
 
@@ -30,7 +30,7 @@ public class BuildButton : MonoBehaviour
     public void ShowPanel()
     {
         panel.SetActive(true);
-        panel.GetComponent<PanelGUI>().SetPanel(title, desc, foodCost, moneyCost, metalCost, populationUsage);
+        panel.GetComponent<PanelGUI>().SetPanel(title, desc, foodCost, oilCost, metalCost, populationUsage);
     }
 
     public void HidePanel()
@@ -51,9 +51,9 @@ public class BuildButton : MonoBehaviour
         GameObject newPlacer;
         newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
-        newPlacer.GetComponent<Placer>().building = building;
+        newPlacer.GetComponent<Placer>().site = site;
         newPlacer.GetComponent<Placer>().foodCost = foodCost;
-        newPlacer.GetComponent<Placer>().moneyCost = moneyCost;
+        newPlacer.GetComponent<Placer>().oilCost = oilCost;
         newPlacer.GetComponent<Placer>().metalCost = metalCost;
         newPlacer.GetComponent<Placer>().populationUsage = populationUsage;
     }
@@ -61,7 +61,7 @@ public class BuildButton : MonoBehaviour
     bool CheckResources()
     {
         if(res.food >= foodCost &&
-           res.money >= moneyCost &&
+           res.oil >= oilCost &&
            res.metal >= metalCost &&
            res.population - res.usedPopulation >= populationUsage)
         {

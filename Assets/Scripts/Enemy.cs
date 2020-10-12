@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Attack()
     {
         canAttack = false;
-        target.GetComponent<Building>().RecieveDamage(damage);
+        target.GetComponent<Sites>().RecieveDamage(damage);
         yield return new WaitForSeconds(1 / attackRate);
         canAttack = true;
     }
