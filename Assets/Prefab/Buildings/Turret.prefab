@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7623743304672233610}
   - component: {fileID: 7623743304672233611}
   - component: {fileID: 7623743304672233607}
-  - component: {fileID: 7623743304672233608}
+  - component: {fileID: 6562917932226585772}
   m_Layer: 9
   m_Name: Turret
   m_TagString: Untagged
@@ -152,7 +152,7 @@ MonoBehaviour:
   range: 12
   fireRate: 1.5
   shotEffect: {fileID: 7881490575244311990, guid: 129adb0e43c6b114abb2975320374deb, type: 3}
---- !u!114 &7623743304672233608
+--- !u!114 &6562917932226585772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,13 +161,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7623743304672233606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59f6a39d9e1a8e41a1e984f10663fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceType: Turret
-  amount: 0
-  rate: 0
-  maxHealth: 250
+  foodUp: 0
+  metalUp: 0
+  oilUp: 0
+  foodDown: 0
+  metalDown: 0
+  oilDown: 0
+  maxHealth: 150
 --- !u!1 &7623743305337727243
 GameObject:
   m_ObjectHideFlags: 0

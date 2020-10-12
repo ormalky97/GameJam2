@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public float viewRange;
     public float attackDistance;
     public float attackRate;
+    public GameObject prefTarget;
+    public bool onlyPref;
 
     GameObject target;
     Rigidbody2D rb;
@@ -29,16 +31,25 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-            target = GameObject.Find("Colony Center");
+        //Move Toawrds Colony Center
+        Vector2 dir = Vector3.zero - transform.position;
+        rb.velocity = dir.normalized * moveSpeed;
 
-        FindTarget();
-        GoToTarget();
+        if (onlyPref)
+            FindPrefTarget();
+        else
+            FindTarget();
 
-        if(Vector2.Distance(target.transform.position, transform.position) <= attackDistance)
+        if (target != null)
         {
-            if(canAttack)
-                StartCoroutine("Attack");
+            if (Vector2.Distance(target.transform.position, transform.position) <= attackDistance)
+            {
+                rb.velocity = new Vector2(0, 0);
+                if (canAttack)
+                    StartCoroutine("Attack");
+            }
+            else
+                GoToTarget();
         }
     }
 
@@ -62,11 +73,36 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //search for pref target only
+    void FindPrefTarget()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, viewRange, LayerMask.GetMask("Building"));
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.tag == prefTarget.tag)
+                target = hit.gameObject;
+        }
+    }
+
+    //Search for targets noramlly
     void FindTarget()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, viewRange, LayerMask.GetMask("Building"));
-        if (hit != null)
-            target = hit.gameObject;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, viewRange, LayerMask.GetMask("Building"));
+        foreach(Collider2D hit in hits)
+        {
+            if (target == null)
+                target = hit.gameObject;
+            else if (prefTarget != null)
+            {
+                if (hit.tag == prefTarget.tag)
+                {
+                    target = hit.gameObject;
+                    return;
+                }
+            }
+            else
+                return;
+        }
     }
 
     void GoToTarget()
