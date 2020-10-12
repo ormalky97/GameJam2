@@ -10,7 +10,7 @@ public class Resources : MonoBehaviour
     public int population;
     public int usedPopulation;
     public int maxPopulation;
-    
+
     // Start is called before the first frame update
     void Start()
     {

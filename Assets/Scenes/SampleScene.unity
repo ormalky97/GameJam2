@@ -988,6 +988,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.25
+  maxZoom: 10
+  minZoom: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1335,6 +1337,7 @@ GameObject:
   - component: {fileID: 740974409}
   - component: {fileID: 740974408}
   - component: {fileID: 740974410}
+  - component: {fileID: 740974411}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1381,12 +1384,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740974407}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4c36b1932813e4bb8900d62fd6d22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  waveSize: 5
+  waveTime: 10
+  waveIncreaseTimer: 20
+  newEnemyTimer: 60
+  enemies:
+  - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
+--- !u!114 &740974411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740974407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415e84f25e11d9344b2a34d45047cc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &795468932
 GameObject:
   m_ObjectHideFlags: 0

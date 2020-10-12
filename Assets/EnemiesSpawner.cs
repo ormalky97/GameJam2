@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class EnemiesSpawner : MonoBehaviour
 {
+    [Header("Wave Settings")]
+    public int waveSize;
+    public float waveTime;
+    public float waveIncreaseTimer = 60f;
+    public float newEnemyTimer = 60f;
+
+    [Header("Enemies")]
     public List<GameObject> enemies;
 
+    //Inner Vars
     int bestEnemy;
-    int waveSize;
-    float waveTimer = 60f;
-    float enemyTimer = 60f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -19,29 +25,40 @@ public class EnemiesSpawner : MonoBehaviour
         StartCoroutine("SendWave");
     }
 
+    //Generates New Spawn Position
+    Vector2 NewSpawnPosition()
+    {
+        float spawnDistance = GetComponent<BuildingsManager>().GetMaxDistance() + 25f;
+        float angle = Random.Range(0, 360) * Mathf.Deg2Rad;
+        return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * spawnDistance;
+    }
+
+    //Increase Wave Size
     IEnumerator IncreaseWaveSize()
     {
         int i = 0;
         while(true)
         {
             i++;
-            yield return new WaitForSeconds(waveTimer);
+            yield return new WaitForSeconds(waveIncreaseTimer);
             waveSize += 2 * i;
         }
     }
 
+    //Inroduces New Enemies
     IEnumerator NewEnemy()
     {
         int i = 0;
         while (bestEnemy < enemies.Count)
         {
             i++;
-            yield return new WaitForSeconds(enemyTimer);
+            yield return new WaitForSeconds(newEnemyTimer);
             bestEnemy++;
-            enemyTimer *= 2;
+            newEnemyTimer *= 2;
         }
     }
 
+    //Generates Enemy waves
     IEnumerator SendWave()
     {
         GameObject nextEnemy;
@@ -49,19 +66,16 @@ public class EnemiesSpawner : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(60f);
+            Debug.Log("New Wave in " + waveTime +" Seconds");
+            yield return new WaitForSeconds(waveTime);
             for (int i = 0; i < waveSize; i++)
             {
+                Debug.Log("New Wave Inbound");
+                spawnPoint = NewSpawnPosition();
                 nextEnemy = enemies[Random.Range(0, bestEnemy)];
                 Instantiate(nextEnemy, spawnPoint, Quaternion.identity);
                 yield return new WaitForSeconds(0.25f);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
