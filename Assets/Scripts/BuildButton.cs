@@ -31,6 +31,7 @@ public class BuildButton : MonoBehaviour
     {
         panel.SetActive(true);
         panel.GetComponent<PanelGUI>().SetPanel(title, desc, site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
+        panel.transform.position = new Vector2(transform.position.x, transform.position.y + 20f);
     }
 
     public void HidePanel()
