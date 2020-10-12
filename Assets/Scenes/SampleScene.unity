@@ -2177,7 +2177,7 @@ GameObject:
   - component: {fileID: 1183357230}
   - component: {fileID: 1183357232}
   - component: {fileID: 1183357233}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colony Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   metalDown: 0
   oilDown: 0
   maxHealth: 100
-  populationAdd: 0
+  populationAdd: 20
 --- !u!1 &1273847552
 GameObject:
   m_ObjectHideFlags: 0
