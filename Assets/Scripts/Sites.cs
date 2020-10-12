@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sites : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Sites : MonoBehaviour
     //Refs
     GameObject manager;
     Resources res;
-    
+
     //Inner Vars
     int health;
 

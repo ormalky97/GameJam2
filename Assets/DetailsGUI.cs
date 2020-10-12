@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DetailsGUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject building = null;
+
+    bool mouseOut;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = Camera.main.WorldToScreenPoint(building.transform.position);
+
+        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

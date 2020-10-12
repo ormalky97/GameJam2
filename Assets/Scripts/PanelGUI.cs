@@ -5,13 +5,7 @@ using UnityEngine.UI;
 
 public class PanelGUI : MonoBehaviour
 {
-    string title;
-    string desc;
-    int foodCost;
-    int oilCost;
-    int metalCost;
-    int populationCost;
-
+    [Header("Text Objects Refs")]
     public Text titleTxt;
     public Text descTxt;
     public Text foodTxt;
@@ -19,11 +13,13 @@ public class PanelGUI : MonoBehaviour
     public Text metalTxt;
     public Text populationTxt;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Vars
+    string title;
+    string desc;
+    int foodCost;
+    int oilCost;
+    int metalCost;
+    int populationCost;
 
     public void SetPanel(string t, string d, int food, int oil, int met, int pop)
     {
@@ -45,11 +41,5 @@ public class PanelGUI : MonoBehaviour
         oilTxt.text = "Oil Cost: " + oilCost;
         metalTxt.text = "Metal Cost: " + metalCost;
         populationTxt.text = "Population Needed: " + populationCost;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
