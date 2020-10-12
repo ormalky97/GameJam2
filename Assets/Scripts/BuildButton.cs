@@ -6,13 +6,16 @@ using UnityEngine.EventSystems;
 
 public class BuildButton : MonoBehaviour
 {
+    [Header("Settings")]
+    public GameObject building;
     public string title;
     public string desc;
     
-    public GameObject building;
+    [Header("Refs")]
     public GameObject placer;
     public GameObject panel;
 
+    //Refs
     GameObject manager;
     Resources res;
     Sites site;
@@ -49,10 +52,10 @@ public class BuildButton : MonoBehaviour
         newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
         newPlacer.GetComponent<Placer>().building = building;
-        newPlacer.GetComponent<Placer>().foodCost = site.foodCost;
-        newPlacer.GetComponent<Placer>().oilCost = site.oilCost;
-        newPlacer.GetComponent<Placer>().metalCost = site.metalCost;
-        newPlacer.GetComponent<Placer>().populationUsage = site.populationUsage;
+        building.GetComponent<Sites>().foodCost = site.foodCost;
+        building.GetComponent<Sites>().oilCost = site.oilCost;
+        building.GetComponent<Sites>().metalCost = site.metalCost;
+        building.GetComponent<Sites>().populationUsage = site.populationUsage;
     }
 
     bool CheckResources()

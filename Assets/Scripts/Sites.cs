@@ -5,22 +5,30 @@ using UnityEngine;
 
 public class Sites : MonoBehaviour
 {
+    [Header("Costs")]
     public int foodCost;
     public int oilCost;
     public int metalCost;
     public int populationUsage;
 
+    [Header("Production")]
     public int foodUp; //per sec
     public int metalUp; //per sec
     public int oilUp; //per sec
+    public int populationAdd;
 
+    [Header("Upkeep")]
     public int metalDown; //per sec
     public int oilDown; //per sec
 
+    [Header("Settings")]
+    public int maxHealth;
+
+    //Refs
     GameObject manager;
     Resources res;
-    public int maxHealth;
-    public int populationAdd;
+    
+    //Inner Vars
     int health;
 
     private void Awake()
@@ -32,6 +40,7 @@ public class Sites : MonoBehaviour
 
     void Start()
     {
+        manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
         res.maxPopulation += populationAdd;
     }
@@ -58,11 +67,5 @@ public class Sites : MonoBehaviour
         res.food += foodUp;
         res.metal += metalUp -= metalDown;
         res.oil += oilUp -= oilDown;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

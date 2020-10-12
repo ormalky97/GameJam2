@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Resources : MonoBehaviour
 {
+    [Header("Resources")]
     public int food;
     public int oil;
     public int metal;
+
+    [Header("Population")]
     public int population;
     public int usedPopulation;
     public int maxPopulation;

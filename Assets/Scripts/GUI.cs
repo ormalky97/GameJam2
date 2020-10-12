@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class GUI : MonoBehaviour
 {
+    [Header("Text Obecjts")]
     public Text food;
     public Text oil;
     public Text metal;
     public Text population;
 
+    //refs
     GameObject manager;
     Resources res;
 

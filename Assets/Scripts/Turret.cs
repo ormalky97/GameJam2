@@ -5,16 +5,20 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [Header("Settings")]
     public int damage;
     public float range;
     public float fireRate;
 
+    [Header("Refs")]
     public GameObject shotEffect;
 
+    //Refs
     GameObject target;
     GameObject firePoint;
     Rigidbody2D rb;
 
+    //Vars
     bool canShoot = true;
 
     // Start is called before the first frame update

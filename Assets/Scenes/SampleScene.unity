@@ -539,7 +539,7 @@ RectTransform:
   m_Children:
   - {fileID: 2067617752}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1326,7 +1326,7 @@ RectTransform:
   m_Children:
   - {fileID: 1482005803}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1700,7 +1700,7 @@ RectTransform:
   m_Children:
   - {fileID: 1959716615}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1896,7 +1896,7 @@ RectTransform:
   m_Children:
   - {fileID: 189379240}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2285,10 +2285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d83b76b2af6a469cce3d55c363be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 500
-  oil: 0
-  metal: 0
-  population: 5
+  food: 1200
+  oil: 1200
+  metal: 1200
+  population: 20
   usedPopulation: 0
   maxPopulation: 0
 --- !u!4 &740974409
@@ -2318,9 +2318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  waveTime: 10
-  waveIncreaseTimer: 20
-  newEnemyTimer: 30
+  waveTime: 60
+  waveIncreaseTimer: 60
+  newEnemyTimer: 120
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 4725096637889953766, guid: bf5088b0e66259c4e86f6e9fe629819e, type: 3}
@@ -2370,7 +2370,7 @@ RectTransform:
   m_Children:
   - {fileID: 995744827}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2566,7 +2566,7 @@ RectTransform:
   m_Children:
   - {fileID: 1984309424}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2762,7 +2762,6 @@ RectTransform:
   - {fileID: 740145375}
   - {fileID: 354559110}
   - {fileID: 1333924784}
-  - {fileID: 1677359558}
   - {fileID: 741136994}
   - {fileID: 212252743}
   - {fileID: 505198944}
@@ -2771,6 +2770,7 @@ RectTransform:
   - {fileID: 1983433906}
   - {fileID: 678369168}
   - {fileID: 569192540}
+  - {fileID: 1677359558}
   m_Father: {fileID: 352217489}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2851,7 +2851,7 @@ RectTransform:
   m_Children:
   - {fileID: 1648605602}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3899,7 +3899,7 @@ MonoBehaviour:
   metalDown: 0
   oilDown: 0
   maxHealth: 100
-  populationAdd: 0
+  populationAdd: 20
 --- !u!1 &1273847552
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,7 +4449,7 @@ RectTransform:
   - {fileID: 333542126}
   - {fileID: 112222389}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 5
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -4783,7 +4783,7 @@ RectTransform:
   m_Children:
   - {fileID: 37153218}
   m_Father: {fileID: 795468933}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
