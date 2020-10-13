@@ -175,6 +175,7 @@ MonoBehaviour:
   metalDown: 0
   oilDown: 0
   maxHealth: 150
+  hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
 --- !u!1 &7623743305337727243
 GameObject:
   m_ObjectHideFlags: 0

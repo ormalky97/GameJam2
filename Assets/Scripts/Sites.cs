@@ -24,6 +24,7 @@ public class Sites : MonoBehaviour
 
     [Header("Settings")]
     public int maxHealth;
+    public GameObject hitEffect;
 
     //Refs
     GameObject manager;
@@ -50,8 +51,19 @@ public class Sites : MonoBehaviour
     {
         Debug.Log(health);
         health -= damage;
+        Hit();
         if (health <= 0)
             Destroy(gameObject);
+    }
+
+    void Hit()
+    {
+        float x = transform.position.x + Random.Range(-0.2f, 0.2f);
+        float y = transform.position.y + Random.Range(-0.2f, 0.2f);
+        Vector2 pos = new Vector2(x, y);
+
+        GameObject temp = Instantiate(hitEffect, pos, Quaternion.identity);
+        Destroy(temp, 2f);
     }
 
     IEnumerator GetResource()

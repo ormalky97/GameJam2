@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2508033955386369613}
   - component: {fileID: 7386090692604246830}
   m_Layer: 9
-  m_Name: Underground Mine
+  m_Name: 3. Underground Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,10 +103,11 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 40
   oilUp: 0
+  populationAdd: 0
   metalDown: 0
   oilDown: 0
   maxHealth: 500
-  populationAdd: 0
+  hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
 --- !u!61 &7386090692604246830
 BoxCollider2D:
   m_ObjectHideFlags: 0

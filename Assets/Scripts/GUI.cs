@@ -25,7 +25,7 @@ public class GUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        food.text = "Food: " + res.food;
+        food.text = "  " + res.food;
         oil.text = "Oil: " + res.oil;
         metal.text = "Metal: " + res.metal;
         population.text = "Population: " + res.usedPopulation + "/" + res.population + " (" + (res.maxPopulation - res.population) +")";

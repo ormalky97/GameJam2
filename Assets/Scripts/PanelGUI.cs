@@ -43,7 +43,7 @@ public class PanelGUI : MonoBehaviour
     {
         titleTxt.text = title;
         descTxt.text = desc;
-        foodTxt.text = "Food Cost: " + foodCost;
+        foodTxt.text = "  " + foodCost;
         oilTxt.text = "Oil Cost: " + oilCost;
         metalTxt.text = "Metal Cost: " + metalCost;
         populationTxt.text = "Population Needed: " + populationCost;
