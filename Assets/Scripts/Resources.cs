@@ -110,5 +110,6 @@ public class Resources : MonoBehaviour
         metal -= metalCost;
         usedPopulation += populationCost;
         population += populationDiff;
+
     }
 }
