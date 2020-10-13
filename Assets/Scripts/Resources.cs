@@ -18,6 +18,7 @@ public class Resources : MonoBehaviour
     void Start()
     {
         StartCoroutine("Populate");
+        StartCoroutine("Unpopulate");
         StartCoroutine("FoodDecay");
     }
 
@@ -59,6 +60,21 @@ public class Resources : MonoBehaviour
         }
 
     }
+    IEnumerator Unpopulate()
+    {
+        while (true)
+        {
+            int counter = 0;
+            int prevTime = 0;
+            while (true)
+            {
+                if (Time.time - prevTime > 1)
+                {
+                    counter++;
+                    prevTime = Time.time;
+                }
+            }
+        }
 
 
     public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost)
