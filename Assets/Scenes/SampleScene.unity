@@ -3365,12 +3365,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  waveTime: 60
+  initialWaveTime: 60
+  waveTime: 10
   waveIncreaseTimer: 60
   newEnemyTimer: 120
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 4725096637889953766, guid: bf5088b0e66259c4e86f6e9fe629819e, type: 3}
+  - {fileID: 5185527384581766346, guid: 852a9ddf022060d48a5ffd0adafcaac7, type: 3}
 --- !u!114 &740974411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5717,7 +5719,7 @@ MonoBehaviour:
   populationAdd: 20
   metalDown: 0
   oilDown: 0
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!1 &1231267763
 GameObject:
   m_ObjectHideFlags: 0

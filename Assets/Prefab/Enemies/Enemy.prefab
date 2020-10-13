@@ -101,8 +101,10 @@ MonoBehaviour:
   maxHealth: 5
   moveSpeed: 4
   viewRange: 5
-  attackDistance: 1
+  attackDistance: 1.5
   attackRate: 2
+  prefTarget: {fileID: 0}
+  onlyPref: 0
 --- !u!50 &8585067804245777449
 Rigidbody2D:
   serializedVersion: 4
