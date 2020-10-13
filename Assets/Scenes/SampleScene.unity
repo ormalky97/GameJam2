@@ -2041,6 +2041,8 @@ MonoBehaviour:
   minZoom: 5
   background: {fileID: 198746030}
   rawImage: {fileID: 1095559445}
+  movementFactorX: 0.049
+  movementFactorY: 0.09
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

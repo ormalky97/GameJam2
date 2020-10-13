@@ -13,6 +13,7 @@ public class Placer : MonoBehaviour
     public Sites site;
 
     //Refs
+    List<GameObject> stations;
     Camera cam;
     Resources res;
     SpriteRenderer spr;
@@ -24,6 +25,7 @@ public class Placer : MonoBehaviour
     private void Awake()
     {
         tooltip = GameObject.FindObjectOfType<Messages>();
+        stations = GameObject.FindObjectOfType<BuildingsManager>().stations;
     }
 
     // Start is called before the first frame update
@@ -63,6 +65,30 @@ public class Placer : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    bool CheckDistance()
+    {
+        return false;
+    }
+
+    GameObject FindClosetStation()
+    {
+        GameObject closetStation = null;
+        float minDistance = 100f;
+        float distance;
+
+        foreach (GameObject station in stations)
+        {
+            distance = Vector2.Distance(transform.position, station.transform.position);
+            if (distance < minDistance)
+            {
+                closetStation = station;
+                minDistance = distance;
+            }
+        }
+
+        return closetStation;
     }
 
     void Build()

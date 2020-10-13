@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [Header("Background")]
     public GameObject background;
     public RawImage rawImage;
+    public float movementFactorX;
+    public float movementFactorY;
 
     //Refs & Vars
     Camera cam;
@@ -38,7 +40,7 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = transform.position + movement * moveSpeed;
-        rawImage.uvRect = new Rect(rawImage.uvRect.x + movement.x * 0.05f, rawImage.uvRect.y + movement.y * 0.088f, rawImage.uvRect.width, rawImage.uvRect.height);
+        rawImage.uvRect = new Rect(rawImage.uvRect.x + movement.x * movementFactorX, rawImage.uvRect.y + movement.y * movementFactorY, rawImage.uvRect.width, rawImage.uvRect.height);
 
         cam.orthographicSize += zoom * -1;
         if (cam.orthographicSize > maxZoom)
