@@ -105,6 +105,7 @@ MonoBehaviour:
   attackRate: 1
   prefTarget: {fileID: 7623743304672233606, guid: b4780d7323f7e444cbc6cae69f20d5fb, type: 3}
   onlyPref: 0
+  hitEffect: {fileID: 5627736225707098770, guid: 9ee34e9d323832740a31ffb616645c38, type: 3}
 --- !u!50 &5185527384581766348
 Rigidbody2D:
   serializedVersion: 4

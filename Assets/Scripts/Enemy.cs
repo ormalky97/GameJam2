@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     public GameObject prefTarget;
     public bool onlyPref = false;
 
+    [Header("Hit Effect")]
+    public GameObject hitEffect;
+
     //Refs
     GameObject target;
     Rigidbody2D rb;
@@ -69,8 +72,19 @@ public class Enemy : MonoBehaviour
     public void RecieveDamage(int amount)
     {
         health -= amount;
+        Bleed();
         if (health <= 0)
             Die();
+    }
+
+    void Bleed()
+    {
+        float x = transform.position.x + Random.Range(-0.2f, 0.2f);
+        float y = transform.position.y + Random.Range(-0.2f, 0.2f);
+        Vector2 pos = new Vector2(x, y);
+
+        GameObject temp = Instantiate(hitEffect, pos, Quaternion.identity);
+        Destroy(temp, 2f);
     }
 
     void Die()
