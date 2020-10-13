@@ -5,7 +5,7 @@ using UnityEngine;
 public class Station : MonoBehaviour
 {
     GameObject rangeRenderer;
-    float range = 20f;
+    float range = 10f;
 
     private void Awake()
     {
