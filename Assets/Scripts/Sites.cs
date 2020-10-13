@@ -18,10 +18,6 @@ public class Sites : MonoBehaviour
     public int oilUp; //per sec
     public int populationAdd;
 
-    [Header("Upkeep")]
-    public int metalDown; //per sec
-    public int oilDown; //per sec
-
     [Header("Settings")]
     public int maxHealth;
     public GameObject hitEffect;
@@ -44,7 +40,7 @@ public class Sites : MonoBehaviour
     {
         manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
-        res.maxPopulation += populationAdd;
+        res.DecreaseResources(0, 0, 0, 0, 0, populationAdd);
     }
 
     public void RecieveDamage(int damage)
@@ -53,9 +49,13 @@ public class Sites : MonoBehaviour
         health -= damage;
         Hit();
         if (health <= 0)
-            Destroy(gameObject);
+        {
+           Destroy(gameObject);
+           res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
+           if (res.population > res.maxPopulation)
+                res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
+        }
     }
-
     void Hit()
     {
         float x = transform.position.x + Random.Range(-0.2f, 0.2f);
@@ -78,7 +78,7 @@ public class Sites : MonoBehaviour
     void AddResource()
     {
         res.food += foodUp;
-        res.metal += metalUp -= metalDown;
-        res.oil += oilUp -= oilDown;
+        res.metal += metalUp;
+        res.oil += oilUp;
     }
 }

@@ -31,11 +31,11 @@ public class Resources : MonoBehaviour
             int foodDecay = (population - usedPopulation) * 5 + usedPopulation * 10;
             if (food < foodDecay)
             {
-                DecreaseResources(0, 0, 0, 0, (food-foodDecay)/10);
-                DecreaseResources(food, 0, 0, 0, 0);
+                DecreaseResources(0, 0, 0, 0, (food-foodDecay)/10, 0);
+                DecreaseResources(food, 0, 0, 0, 0, 0);
             }
             else
-                DecreaseResources(foodDecay, 0, 0, 0, 0);
+                DecreaseResources(foodDecay, 0, 0, 0, 0, 0);
         }
     }
 
@@ -52,9 +52,9 @@ public class Resources : MonoBehaviour
             }
             int metalDecay = 60 * turrets;
             if (metalDecay > metal)
-                DecreaseResources(0, 0, metal, 0, 0);
+                DecreaseResources(0, 0, metal, 0, 0, 0);
             else
-                DecreaseResources(0, 0, metalDecay, 0, 0);
+                DecreaseResources(0, 0, metalDecay, 0, 0, 0);
         }
     }
 
@@ -71,9 +71,9 @@ public class Resources : MonoBehaviour
             }
             int oilDecay = 60 * stations;
             if (oilDecay > oil)
-                DecreaseResources(0, oil, 0 , 0, 0);
+                DecreaseResources(0, oil, 0 , 0, 0, 0);
             else
-                DecreaseResources(0, oilDecay, 0 , 0, 0);
+                DecreaseResources(0, oilDecay, 0 , 0, 0, 0);
         }
     }
     IEnumerator Populate()
@@ -95,7 +95,7 @@ public class Resources : MonoBehaviour
                          newColonists = trpc - population;
 
 
-                    DecreaseResources(0, 0, 0, 0, Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4)));
+                    DecreaseResources(0, 0, 0, 0, Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4)), 0);
                     Debug.Log("New Colonists Arrived");
                  }
                  //elif (popConsumption > totalRes) //pop-
@@ -103,13 +103,13 @@ public class Resources : MonoBehaviour
         }
 
     }
-    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost, int populationDiff)
+    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost, int populationDiff, int maxPopDiff)
     {
         food -= foodCost;
         oil -= oilCost;
         metal -= metalCost;
         usedPopulation += populationCost;
         population += populationDiff;
-
+        maxPopulation += maxPopDiff;
     }
 }
