@@ -123,13 +123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodCost: 400
-  oilCost: 600
-  metalCost: 0
+  oilCost: 0
+  metalCost: 600
   populationUsage: 6
   foodUp: 0
   metalUp: 0
   oilUp: 20
+  populationAdd: 0
   metalDown: 0
   oilDown: 0
   maxHealth: 300
-  populationAdd: 0
