@@ -42,7 +42,7 @@ public class Turret : MonoBehaviour
             else
             {
                 SetRotation();
-                if (canShoot)
+                if (canShoot && FindObjectOfType<Resources>().metal != 0)
                     StartCoroutine("Shoot");   
             }
         }

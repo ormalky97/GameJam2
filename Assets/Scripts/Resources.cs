@@ -18,8 +18,9 @@ public class Resources : MonoBehaviour
     void Start()
     {
         StartCoroutine("Populate");
-        StartCoroutine("Unpopulate");
         StartCoroutine("FoodDecay");
+        StartCoroutine("MetalDecay");
+        StartCoroutine("OilDecay");
     }
 
     IEnumerator FoodDecay()
@@ -27,10 +28,54 @@ public class Resources : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(60f);
-            food -= (population - usedPopulation) * 5 + usedPopulation * 10;
+            int foodDecay = (population - usedPopulation) * 5 + usedPopulation * 10;
+            if (food < foodDecay)
+            {
+                DecreaseResources(0, 0, 0, 0, (food-foodDecay)/10);
+                DecreaseResources(food, 0, 0, 0, 0);
+            }
+            else
+                DecreaseResources(foodDecay, 0, 0, 0, 0);
         }
     }
 
+    IEnumerator MetalDecay()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(60f);
+            int turrets = 0;
+            foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+            {
+                if (building.tag == "Turret")
+                    turrets++;
+            }
+            int metalDecay = 60 * turrets;
+            if (metalDecay > metal)
+                DecreaseResources(0, 0, metal, 0, 0);
+            else
+                DecreaseResources(0, 0, metalDecay, 0, 0);
+        }
+    }
+
+    IEnumerator OilDecay()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(60f);
+            int stations = 0;
+            foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+            {
+                if (building.tag == "Station")
+                    stations++;
+            }
+            int oilDecay = 60 * stations;
+            if (oilDecay > oil)
+                DecreaseResources(0, oil, 0 , 0, 0);
+            else
+                DecreaseResources(0, oilDecay, 0 , 0, 0);
+        }
+    }
     IEnumerator Populate()
     {
         while (true)
@@ -50,38 +95,20 @@ public class Resources : MonoBehaviour
                          newColonists = trpc - population;
 
 
-                    population += Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4));
+                    DecreaseResources(0, 0, 0, 0, Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4)));
                     Debug.Log("New Colonists Arrived");
-                    Debug.Log(trpc);
-                    Debug.Log(newColonists);
                  }
                  //elif (popConsumption > totalRes) //pop-
             }
         }
 
     }
-    IEnumerator Unpopulate()
-    {
-        while (true)
-        {
-            int counter = 0;
-            int prevTime = 0;
-            while (true)
-            {
-                if (Time.time - prevTime > 1)
-                {
-                    counter++;
-                    prevTime = Time.time;
-                }
-            }
-        }
-
-
-    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost)
+    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost, int populationDiff)
     {
         food -= foodCost;
         oil -= oilCost;
         metal -= metalCost;
         usedPopulation += populationCost;
+        population += populationDiff;
     }
 }
