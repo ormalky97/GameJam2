@@ -44,7 +44,7 @@ public class Placer : MonoBehaviour
 
         if (CheckPlace())
         {
-            spr.color = new Color(1, 1, 1);
+            spr.color = new Color(1, 1, 1, 0.75f);
             if (Input.GetMouseButtonDown(0))
             {
                 Build();
@@ -52,10 +52,10 @@ public class Placer : MonoBehaviour
         }
         else
         {
-            spr.color = new Color(1, 0, 0, 1);
+            spr.color = new Color(1, 0, 0, 0.75f);
             if (Input.GetMouseButtonDown(0))
             {
-                tooltip.ShowMessage(reason, new Color(1, 0, 0, 1));
+                tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
             }
         }
 

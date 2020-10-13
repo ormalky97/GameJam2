@@ -41,20 +41,27 @@ public class BuildButton : MonoBehaviour
 
     public void Build()
     {
-        if (CheckResources())
+        if (!GameObject.FindObjectOfType<PauseMenu>().isPaused)
         {
-            GameObject newPlacer;
-            newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
+            if (CheckResources())
+            {
+                GameObject newPlacer;
+                newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
-            newPlacer.GetComponent<Placer>().building = building;
-            building.GetComponent<Sites>().foodCost = site.foodCost;
-            building.GetComponent<Sites>().oilCost = site.oilCost;
-            building.GetComponent<Sites>().metalCost = site.metalCost;
-            building.GetComponent<Sites>().populationUsage = site.populationUsage;
+                newPlacer.GetComponent<Placer>().building = building;
+                building.GetComponent<Sites>().foodCost = site.foodCost;
+                building.GetComponent<Sites>().oilCost = site.oilCost;
+                building.GetComponent<Sites>().metalCost = site.metalCost;
+                building.GetComponent<Sites>().populationUsage = site.populationUsage;
+            }
+            else
+            {
+                GameObject.FindObjectOfType<Messages>().ShowMessage("Not enough resources or free population", new Color(1, 1, 1, 1));
+            }
         }
         else
         {
-            GameObject.FindObjectOfType<Messages>().ShowMessage("Not enough resources or free population", new Color(1, 1, 1, 1));
+            GameObject.FindObjectOfType<Messages>().ShowMessage("Can't build while game is paused", new Color(1, 1, 1, 1));
         }
     }
 
