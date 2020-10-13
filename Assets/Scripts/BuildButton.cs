@@ -43,20 +43,19 @@ public class BuildButton : MonoBehaviour
     {
         if (CheckResources())
         {
-            SetupPlacer();
+            GameObject newPlacer;
+            newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
+
+            newPlacer.GetComponent<Placer>().building = building;
+            building.GetComponent<Sites>().foodCost = site.foodCost;
+            building.GetComponent<Sites>().oilCost = site.oilCost;
+            building.GetComponent<Sites>().metalCost = site.metalCost;
+            building.GetComponent<Sites>().populationUsage = site.populationUsage;
         }
-    }
-
-    void SetupPlacer()
-    {
-        GameObject newPlacer;
-        newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
-
-        newPlacer.GetComponent<Placer>().building = building;
-        building.GetComponent<Sites>().foodCost = site.foodCost;
-        building.GetComponent<Sites>().oilCost = site.oilCost;
-        building.GetComponent<Sites>().metalCost = site.metalCost;
-        building.GetComponent<Sites>().populationUsage = site.populationUsage;
+        else
+        {
+            GameObject.FindObjectOfType<Messages>().ShowMessage("Not enough resources or free population", new Color(1, 1, 1, 1));
+        }
     }
 
     bool CheckResources()

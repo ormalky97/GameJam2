@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Placer : MonoBehaviour
 {
+    [Header("Settings")]
+    public float maxDistance;
+
     [Header("Inner Vars")]
     public GameObject building;
     public Sites site;
@@ -12,6 +16,15 @@ public class Placer : MonoBehaviour
     Camera cam;
     Resources res;
     SpriteRenderer spr;
+    Messages tooltip;
+
+    //vars
+    string reason;
+
+    private void Awake()
+    {
+        tooltip = GameObject.FindObjectOfType<Messages>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,16 +47,16 @@ public class Placer : MonoBehaviour
             spr.color = new Color(1, 1, 1);
             if (Input.GetMouseButtonDown(0))
             {
-                {
-                    Instantiate(building, transform.position, Quaternion.identity);
-                    res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
-                    Destroy(gameObject);
-                }
+                Build();
             }
         }
         else
         {
-            spr.color = new Color(1, 0, 0);
+            spr.color = new Color(1, 0, 0, 1);
+            if (Input.GetMouseButtonDown(0))
+            {
+                tooltip.ShowMessage(reason, new Color(1, 0, 0, 1));
+            }
         }
 
         if(Input.GetMouseButtonDown(1))
@@ -52,13 +65,23 @@ public class Placer : MonoBehaviour
         }
     }
 
+    void Build()
+    {
+        Instantiate(building, transform.position, Quaternion.identity);
+        res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
+        Destroy(gameObject);
+    }
+
     bool CheckPlace()
     {
         Collider2D hit = Physics2D.OverlapPoint(transform.position);
         if (hit == null)
             return true;
         else
+        {
+            reason = "Blocked by another building";
             return false;
+        }
     }
 
 }

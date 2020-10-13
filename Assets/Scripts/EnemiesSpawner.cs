@@ -64,9 +64,9 @@ public class EnemiesSpawner : MonoBehaviour
     {
         while (bestEnemy < enemies.Count)
         {
-            Debug.Log("New enemy type");
             yield return new WaitForSeconds(newEnemyTimer);
             bestEnemy++;
+            Debug.Log("New enemy type");
             newEnemyTimer *= 2;
         }
     }

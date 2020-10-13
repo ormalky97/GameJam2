@@ -25,7 +25,7 @@ public class Resources : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(60f);
             food -= (population - usedPopulation) * 5 + usedPopulation * 10;
         }
     }
@@ -50,8 +50,8 @@ public class Resources : MonoBehaviour
 
 
                     population += Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4));
-                     Debug.Log("New Colonists Arrived");
-                     Debug.Log(trpc);
+                    Debug.Log("New Colonists Arrived");
+                    Debug.Log(trpc);
                     Debug.Log(newColonists);
                  }
                  //elif (popConsumption > totalRes) //pop-
