@@ -14,7 +14,13 @@ public class Resources : MonoBehaviour
     public int usedPopulation;
     public int maxPopulation;
 
-    // Start is called before the first frame update
+    GUI gui;
+
+    void Awake()
+    {
+        gui = GameObject.FindObjectOfType<GUI>();
+    }
+
     void Start()
     {
         StartCoroutine("Populate");
@@ -109,6 +115,18 @@ public class Resources : MonoBehaviour
         oil -= oilCost;
         metal -= metalCost;
         usedPopulation += populationCost;
+        population += populationDiff;
+        maxPopulation += maxPopDiff;
+
+        gui.DisplayChanges(foodCost * -1, metalCost * -1, oilCost * -1, populationDiff);
+    }
+
+    public void AddResources(int foodAdd, int oilAdd, int metalAdd, int populationAdd, int populationDiff, int maxPopDiff)
+    {
+        food -= foodAdd;
+        oil -= oilAdd;
+        metal -= metalAdd;
+        usedPopulation += populationAdd;
         population += populationDiff;
         maxPopulation += maxPopDiff;
     }

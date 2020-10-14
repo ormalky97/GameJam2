@@ -54,10 +54,15 @@ public class Sites : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+<<<<<<< HEAD
             res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
             if (res.population > res.maxPopulation)
             {
                 FindObjectOfType<BuildingsManager>().DestroyUndermanned();
+=======
+            res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
+            if (res.population > res.maxPopulation)
+>>>>>>> 8c133fb0cc6f68e1440a32c51481b9bc9e1c8a2c
                 res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
             }
         }
@@ -77,15 +82,8 @@ public class Sites : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1); //resources add up every sec
-            AddResource();
+            yield return new WaitForSeconds(1f); //resources add up every sec
+            res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
         }
-    }
-
-    void AddResource()
-    {
-        res.food += foodUp;
-        res.metal += metalUp;
-        res.oil += oilUp;
     }
 }
