@@ -6181,7 +6181,7 @@ GameObject:
   - component: {fileID: 1183357232}
   - component: {fileID: 1183357233}
   - component: {fileID: 1183357234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Colony Center
   m_TagString: Station
   m_Icon: {fileID: 0}
@@ -6282,7 +6282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: 
+  title: Colony Center
   foodCost: 0
   oilCost: 0
   metalCost: 0
@@ -6292,7 +6292,7 @@ MonoBehaviour:
   oilUp: 0
   populationAdd: 20
   maxHealth: 1000
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
   undermanned: 0
   replaced: 0
   usageDiff: 0

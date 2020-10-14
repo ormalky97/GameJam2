@@ -25,47 +25,47 @@ public class TutorialManager : MonoBehaviour
             {
                 case -1:
                     //tutorial start
-                    nextMessage = "Welcome to the tutorial! we are going to learn the basics of playing the game.\n\n Press OK to continue";
+                    nextMessage = "Welcome!\nLet's get acquainted with our yet-to-be-colonized planet.\n\n Press OK to continue";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game. Mouse wheel to zoom in or out, and Arrow Keys or WASD to move the camera around";
+                    nextMessage = "Use the mouse to control the game. Mouse wheel to zoom in and out, and Arrow Keys or WASD to move the camera around.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
                 case 1:
                     //resources 1
-                    nextMessage = "First we are going to go over the Resources.\n\n At the top left corner you have your availabe Resources.";
-                    nextMessage += "\n You will need them in order to build and defend your colony. The icons represent Food, Metal, Oil and Population from top to bottom.";
+                    nextMessage = "First let's go over the Resources.\n\n At the top left corner is our Respurces Panel.";
+                    nextMessage += "\n We will use them to build and defend your Colony. The icons, top to bottom, represent\nFood, Metal, Oil and Population.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
                     break;
 
                 case 2:
                     //resources 2
-                    nextMessage = "Each resource can be gathered by a different type of buldings, the only exception is Population which we will learn about in a moment";
+                    nextMessage = "Each resource is gathered by a different type of Building, the only exception is Population, of which we will learn about in a moment.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
                 case 3:
                     //building 1
-                    nextMessage = "At the bottom we have the build menu, from here we can build different buildings that gather resources or defend the colony";
+                    nextMessage = "At the bottom we have the Build Menu, used to build different Buildings that gather resources, power or defend the colony";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
                 case 4:
                     //building 2
-                    nextMessage = "Food, Metal and Oil categories houses buildings that will gather the respective resoutces.";
-                    nextMessage += "\n\n Click on Food now to open up the food category building menu";
+                    nextMessage = "The Food, Metal and Oil categories contain buildings that gather the respective Resources.";
+                    nextMessage += "\n\n Click on Food now to open up the Food Category Building Menu";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
                     break;
 
                 case 5:
                     //building 3
-                    nextMessage = "As you can see, you have three different buildings that gather food. You can hover over a building button";
-                    nextMessage += " to see this building's details: production, costs and etc.";
+                    nextMessage = "As you can see, three different Buildings gather food. You can hover over a building button";
+                    nextMessage += " to see this Building's details: production, cost, etc.";
                     check = FindObjectOfType<BuildCategory>().GetActiveCategory();
                     if (check != null && check.name == "Food Panel")
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
@@ -80,27 +80,27 @@ public class TutorialManager : MonoBehaviour
 
                 case 7:
                     //building mine and pump
-                    nextMessage = "Nice! now your Field will automatically produce Food.\n\n";
-                    nextMessage += "Now place a Surface Mine from the Metal category, and an Oil Pump from the Oil category, to start producing those as well. ";
+                    nextMessage = "Nice! now your Field will automatically produce Food every second.\n\n";
+                    nextMessage += "Now place a Surface Mine from the Metal Category, and an Oil Pump from the Oil Category, to start producing those as well.";
                     if(Stage7())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
                     break;
 
                 case 8:
                     //population 1
-                    nextMessage = "Good job! now let's go over population while you gain resources\n";
-                    nextMessage += "Population is made out of three factors: Availabe Population, Used Population and Max Colony Habitants.\n\n";
-                    nextMessage += "Each time you build a new building, this building's population 'cost' is the amount of Availabe Population needed in order to build it. ";
-                    nextMessage += "After building, you will have this amount of colonists added to Used Population.\n";
-                    nextMessage += "This is represented in the resource panel as: \n Used Population / Available Population";
+                    nextMessage = "Good job! now let's go over to the Population Catergory while you gain resources\n";
+                    nextMessage += "Population is made out of three factors: Available Population, Used Population (working) and Max Colony Habitants.\n\n";
+                    nextMessage += "Each time you build a new Building, this Building's Population 'Cost' is the amount of Available Population needed in order to build it.\n";
+                    nextMessage += "building it, this amount of Colonists will be added to Used Population.\n";
+                    nextMessage += "This is represented in the Resources Panel as: \n Used Population / Available Population";
                     if (Stage8())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(700f, 400f), false);
                     break;
 
                 case 9:
                     //build pod
-                    nextMessage = "Max Habitants (or Max Population) is the maximum amount of population your colony can house. ";
-                    nextMessage += "To increase your Max Population, use the Population Category in the build menu \n\n";
+                    nextMessage = "Max Habitants (or Max Population) is the maximum amount of population your colony can house\n ";
+                    nextMessage += "To increase your Max Population, use the Population Category in the build menu\n\n";
                     nextMessage += "Try to build a Pod now";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(400f, 400f), false);
                     break;
@@ -108,25 +108,25 @@ public class TutorialManager : MonoBehaviour
                 case 10:
                     //population 2
                     nextMessage = "Well done!\n";
-                    nextMessage += "But as you can see in the resources panel you Population still did not increase. Building a population building only increases your potential Population.\n\n";
-                    nextMessage += "New colonists will only arrive to the colony from time to time, and based on your resources. \n";
-                    nextMessage += "In the resources panel you can see how many more colonists your colony can host, represented by the number in brackets. ";
-                    nextMessage += "Having a low Resources per Colonists value will lower the amount of colonists joining the colony, ";
-                    nextMessage += "However a high Resources per Colonists will increase the amount of colonists joining the colony.";
+                    nextMessage += "But as you can see in the Resources Panel, your Population hasn't increased just yet.\nBuilding a Population Category Building only increases your potential housing ability.\n\n";
+                    nextMessage += "New Colonists arrive to our Colony every minute or so, based on your resources.\n";
+                    nextMessage += "In the Resources Panel, you can see the amount of additional Colonists our colony can house,\nrepresented by the number in brackets.\n";
+                    nextMessage += "Having a low Resources-per-Colonists value will lower the potential amount of Colonists joining our Colony.\n";
+                    nextMessage += "However, a high Resources-per-Colonists value will increase the amount of Colonists joining our Colony.";
                     if (Stage10())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(700f, 500f), false);
                     break;
 
                 case 11:
                     //turrets 1
-                    nextMessage = "Enemies will continuosly attack your Colony, use the Turrets category in the build menu to defend.\n";
-                    nextMessage += "There are different types of turrets, with different stast. For now let's just build 2 basic turrets";
+                    nextMessage = "Enemies are planning continuous attacks on our Colony,\n build Turrets from the Turrets Category in the Build Menu to defend it.\n";
+                    nextMessage += "There are different types of turrets, with different stats.\nFor now let's just build two basic turrets.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), false);
                     break;
 
                 case 12:
                     //turrets 2
-                    nextMessage = "Good, now let's see our new turrets in action!";
+                    nextMessage = "Good, now let's see our new Turrets in action!";
                     if (Stage12())
                     {
                         GetComponent<TutorialSpawner>().SendWave();
@@ -136,27 +136,27 @@ public class TutorialManager : MonoBehaviour
 
                 case 13:
                     //destroyed
-                    nextMessage = "Enemies can damage and destroy buildings. Destroyed building loses it's used population as well \n";
-                    nextMessage += "In the case of a Population building being destroyed, if your used population exceeds your available population ";
-                    nextMessage += "Your latest building will be destroyed due to being undermanned, lowering your used population. ";
-                    nextMessage += "This will repeat until your used population is no longer higher than your available population";
-                    nextMessage += "\n\n YOU WILL LOSE THE GAME WHEN YOUR COLONY CENTER IS DESTROYED";
+                    nextMessage = "Enemies can damage and destroy Buildings. Colonists who worked in destroyed buildings are lost as well.\n";
+                    nextMessage += "In case of a destruction of a Population Category Building, Our Colony housing capacity will decrease.\n If our Used Population exceeds our available population,\n";
+                    nextMessage += "Your latest Building will be destroyed due to being undermanned, thus adjusting your Used Population.\n";
+                    nextMessage += "This will repeat until your Used Population is no longer higher than your Available Population";
+                    nextMessage += "\n\n YOU WILL LOSE THE GAME WHEN YOUR COLONY CENTER IS DESTROYED!";
                     if (NoEnemies())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
                 case 14:
                     //Stations
-                    nextMessage = "The last building category is Stations. Station will increase the range in which you can build your colony.";
+                    nextMessage = "The last Building Category is Stations. A Power Station increases the range inside of which you can expand your Colony.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), false);
                     break;
 
                 case 15:
                     //Upkeep
-                    nextMessage = "Once every 1 minute your colony will pay it's Upkeep, decreasing your resources as follows:\n";
-                    nextMessage += "5 Food per free colonist, 10 Food per used colonist ";
-                    nextMessage += "60 Metal per turret and 60 Oil per Station \n";
-                    nextMessage += "If you don't have enough resources to pay your Upkeep turrets will stop working and colonists will leave the colony.";
+                    nextMessage = "Once a minute, your colony pays it's Upkeep Cost, decreasing your Resources as follows:\n";
+                    nextMessage += "5 Food per Free Colonist, 10 Food per Used Colonist\n";
+                    nextMessage += "60 Metal per Turret and 60 Oil per Station \n";
+                    nextMessage += "If you don't have enough Resources to pay your Upkeep, Turrets will stop working and colonists will leave the colony.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
