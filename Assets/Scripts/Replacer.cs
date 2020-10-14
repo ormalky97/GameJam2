@@ -44,11 +44,29 @@ public class Replacer : MonoBehaviour
             station.GetComponent<Station>().ShowRange();
         }
     }
+    bool GuiProtection()
+    {
+        int add = 1;
+        GameObject temp = FindObjectOfType<BuildCategory>().GetActiveCategory();
+        if (temp != null)
+            add = 2;
+        Debug.Log(transform.position.y);
+        if (transform.position.y < cam.transform.position.y - cam.orthographicSize + add)
+            return true;
+        else
+            return false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        bool protect = GuiProtection();
         transform.position = new Vector2(Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x), Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y));
+        spr.enabled = !protect;
+
+        if (Input.GetMouseButtonDown(0) && protect)
+            Destroy(gameObject);
+
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(gameObject);
@@ -67,7 +85,7 @@ public class Replacer : MonoBehaviour
             else
             {
                 spr.color = new Color(1, 0, 0, 0.75f);
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !protect)
                 {
                     tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
                 }
@@ -76,7 +94,7 @@ public class Replacer : MonoBehaviour
         else
         {
             spr.color = new Color(1, 0, 0, 0.75f);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !protect)
                 tooltip.ShowMessage("Can't build so far from a station", new Color(1, 1, 1, 1));
         }
 
