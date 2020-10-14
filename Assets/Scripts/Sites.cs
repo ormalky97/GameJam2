@@ -83,6 +83,8 @@ public class Sites : MonoBehaviour
     {
         if (health <= 0)
         {
+            if (gameObject == FindObjectOfType<BuildingsManager>().buildings[0])
+                FindObjectOfType<GameOverMenu>().GameOver();
             res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
             if (res.population > res.maxPopulation)
             {

@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        GetComponent<AudioSource>().Play();
         isPaused = true;
     }
 
@@ -49,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
