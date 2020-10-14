@@ -310,19 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8b34987a5d2c348b9dcec10b68c2d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 148935893}
-  xFactor: 0.2
-  yFactor: 0
-  buildings:
-  - {fileID: 21300000, guid: f167b0adceabbbb4aa9dc1cec44c5159, type: 3}
-  - {fileID: 21300000, guid: 921e0ed875c13f247bddb5c696b144ae, type: 3}
-  - {fileID: 21300000, guid: 0956dca68d79c0541a182fca7d1ae67c, type: 3}
-  - {fileID: 21300000, guid: d506e910c0cae2f4594cd1ceb8fb40a0, type: 3}
-  bgBuilding: {fileID: 8180898406549869067, guid: 86a132254d35dcd46b8ae53e49d87cb9, type: 3}
-  xSpawn: 10
-  xDestroy: -10
-  yMax: 5
-  speed: 0.9
 --- !u!1 &365231304
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +760,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 960751629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 157308167}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Tutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &960751629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,6 +1183,7 @@ GameObject:
   - component: {fileID: 1999074874}
   - component: {fileID: 1999074873}
   - component: {fileID: 1999074872}
+  - component: {fileID: 1999074875}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1271,3 +1271,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1999074875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999074870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca251561509371448b515bdb94ad55cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xFactor: 0.2
+  yFactor: 0
+  buildings:
+  - {fileID: 21300000, guid: f167b0adceabbbb4aa9dc1cec44c5159, type: 3}
+  - {fileID: 21300000, guid: 921e0ed875c13f247bddb5c696b144ae, type: 3}
+  - {fileID: 21300000, guid: 0956dca68d79c0541a182fca7d1ae67c, type: 3}
+  - {fileID: 21300000, guid: d506e910c0cae2f4594cd1ceb8fb40a0, type: 3}
+  bgBuilding: {fileID: 8180898406549869067, guid: 86a132254d35dcd46b8ae53e49d87cb9, type: 3}
+  xSpawn: 10
+  xDestroy: -10
+  yMax: 5
+  speed: 0.88

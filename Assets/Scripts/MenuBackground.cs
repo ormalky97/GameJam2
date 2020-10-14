@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MenuBackground : MonoBehaviour
 {
     [Header("Background Movemnt")]
-    public RawImage background;
     public float xFactor;
     public float yFactor;
 
@@ -20,30 +18,15 @@ public class MainMenu : MonoBehaviour
     public float speed;
 
     //Vars
+    RawImage background;
     List<GameObject> activeBuildings;
 
     private void Awake()
     {
+        background = transform.GetChild(0).GetComponent<RawImage>();
         activeBuildings = new List<GameObject>();
-    }
-
-    private void Start()
-    {
         StartCoroutine("NewBuildings");
     }
-
-    public void Play()
-    {
-        SceneManager.LoadScene("Game");
-    }
-
-    public void Exit()
-    {
-        Debug.Log("Exit");
-        Application.Quit();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //Move background
@@ -52,7 +35,7 @@ public class MainMenu : MonoBehaviour
         background.uvRect = new Rect(newX, newY, background.uvRect.width, background.uvRect.height);
 
         //Move Buildings
-        foreach(GameObject building in activeBuildings)
+        foreach (GameObject building in activeBuildings)
         {
             if (building.transform.position.x > xDestroy)
                 building.transform.position = new Vector2(building.transform.position.x - speed * Time.deltaTime, building.transform.position.y);
@@ -60,7 +43,7 @@ public class MainMenu : MonoBehaviour
             {
                 activeBuildings.Remove(building);
                 Destroy(building);
-            }  
+            }
         }
     }
 
@@ -69,10 +52,13 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0f, 10f));
         Collider2D hit;
         Vector2 spawnPos;
-        do {
+
+        do
+        {
             spawnPos = new Vector2Int(xSpawn, Mathf.CeilToInt(Random.Range(yMax * -1, yMax)));
             hit = Physics2D.OverlapPoint(spawnPos, LayerMask.GetMask("BG Building"));
         } while (hit != null);
+
         GameObject temp = Instantiate(bgBuilding, spawnPos, Quaternion.identity);
         temp.GetComponent<SpriteRenderer>().sprite = buildings[Random.Range(0, buildings.Count)];
         activeBuildings.Add(temp);

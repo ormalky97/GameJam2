@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game. Mouse whell to zoom in or out, and Arrow Keys or WASD to move the camera around";
+                    nextMessage = "Use the mouse to control the game. Mouse wheel to zoom in or out, and Arrow Keys or WASD to move the camera around";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
@@ -183,7 +183,7 @@ public class TutorialManager : MonoBehaviour
                     nextMessage = "That's it! You're finaly ready to play the game!\n\n";
                     nextMessage += "There are a couple more mechanics in the game, but the fun is to learn by yourself! \n";
                     nextMessage += "You can go back to the Main Menu to play the game, or practice here to learn the game. Enemies will not spawn here so you can take your time and learn";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 500f), true);
+                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
             }
