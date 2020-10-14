@@ -15,6 +15,7 @@ public class Resources : MonoBehaviour
     public int maxPopulation;
 
     GUI gui;
+    bool oilZero = false;
 
     void Awake()
     {
@@ -28,6 +29,54 @@ public class Resources : MonoBehaviour
         StartCoroutine("MetalDecay");
         StartCoroutine("OilDecay");
     }
+
+    void FixMinus()
+    {
+        if (food < 0)
+            food = 0;
+
+        if (oil < 0)
+            oil = 0;
+
+        if (metal < 0)
+            metal = 0;
+    }
+
+    void NoOil()
+    {
+        oilZero = true;
+        foreach(GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        {
+            if(building.tag != "Turret" && building.name != "Colony Center")
+            {
+                building.GetComponent<Sites>().active = false;
+            }
+        }
+    }
+
+    void RestartOil()
+    {
+        oilZero = false;
+        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        {
+            if (building.tag != "Turret" && building.name != "Colony Center")
+            {
+                building.GetComponent<Sites>().active = true;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        FixMinus();
+
+        if (oil == 0)
+            NoOil();
+        else if (oilZero)
+            RestartOil();
+    }
+
+
 
     IEnumerator FoodDecay()
     {

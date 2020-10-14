@@ -25,8 +25,8 @@ public class Placer : MonoBehaviour
 
     private void Awake()
     {
-        tooltip = GameObject.FindObjectOfType<Messages>();
-        stations = GameObject.FindObjectOfType<BuildingsManager>().stations;
+        tooltip = FindObjectOfType<Messages>();
+        stations = FindObjectOfType<BuildingsManager>().stations;
         spr = GetComponent<SpriteRenderer>();
         cam = Camera.main;
         res = GameObject.Find("Game Manager").GetComponent<Resources>();
@@ -49,7 +49,7 @@ public class Placer : MonoBehaviour
         GameObject temp = FindObjectOfType<BuildCategory>().GetActiveCategory();
         if (temp != null)
             add = 2;
-        Debug.Log(transform.position.y);
+
         if (transform.position.y < cam.transform.position.y - cam.orthographicSize + add)
             return true;
         else
@@ -115,11 +115,14 @@ public class Placer : MonoBehaviour
 
         foreach (GameObject station in stations)
         {
-            distance = Vector2.Distance(transform.position, station.transform.position);
-            if (distance < minDistance)
+            if(station.GetComponent<Sites>().active)
             {
-                closetStation = station;
-                minDistance = distance;
+                distance = Vector2.Distance(transform.position, station.transform.position);
+                if (distance < minDistance)
+                {
+                    closetStation = station;
+                    minDistance = distance;
+                }
             }
         }
 

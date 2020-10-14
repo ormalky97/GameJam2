@@ -117,12 +117,15 @@ public class Replacer : MonoBehaviour
 
         foreach (GameObject station in stations)
         {
-            distance = Vector2.Distance(transform.position, station.transform.position);
-            if (distance < minDistance)
+            if(station.GetComponent<Sites>().active)
             {
-                closetStation = station;
-                minDistance = distance;
-            }
+                distance = Vector2.Distance(transform.position, station.transform.position);
+                if (distance < minDistance)
+                {
+                    closetStation = station;
+                    minDistance = distance;
+                }
+            } 
         }
 
         return closetStation;

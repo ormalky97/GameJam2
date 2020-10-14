@@ -6961,6 +6961,7 @@ MonoBehaviour:
   metalUp: 0
   oilUp: 0
   populationAdd: 20
+  active: 1
   maxHealth: 1000
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
   undermanned: 0
@@ -10038,7 +10039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1957273283
 RectTransform:
   m_ObjectHideFlags: 0

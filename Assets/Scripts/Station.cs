@@ -15,11 +15,13 @@ public class Station : MonoBehaviour
 
     public void ShowRange()
     {
-        rangeRenderer.SetActive(true);
+        if(GetComponent<Sites>().active)
+            rangeRenderer.SetActive(true);
     }
 
     public void HideRange()
     {
-        rangeRenderer.SetActive(false);
+        if (GetComponent<Sites>().active)
+            rangeRenderer.SetActive(false);
     }
 }
