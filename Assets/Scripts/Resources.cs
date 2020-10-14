@@ -123,11 +123,11 @@ public class Resources : MonoBehaviour
 
     public void AddResources(int foodAdd, int oilAdd, int metalAdd, int populationAdd, int populationDiff, int maxPopDiff)
     {
-        food -= foodAdd;
-        oil -= oilAdd;
-        metal -= metalAdd;
-        usedPopulation += populationAdd;
-        population += populationDiff;
-        maxPopulation += maxPopDiff;
+        food += foodAdd;
+        oil += oilAdd;
+        metal += metalAdd;
+        usedPopulation -= populationAdd;
+        population -= populationDiff;
+        maxPopulation -= maxPopDiff;
     }
 }
