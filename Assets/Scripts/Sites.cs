@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Sites : MonoBehaviour
 {
+    [Header("Title")]
+    public string title;
+
     [Header("Costs")]
     public int foodCost;
     public int oilCost;
@@ -50,12 +53,16 @@ public class Sites : MonoBehaviour
         Hit();
         if (health <= 0)
         {
-           Destroy(gameObject);
-           res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
-           if (res.population > res.maxPopulation)
+            Destroy(gameObject);
+            res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
+            if (res.population > res.maxPopulation)
+            {
+                FindObjectOfType<BuildingsManager>().DestroyUndermanned();
                 res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
+            }
         }
     }
+
     void Hit()
     {
         float x = transform.position.x + Random.Range(-0.2f, 0.2f);

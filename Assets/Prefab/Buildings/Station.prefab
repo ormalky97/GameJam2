@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Power Station
   foodCost: 0
   oilCost: 0
   metalCost: 0
@@ -199,7 +200,5 @@ MonoBehaviour:
   metalUp: 0
   oilUp: 0
   populationAdd: 0
-  metalDown: 0
-  oilDown: 0
-  maxHealth: 100
+  maxHealth: 150
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}

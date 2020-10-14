@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7386090692604246830}
   m_Layer: 9
   m_Name: 2. Placer Mine
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Placer Mine
   foodCost: 400
   oilCost: 600
   metalCost: 0
@@ -104,8 +105,6 @@ MonoBehaviour:
   metalUp: 20
   oilUp: 0
   populationAdd: 0
-  metalDown: 0
-  oilDown: 0
   maxHealth: 300
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
 --- !u!61 &7386090692604246830

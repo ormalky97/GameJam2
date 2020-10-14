@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419496484827b2346a91a724690882ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: Oil Pump
   foodCost: 300
   oilCost: 0
   metalCost: 300

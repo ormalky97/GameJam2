@@ -8,6 +8,10 @@ TagManager:
   - Details Panel
   - Categories
   - Station
+  - Oil
+  - Food
+  - Metal
+  - Population
   layers:
   - Default
   - TransparentFX

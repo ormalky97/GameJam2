@@ -35,4 +35,10 @@ public class BuildingsManager : MonoBehaviour
             maxDistanceIndex = buildings.Count - 1;
         }
     }
+
+    public void DestroyUndermanned()
+    {
+        int overdraft = res.population - res.maxPopulation;
+        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+    }
 }
