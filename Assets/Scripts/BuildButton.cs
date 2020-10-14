@@ -53,9 +53,13 @@ public class BuildButton : MonoBehaviour
                 newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
 
                 if (replacer)
+                {
                     newPlacer.GetComponent<Replacer>().targetTitle = oldBuilding;
+                    newPlacer.GetComponent<Replacer>().building = building;
+                }
+                else
+                    newPlacer.GetComponent<Placer>().building = building;
 
-                newPlacer.GetComponent<Placer>().building = building;
                 building.GetComponent<Sites>().foodCost = site.foodCost;
                 building.GetComponent<Sites>().oilCost = site.oilCost;
                 building.GetComponent<Sites>().metalCost = site.metalCost;

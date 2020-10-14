@@ -1355,7 +1355,6 @@ GameObject:
   - component: {fileID: 215465794}
   - component: {fileID: 215465793}
   - component: {fileID: 215465792}
-  - component: {fileID: 215465791}
   m_Layer: 5
   m_Name: Food Button
   m_TagString: Untagged
@@ -1383,19 +1382,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 29.999996}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &215465791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215465789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2125718780}
 --- !u!114 &215465792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,13 +1425,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 215465791}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2125718780}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3641,10 +3627,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  initialWaveTime: 0
-  waveTime: 10
+  initialWaveTime: 60
+  waveTime: 20
   waveIncreaseTimer: 60
-  newEnemyTimer: 10
+  newEnemyTimer: 120
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
@@ -4189,6 +4175,7 @@ GameObject:
   - component: {fileID: 795468933}
   - component: {fileID: 795468935}
   - component: {fileID: 795468934}
+  - component: {fileID: 795468936}
   m_Layer: 5
   m_Name: Category Panel
   m_TagString: Untagged
@@ -4259,6 +4246,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795468932}
   m_CullTransparentMesh: 0
+--- !u!114 &795468936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795468932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efefbed7c4cb4944cb8f1cd83f446ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodCategory: {fileID: 2125718780}
+  metalCategory: {fileID: 1522163923}
+  OilCategory: {fileID: 828579854}
+  StationsCategory: {fileID: 501834613}
+  PopulationCategory: {fileID: 1276042981}
+  TurretsCategory: {fileID: 556068187}
 --- !u!1 &801924154
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,7 +5262,6 @@ GameObject:
   - component: {fileID: 1034076499}
   - component: {fileID: 1034076498}
   - component: {fileID: 1034076497}
-  - component: {fileID: 1034076496}
   m_Layer: 5
   m_Name: Turrets Button
   m_TagString: Untagged
@@ -5285,19 +5289,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1000, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1034076496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034076494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 556068187}
 --- !u!114 &1034076497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5341,13 +5332,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034076496}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 556068187}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6320,6 +6311,7 @@ MonoBehaviour:
   undermanned: 0
   replaced: 0
   usageDiff: 0
+  maxDiff: 0
 --- !u!114 &1183357234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6476,7 +6468,6 @@ GameObject:
   - component: {fileID: 1231267768}
   - component: {fileID: 1231267767}
   - component: {fileID: 1231267766}
-  - component: {fileID: 1231267765}
   m_Layer: 5
   m_Name: Metal Button
   m_TagString: Untagged
@@ -6504,19 +6495,6 @@ RectTransform:
   m_AnchoredPosition: {x: 280, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1231267765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231267763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1522163923}
 --- !u!114 &1231267766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6560,13 +6538,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1231267765}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1522163923}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7770,7 +7748,6 @@ GameObject:
   - component: {fileID: 1566532941}
   - component: {fileID: 1566532940}
   - component: {fileID: 1566532939}
-  - component: {fileID: 1566532938}
   m_Layer: 5
   m_Name: Stations Button
   m_TagString: Untagged
@@ -7798,19 +7775,6 @@ RectTransform:
   m_AnchoredPosition: {x: 820, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1566532938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566532936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 501834613}
 --- !u!114 &1566532939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7854,13 +7818,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1566532938}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 501834613}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8782,7 +8746,6 @@ GameObject:
   - component: {fileID: 1865867070}
   - component: {fileID: 1865867069}
   - component: {fileID: 1865867068}
-  - component: {fileID: 1865867067}
   m_Layer: 5
   m_Name: Population Button
   m_TagString: Untagged
@@ -8810,19 +8773,6 @@ RectTransform:
   m_AnchoredPosition: {x: 640, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1865867067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1865867065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1276042981}
 --- !u!114 &1865867068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8866,13 +8816,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1865867067}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1276042981}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8928,7 +8878,6 @@ GameObject:
   - component: {fileID: 1895513282}
   - component: {fileID: 1895513281}
   - component: {fileID: 1895513280}
-  - component: {fileID: 1895513279}
   m_Layer: 5
   m_Name: Oil Button
   m_TagString: Untagged
@@ -8956,19 +8905,6 @@ RectTransform:
   m_AnchoredPosition: {x: 460, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1895513279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895513277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58892f46b1beb5f408090440ae4c4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 828579854}
 --- !u!114 &1895513280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9012,13 +8948,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1895513279}
-        m_TargetAssemblyTypeName: CategoryButton, Assembly-CSharp
-        m_MethodName: TogglePanel
-        m_Mode: 1
+      - m_Target: {fileID: 795468936}
+        m_TargetAssemblyTypeName: BuildCategory, Assembly-CSharp
+        m_MethodName: ToggleCategory
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 828579854}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

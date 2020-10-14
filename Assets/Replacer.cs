@@ -6,9 +6,9 @@ public class Replacer : MonoBehaviour
 {
     [Header("Settings")]
     public float maxDistance;
-    public string targetTitle;
 
     [Header("Inner Vars")]
+    public string targetTitle;
     public GameObject building = null;
     public Sites site = null;
 
@@ -49,6 +49,11 @@ public class Replacer : MonoBehaviour
     void Update()
     {
         transform.position = new Vector2(Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x), Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y));
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(gameObject);
+        }
+
         if (CheckDistance())
         {
             if (CheckPlace())
@@ -66,12 +71,7 @@ public class Replacer : MonoBehaviour
                 {
                     tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
                 }
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                Destroy(gameObject);
-            }
+            }       
         }
         else
         {
