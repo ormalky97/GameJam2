@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(target);
+        //Debug.Log(target);
 
         if (onlyPref)
             FindPrefTarget();
