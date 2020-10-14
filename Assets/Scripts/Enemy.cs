@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     //Vars
     int health;
     bool canAttack = true;
+    bool isTouching = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -37,6 +38,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(target);
+
         if (onlyPref)
             FindPrefTarget();
         else
@@ -50,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (Vector2.Distance(target.transform.position, transform.position) <= attackDistance)
+            if (Vector2.Distance(target.transform.position, transform.position) <= attackDistance || isTouching)
             {
                 rb.velocity = new Vector2(0, 0);
                 if (canAttack)
@@ -59,6 +62,12 @@ public class Enemy : MonoBehaviour
             else
                 GoToTarget();
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (target == collision.gameObject)
+            isTouching = true;
     }
 
     IEnumerator Attack()
