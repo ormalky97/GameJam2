@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class BuildButton : MonoBehaviour
 {
+    [Header("Replacer")]
+    public bool replacer = false;
+    public string oldBuilding;
+
     [Header("Settings")]
     public GameObject building;
     public string title;
@@ -47,6 +51,9 @@ public class BuildButton : MonoBehaviour
             {
                 GameObject newPlacer;
                 newPlacer = Instantiate(placer, transform.position, Quaternion.identity);
+
+                if (replacer)
+                    newPlacer.GetComponent<Replacer>().targetTitle = oldBuilding;
 
                 newPlacer.GetComponent<Placer>().building = building;
                 building.GetComponent<Sites>().foodCost = site.foodCost;

@@ -1045,10 +1045,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Surface Mine
   building: {fileID: 2508033955386369612, guid: 1bcc982d64c385e4f89c9b28b8700ff8, type: 3}
   title: Placer Mine
   desc: Generates 20 Metal per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &212252746
 MonoBehaviour:
@@ -1196,6 +1198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 2508033955386369612, guid: 9dd71c559433eca4e863b5b81b9bd3d4, type: 3}
   title: Surface Mine
   desc: Generates 10 Metal per second
@@ -1817,6 +1821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 1396854937579035125, guid: b2c1f20dc03ecbc45a3c3508ab62d71d, type: 3}
   title: Pod
   desc: Increases Maximum Population by 2
@@ -2294,10 +2300,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Oil Pump
   building: {fileID: 1396854937579035125, guid: 0b047182117d80d44a12290c7959f190, type: 3}
   title: Drilling Rig
   desc: Generates 20 Oil per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &505198947
 MonoBehaviour:
@@ -2829,10 +2837,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Cottage
   building: {fileID: 1396854937579035125, guid: d65b9ff1116bf144c80c96c9364db06b, type: 3}
   title: Skyscraper
   desc: Increases Maximum Population by 16
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &569192543
 MonoBehaviour:
@@ -3185,10 +3195,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Drilling Rig
   building: {fileID: 1396854937579035125, guid: 9528aff52c4c3364c9ae3a3b00576030, type: 3}
   title: Oil Platform
   desc: Generates 40 Oil per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &678369171
 MonoBehaviour:
@@ -3420,6 +3432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 1396854937579035125, guid: dff126e3e0a54ae4cb699c7b5ddb6951, type: 3}
   title: Oil Pump
   desc: Generates 10 Oil per second
@@ -3747,10 +3761,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Field
   building: {fileID: 1396854937579035125, guid: 72f9c886e1a9846459ececda42d7f9df, type: 3}
   title: Farm
   desc: Generates 20 Food per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &741136997
 MonoBehaviour:
@@ -4022,10 +4038,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Pod
   building: {fileID: 1396854937579035125, guid: 11bda29673d90314e94115a27d7d9113, type: 3}
   title: Cottage
   desc: Increases Maximum Population by 6
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &782468408
 MonoBehaviour:
@@ -4338,10 +4356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Farm
   building: {fileID: 1396854937579035125, guid: 72cdcffebf78e5b4d87715322206d2ba, type: 3}
   title: Castle
   desc: Generates 40 Food per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &801924158
 MonoBehaviour:
@@ -5468,6 +5488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 8111346359430385113, guid: aca7bd023edc58842a41038881c19493, type: 3}
   title: Station
   desc: Allows placing buildings further away
@@ -5691,6 +5713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 1396854937579035125, guid: 78e05f3b2e5a7ec46bc687d31e0fe4a0, type: 3}
   title: Field
   desc: Generates 10 Food per second
@@ -7081,6 +7105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 0
+  oldBuilding: 
   building: {fileID: 7623743304672233606, guid: b4780d7323f7e444cbc6cae69f20d5fb, type: 3}
   title: Turret
   desc: 'Damage: X, Fire Rate: X, Range: X'
@@ -8003,7 +8029,7 @@ GameObject:
   - component: {fileID: 1622514603}
   - component: {fileID: 1622514602}
   m_Layer: 5
-  m_Name: Buttom Panel
+  m_Name: Bottom Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9479,10 +9505,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dd508d0a8d45e4fb9c4f94bdd7a9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replacer: 1
+  oldBuilding: Placer Mine
   building: {fileID: 2508033955386369612, guid: e9f39875500dae74b98a8592f933ad09, type: 3}
   title: Underground Mine
   desc: Generates 40 Metal per second
-  placer: {fileID: 7856788705820266337, guid: 5c79ca0cc9ddb2b48bec6d6dc9bd8998, type: 3}
+  placer: {fileID: 5300264195148421477, guid: b52d7c1e47394904f848748af53549d5, type: 3}
   panel: {fileID: 1677359557}
 --- !u!114 &1983433909
 MonoBehaviour:
