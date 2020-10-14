@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public float moveSpeed;
     public float maxZoom;
     public float minZoom;
+    public float resetSpeed;
 
     [Header("Background")]
     public GameObject background;
@@ -18,13 +19,17 @@ public class CameraController : MonoBehaviour
 
     //Refs & Vars
     Camera cam;
+    Rigidbody2D rb;
     Vector3 movement;
     float zoom;
+    Vector3 startPos = new Vector3(0, 0, -10);
+    bool isResetting = false;
     
 
     private void Awake()
     {
         cam = GetComponent<Camera>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,8 +39,18 @@ public class CameraController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         zoom = Input.mouseScrollDelta.y;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            isResetting = true;
+
+        if (movement != Vector3.zero || transform.position == startPos)
+            isResetting = false;
+
+        if(isResetting)
+            movement = startPos - transform.position;
+            
         background.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
+    
 
     private void FixedUpdate()
     {

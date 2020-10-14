@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
         timer.text = "";
         int hr = 0;
         int min = 0;
-        int sec = Mathf.CeilToInt(Time.time);
+        int sec = Mathf.CeilToInt(Time.timeSinceLevelLoad);
 
         while(sec >= 60)
         {

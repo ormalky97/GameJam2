@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6687743803043208715}
   - component: {fileID: 8650958441158256429}
   - component: {fileID: 3645000945957335251}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Building Hit Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
