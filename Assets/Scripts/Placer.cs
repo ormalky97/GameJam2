@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Placer : MonoBehaviour
 {
@@ -42,16 +43,35 @@ public class Placer : MonoBehaviour
         }
     }
 
+    bool GuiProtection()
+    {
+        int add = 1;
+        GameObject temp = FindObjectOfType<BuildCategory>().GetActiveCategory();
+        if (temp != null)
+            add = 2;
+        Debug.Log(transform.position.y);
+        if (transform.position.y < cam.transform.position.y - cam.orthographicSize + add)
+            return true;
+        else
+            return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        bool protect = GuiProtection();
         transform.position = new Vector2(Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x), Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y));
-        if(CheckDistance())
+        spr.enabled = !protect;
+
+        if (Input.GetMouseButtonDown(0) && protect)
+            Destroy(gameObject);
+
+        if (CheckDistance())
         {
             if (CheckPlace())
             {
                 spr.color = new Color(1, 1, 1, 0.75f);
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !protect)
                 {
                     Build();
                 }
@@ -59,7 +79,7 @@ public class Placer : MonoBehaviour
             else
             {
                 spr.color = new Color(1, 0, 0, 0.75f);
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && !protect)
                 {
                     tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
                 }
@@ -73,10 +93,9 @@ public class Placer : MonoBehaviour
         else
         {
             spr.color = new Color(1, 0, 0, 0.75f);
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
                 tooltip.ShowMessage("Can't build so far from a station", new Color(1, 1, 1, 1));
         }
-        
     }
 
     bool CheckDistance()
