@@ -8568,6 +8568,7 @@ MonoBehaviour:
   metalUp: 0
   oilUp: 0
   populationAdd: 20
+  active: 1
   maxHealth: 1000
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
   undermanned: 0

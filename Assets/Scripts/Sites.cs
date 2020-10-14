@@ -22,12 +22,14 @@ public class Sites : MonoBehaviour
     public int populationAdd;
 
     [Header("Settings")]
+    public bool active = true;
     public int maxHealth;
     public GameObject hitEffect;
 
     //Refs
     GameObject manager;
     Resources res;
+    SpriteRenderer spr;
 
     //Inner Vars
     int health;
@@ -42,6 +44,7 @@ public class Sites : MonoBehaviour
     {
         manager = GameObject.Find("Game Manager");
         res = manager.GetComponent<Resources>();
+        spr = GetComponent<SpriteRenderer>();
         health = maxHealth;
     }
 
@@ -50,6 +53,19 @@ public class Sites : MonoBehaviour
         manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
         res.DecreaseResources(0, 0, 0, 0, 0, populationAdd);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+            active = false;
+        if (Input.GetKeyDown(KeyCode.V))
+            active = true;
+
+        if (!active)
+            spr.color = new Color(0, 0, 0, 0.5f);
+        else
+            spr.color = new Color(1, 1, 1, 1);
     }
 
     public void RecieveDamage(int damage)
@@ -108,7 +124,8 @@ public class Sites : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f); //resources add up every sec
-            res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
+            if(active)
+                res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
         }
     }
 }
