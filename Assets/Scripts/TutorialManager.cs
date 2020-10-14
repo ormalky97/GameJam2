@@ -32,14 +32,14 @@ public class TutorialManager : MonoBehaviour
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game. Mouse wheel to zoom in and out, and Arrow Keys or WASD to move the camera around.";
+                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around, and Space to reset view to Colony Center.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
                 case 1:
                     //resources 1
                     nextMessage = "First let's go over the Resources.\n\n At the top left corner is our Respurces Panel.";
-                    nextMessage += "\n We will use them to build and defend your Colony. The icons, top to bottom, represent\nFood, Metal, Oil and Population.";
+                    nextMessage += "\n We will use them to build and defend our Colony. The icons, top to bottom, represent\nFood, Metal, Oil and Population.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
                     break;
 
@@ -74,7 +74,7 @@ public class TutorialManager : MonoBehaviour
                 case 6:
                     //building field
                     nextMessage = "Go ahead and build a Field to start producing Food.\n";
-                    nextMessage += "You will notice that you can only build in a certain area around your Colony Center, this area is represented by the green circle";
+                    nextMessage += "You will notice that you can only build in a certain area around our Colony Center, this area is represented by the green circle";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
                     break;
 
@@ -99,8 +99,8 @@ public class TutorialManager : MonoBehaviour
 
                 case 9:
                     //build pod
-                    nextMessage = "Max Habitants (or Max Population) is the maximum amount of population your colony can house\n ";
-                    nextMessage += "To increase your Max Population, use the Population Category in the build menu\n\n";
+                    nextMessage = "Max Habitants (or Max Population) is the maximum amount of population our colony can house\n ";
+                    nextMessage += "To increase our Max Population, use the Population Category in the build menu\n\n";
                     nextMessage += "Try to build a Pod now";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(400f, 400f), false);
                     break;
@@ -108,8 +108,8 @@ public class TutorialManager : MonoBehaviour
                 case 10:
                     //population 2
                     nextMessage = "Well done!\n";
-                    nextMessage += "But as you can see in the Resources Panel, your Population hasn't increased just yet.\nBuilding a Population Category Building only increases your potential housing ability.\n\n";
-                    nextMessage += "New Colonists arrive to our Colony every minute or so, based on your resources.\n";
+                    nextMessage += "But as you can see in the Resources Panel, our Population hasn't increased just yet.\nBuilding a Population Category Building only increases your potential housing ability.\n\n";
+                    nextMessage += "New Colonists arrive to our Colony every minute or so, based on our resources.\n";
                     nextMessage += "In the Resources Panel, you can see the amount of additional Colonists our colony can house,\nrepresented by the number in brackets.\n";
                     nextMessage += "Having a low Resources-per-Colonists value will lower the potential amount of Colonists joining our Colony.\n";
                     nextMessage += "However, a high Resources-per-Colonists value will increase the amount of Colonists joining our Colony.";
@@ -138,51 +138,51 @@ public class TutorialManager : MonoBehaviour
                     //destroyed
                     nextMessage = "Enemies can damage and destroy Buildings. Colonists who worked in destroyed buildings are lost as well.\n";
                     nextMessage += "In case of a destruction of a Population Category Building, Our Colony housing capacity will decrease.\n If our Used Population exceeds our available population,\n";
-                    nextMessage += "Your latest Building will be destroyed due to being undermanned, thus adjusting your Used Population.\n";
-                    nextMessage += "This will repeat until your Used Population is no longer higher than your Available Population";
-                    nextMessage += "\n\n YOU WILL LOSE THE GAME WHEN YOUR COLONY CENTER IS DESTROYED!";
+                    nextMessage += "Our latest Building will be destroyed due to being undermanned, thus adjusting our Used Population.\n";
+                    nextMessage += "This will repeat until our Used Population is no longer higher than our Available Population";
+                    nextMessage += "\n\n YOU WILL LOSE THE GAME WHEN OUR COLONY CENTER IS DESTROYED!";
                     if (NoEnemies())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
                 case 14:
                     //Stations
-                    nextMessage = "The last Building Category is Stations. A Power Station increases the range inside of which you can expand your Colony.";
+                    nextMessage = "The last Building Category is Stations. A Power Station increases the range inside of which you can expand our Colony.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), false);
                     break;
 
                 case 15:
                     //Upkeep
-                    nextMessage = "Once a minute, your colony pays it's Upkeep Cost, decreasing your Resources as follows:\n";
+                    nextMessage = "Once a minute, our colony pays it's Upkeep Costs, decreasing our Resources as follows:\n";
                     nextMessage += "5 Food per Free Colonist, 10 Food per Used Colonist\n";
-                    nextMessage += "60 Metal per Turret and 60 Oil per Station \n";
-                    nextMessage += "If you don't have enough Resources to pay your Upkeep, Turrets will stop working and colonists will leave the colony.";
+                    nextMessage += "60 Metal per Turret and 60 Oil per Station\n";
+                    nextMessage += "If you don't have enough Resources to pay the Upkeep,\nTurrets will stop working, Buildings outside of the colony Center's range will become temporarily disabled,\n and Colonists will leave the colony.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
                 case 16:
                     //Upgrading
-                    nextMessage = "In order to increase your production you will want to upgrade your buildings. \n";
-                    nextMessage += "An upgraded building can only be placed on top of the previous tier building of the same type. For example a Farm can only be placed on top of a Field, and a Castle can only be placed on top of a Farm. ";
-                    nextMessage += "Upgrading a building will replacing the old building with the next tier one. ";
-                    nextMessage += "Try upgrading your Field into a Farm";
+                    nextMessage = "In order to increase our production, let's upgrade some buildings.\n";
+                    nextMessage += "An upgraded Building can only be placed on top of the previous tier Building of the same category.\nFor example, a Farm can only be placed on top of a Field, and a Castle can only be placed on top of a Farm.\n";
+                    nextMessage += "Upgrading a building will replace the old building with the next tier one.\n";
+                    nextMessage += "Try upgrading your Field to a Farm";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
                 case 17:
                     //Score
                     nextMessage = "Awesome! Finally, let's go over the score.\n";
-                    nextMessage += "The scores are displayed in the top right corner of the screen, as you can see there are 2 factors for the score: \n";
-                    nextMessage += "How long you survive, and how big did your colony get. This means playing safe and only building close by will result in a lower score.";
+                    nextMessage += "The score is displayed in the top right corner of the screen, and consists of two factors:\n";
+                    nextMessage += "Survival Time and Colony Max Radius.\n\nThis means playing safe and building close to the Colony Center will result in a lower score.";
                     if(Stage17())
                         ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 
                 case 18:
                     //End
-                    nextMessage = "That's it! You're finaly ready to play the game!\n\n";
-                    nextMessage += "There are a couple more mechanics in the game, but the fun is to learn by yourself! \n";
-                    nextMessage += "You can go back to the Main Menu to play the game, or practice here to learn the game. Enemies will not spawn here so you can take your time and learn";
+                    nextMessage = "That's it! You're finally ready to Colonize!\n\n";
+                    nextMessage += "There are additional hidden game mechanics for you to discover...\n";
+                    nextMessage += "You can go back to the Main Menu to play the game, or continue practicing the basics here.\nEnemies will not spawn here so you can take your time and learn.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
