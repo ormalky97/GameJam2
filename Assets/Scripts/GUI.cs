@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +24,6 @@ public class GUI : MonoBehaviour
     //Vars
     Color red = new Color(1, 0, 0, 1);
     Color green = new Color(0, 1, 0, 1);
-    Color white = new Color(1, 1, 1, 1);
 
     // Start is called before the first frame update
     void Awake()
@@ -40,8 +38,6 @@ public class GUI : MonoBehaviour
         SetChangeText(metalChange, m);
         SetChangeText(oilChange, o);
         SetChangeText(populationChange, p);
-
-        StartCoroutine("ChangeDecay");
     }
 
     void SetChangeText(Text txt, int amount)
@@ -51,23 +47,10 @@ public class GUI : MonoBehaviour
             txt.color = red;
             txt.text = "" + amount;
         }
-        else
+        else if(amount > 0)
         {
             txt.color = green;
             txt.text = "+" + amount;
-        } 
-    }
-
-    IEnumerator ChangeDecay()
-    {
-        yield return new WaitForSeconds(1f);
-
-        while(!DecayDone())
-        {
-            Decay(foodCahnge);
-            Decay(oilChange);
-            Decay(metalChange);
-            Decay(populationChange);
         }
     }
 
@@ -81,8 +64,10 @@ public class GUI : MonoBehaviour
 
     void Decay(Text txt)
     {
-        if(txt.color.a > 0)
-            txt.color = new Color(txt.color.r, txt.color.g, txt.color.b, txt.color.a - decayFactor);
+        if (txt.color.a > 0)
+        {
+            txt.color = new Color(txt.color.r, txt.color.g, txt.color.b, txt.color.a - decayFactor * Time.deltaTime);
+        }
     }
 
     void UpdateResources()
@@ -96,6 +81,14 @@ public class GUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateResources();
+
+        if (!DecayDone())
+        {
+            Decay(foodCahnge);
+            Decay(oilChange);
+            Decay(metalChange);
+            Decay(populationChange);
+        }
     }
 }

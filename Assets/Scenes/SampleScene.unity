@@ -1684,7 +1684,7 @@ MonoBehaviour:
   metalChange: {fileID: 1346214535}
   oilChange: {fileID: 1358972075}
   populationChange: {fileID: 1729299800}
-  decayFactor: 0.1
+  decayFactor: 0.5
 --- !u!1 &354559109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5971,8 +5971,6 @@ MonoBehaviour:
   metalUp: 0
   oilUp: 0
   populationAdd: 20
-  metalDown: 0
-  oilDown: 0
   maxHealth: 1000
   hitEffect: {fileID: 0}
 --- !u!114 &1183357234
@@ -6929,7 +6927,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: XXXXX
+  m_Text: 
 --- !u!222 &1346214536
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7008,7 +7006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: XXXXX
+  m_Text: 
 --- !u!222 &1358972076
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8177,7 +8175,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: XXXXX
+  m_Text: 
 --- !u!222 &1697855222
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8335,7 +8333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: XXXXX
+  m_Text: 
 --- !u!222 &1729299801
 CanvasRenderer:
   m_ObjectHideFlags: 0
