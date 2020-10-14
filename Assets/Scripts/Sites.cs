@@ -32,9 +32,11 @@ public class Sites : MonoBehaviour
     //Inner Vars
     int health;
 
+    [Header("Destroy Methods, do not touch!")]
     public bool undermanned = false;
     public bool replaced = false;
     public int usageDiff;
+    public int maxDiff;
 
     private void Awake()
     {
@@ -79,11 +81,11 @@ public class Sites : MonoBehaviour
         {
             res.DecreaseResources(0, 0, 0, -populationUsage, 0, 0);
             FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
-            //message: your last % has become undermanned and was destroyed!
+            FindObjectOfType<Messages>().ShowMessage("Your last " +title +" was destroyed due to being undermanned", new Color(1, 0, 0));
         }
         else if (replaced)
         {
-            res.DecreaseResources(0, 0, 0, usageDiff, 0, 0);
+            res.DecreaseResources(0, 0, 0, usageDiff, 0, maxDiff);
             FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
         }
 

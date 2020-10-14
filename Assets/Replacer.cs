@@ -116,6 +116,7 @@ public class Replacer : MonoBehaviour
         Sites targetSite = oldBuilding.GetComponent<Sites>();
         targetSite.replaced = true;
         targetSite.usageDiff = building.GetComponent<Sites>().populationUsage - targetSite.populationUsage;
+        targetSite.maxDiff = building.GetComponent<Sites>().populationAdd - targetSite.populationAdd;
         Destroy(oldBuilding);
 
         //Create new building

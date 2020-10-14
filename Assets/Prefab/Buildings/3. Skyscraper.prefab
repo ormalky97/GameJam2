@@ -130,6 +130,9 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 16
+  populationAdd: 24
   maxHealth: 500
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
+  undermanned: 0
+  replaced: 0
+  usageDiff: 0
