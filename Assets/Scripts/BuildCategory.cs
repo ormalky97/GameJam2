@@ -38,6 +38,13 @@ public class BuildCategory : MonoBehaviour
         }
     }
 
+    private void OnMouseEnter()
+    {
+        GameObject temp = GameObject.Find("Placer");
+        if (temp != null)
+            Destroy(temp);
+    }
+
     public GameObject GetActiveCategory()
     {
         return currentCategory;

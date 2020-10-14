@@ -31,20 +31,20 @@ public class BuildButton : MonoBehaviour
         site = building.GetComponent<Sites>();
     }
 
-    public void ShowPanel()
+    void ClearPlacers()
     {
-        panel.SetActive(true);
-        panel.GetComponent<PanelGUI>().SetPanel(title, desc, site.foodCost, site.oilCost, site.metalCost, site.populationUsage);
-        panel.transform.position = new Vector2(transform.position.x, transform.position.y + 20f);
-    }
-
-    public void HidePanel()
-    {
-        panel.SetActive(false);
+        GameObject temp = GameObject.Find("Placer");
+        if (temp != null)
+            Destroy(temp);
+        temp = GameObject.Find("Replacer");
+        if (temp != null)
+            Destroy(temp);
     }
 
     public void Build()
     {
+        ClearPlacers();
+
         if (!GameObject.FindObjectOfType<PauseMenu>().isPaused)
         {
             if (CheckResources())

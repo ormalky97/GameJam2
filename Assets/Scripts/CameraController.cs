@@ -42,19 +42,19 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             isResetting = true;
 
-        
+        if (movement != Vector3.zero || transform.position == startPos)
+            isResetting = false;
 
         if(isResetting)
             movement = startPos - transform.position;
             
-
         background.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
     
 
     private void FixedUpdate()
     {
-        rb.velocity = movement * moveSpeed;
+        transform.position = transform.position + movement * moveSpeed;
         rawImage.uvRect = new Rect(rawImage.uvRect.x + movement.x * movementFactorX, rawImage.uvRect.y + movement.y * movementFactorY, rawImage.uvRect.width, rawImage.uvRect.height);
 
         cam.orthographicSize += zoom * -1;

@@ -29,10 +29,8 @@ public class Placer : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         cam = Camera.main;
         res = GameObject.Find("Game Manager").GetComponent<Resources>();
-        
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         site = building.GetComponent<Sites>();
