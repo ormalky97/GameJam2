@@ -120,4 +120,14 @@ public class Resources : MonoBehaviour
 
         gui.DisplayChanges(foodCost * -1, metalCost * -1, oilCost * -1, populationDiff);
     }
+
+    public void AddResources(int foodAdd, int oilAdd, int metalAdd, int populationAdd, int populationDiff, int maxPopDiff)
+    {
+        food -= foodAdd;
+        oil -= oilAdd;
+        metal -= metalAdd;
+        usedPopulation += populationAdd;
+        population += populationDiff;
+        maxPopulation += maxPopDiff;
+    }
 }

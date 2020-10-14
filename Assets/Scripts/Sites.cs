@@ -50,9 +50,9 @@ public class Sites : MonoBehaviour
         Hit();
         if (health <= 0)
         {
-           Destroy(gameObject);
-           res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
-           if (res.population > res.maxPopulation)
+            Destroy(gameObject);
+            res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
+            if (res.population > res.maxPopulation)
                 res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
         }
     }
@@ -70,15 +70,8 @@ public class Sites : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1); //resources add up every sec
-            AddResource();
+            yield return new WaitForSeconds(1f); //resources add up every sec
+            res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
         }
-    }
-
-    void AddResource()
-    {
-        res.food += foodUp;
-        res.metal += metalUp;
-        res.oil += oilUp;
     }
 }
