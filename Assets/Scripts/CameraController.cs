@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public float moveSpeed;
     public float maxZoom;
     public float minZoom;
+    public float resetSpeed;
 
     [Header("Background")]
     public GameObject background;
@@ -18,13 +19,16 @@ public class CameraController : MonoBehaviour
 
     //Refs & Vars
     Camera cam;
+    Rigidbody2D rb;
     Vector3 movement;
     float zoom;
+    Vector3 startPos = new Vector3(0, 0, -10);
     
 
     private void Awake()
     {
         cam = GetComponent<Camera>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -34,12 +38,16 @@ public class CameraController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         zoom = Input.mouseScrollDelta.y;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            movement = startPos - transform.position;
+
         background.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
+    
 
     private void FixedUpdate()
     {
-        transform.position = transform.position + movement * moveSpeed;
+        rb.velocity = movement * moveSpeed;
         rawImage.uvRect = new Rect(rawImage.uvRect.x + movement.x * movementFactorX, rawImage.uvRect.y + movement.y * movementFactorY, rawImage.uvRect.width, rawImage.uvRect.height);
 
         cam.orthographicSize += zoom * -1;
