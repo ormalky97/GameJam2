@@ -32,6 +32,10 @@ public class Sites : MonoBehaviour
     //Inner Vars
     int health;
 
+    public bool undermanned = false;
+    public bool replaced = false;
+    public int usageDiff;
+
     private void Awake()
     {
         manager = GameObject.Find("Game Manager");
@@ -51,21 +55,38 @@ public class Sites : MonoBehaviour
         Debug.Log(health);
         health -= damage;
         Hit();
-        if (health <= 0)
+        if (health <= 0 )
         {
             Destroy(gameObject);
-<<<<<<< HEAD
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if (health <= 0)
+        {
             res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
             if (res.population > res.maxPopulation)
             {
-                FindObjectOfType<BuildingsManager>().DestroyUndermanned();
-=======
-            res.DecreaseResources(0, 0, 0, 0, 0, -populationAdd);
-            if (res.population > res.maxPopulation)
->>>>>>> 8c133fb0cc6f68e1440a32c51481b9bc9e1c8a2c
                 res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
+                if (res.usedPopulation > res.population)
+                {
+                    FindObjectOfType<BuildingsManager>().DestroyUndermanned();
+                }
             }
+        } 
+        else if (undermanned)
+        {
+            res.DecreaseResources(0, 0, 0, -populationUsage, 0, 0);
+            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
+            //message: your last % has become undermanned and was destroyed!
         }
+        else if (replaced)
+        {
+            res.DecreaseResources(0, 0, 0, usageDiff, 0, 0);
+            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
+        }
+
     }
 
     void Hit()

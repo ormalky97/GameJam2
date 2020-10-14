@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BuildingsManager : MonoBehaviour
@@ -38,7 +39,14 @@ public class BuildingsManager : MonoBehaviour
 
     public void DestroyUndermanned()
     {
-        int overdraft = res.population - res.maxPopulation;
-        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        int overdraft = GetComponent<Resources>().usedPopulation - GetComponent<Resources>().population;
+        for (int i = buildings.Count - 1; overdraft > 0; i--)
+        {
+            if (buildings[i].tag == "Food" || buildings[i].tag == "oil" || buildings[i].tag == "Metal")
+            {
+                buildings[i].GetComponent<Sites>().undermanned = true;
+                Destroy(buildings[i]);
+            }
+        }
     }
 }
