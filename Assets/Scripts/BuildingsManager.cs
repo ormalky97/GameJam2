@@ -34,6 +34,9 @@ public class BuildingsManager : MonoBehaviour
         {
             maxDistance = distance;
             maxDistanceIndex = buildings.Count - 1;
+
+            //Update Score
+            FindObjectOfType<Score>().UpdateRadius(maxDistance);
         }
     }
 

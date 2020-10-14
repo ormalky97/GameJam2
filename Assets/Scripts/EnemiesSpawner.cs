@@ -81,7 +81,8 @@ public class EnemiesSpawner : MonoBehaviour
         for (int i = 0; i < waveSize; i++)
         {
             spawnPoint = NewSpawnPosition();
-            nextEnemy = enemies[Random.Range(0, bestEnemy)];
+            int rand = Random.Range(0, bestEnemy + 1);
+            nextEnemy = enemies[rand];
             Instantiate(nextEnemy, spawnPoint, Quaternion.identity);
             yield return new WaitForSeconds(0.1f);
         }

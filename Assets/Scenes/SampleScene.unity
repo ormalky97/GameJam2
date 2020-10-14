@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 440204901}
   - component: {fileID: 440204900}
   m_Layer: 5
-  m_Name: Distance Title
+  m_Name: Radius Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2030,7 +2030,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Max Distance
+  m_Text: Max Radius
 --- !u!222 &440204901
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3627,11 +3627,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  initialWaveTime: 60
+  initialWaveTime: 0
   waveTime: 10
   waveIncreaseTimer: 60
-  newEnemyTimer: 120
+  newEnemyTimer: 10
   enemies:
+  - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 4725096637889953766, guid: bf5088b0e66259c4e86f6e9fe629819e, type: 3}
   - {fileID: 5185527384581766346, guid: 852a9ddf022060d48a5ffd0adafcaac7, type: 3}
@@ -9146,6 +9147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5ac9b56770f2044860ac787191a7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 496572720}
+  radius: {fileID: 2036638457}
 --- !u!114 &1947637682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,7 +9829,7 @@ GameObject:
   - component: {fileID: 2036638458}
   - component: {fileID: 2036638457}
   m_Layer: 5
-  m_Name: Distance
+  m_Name: Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9884,7 +9887,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: XXXXXXX
+  m_Text: 0
 --- !u!222 &2036638458
 CanvasRenderer:
   m_ObjectHideFlags: 0
