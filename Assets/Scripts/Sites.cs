@@ -30,6 +30,7 @@ public class Sites : MonoBehaviour
     GameObject manager;
     Resources res;
     SpriteRenderer spr;
+    GameObject healthbar;
 
     //Inner Vars
     int health;
@@ -45,6 +46,8 @@ public class Sites : MonoBehaviour
         manager = GameObject.Find("Game Manager");
         res = manager.GetComponent<Resources>();
         spr = GetComponent<SpriteRenderer>();
+        healthbar = transform.GetChild(0).gameObject;
+        healthbar.GetComponent<Healthbar>().maxHealth = maxHealth;
         health = maxHealth;
     }
 
@@ -66,6 +69,19 @@ public class Sites : MonoBehaviour
             spr.color = new Color(0, 0, 0, 0.5f);
         else
             spr.color = new Color(1, 1, 1, 1);
+
+        UpdateHealthbar();
+    }
+
+    void UpdateHealthbar()
+    {
+        if (health < maxHealth)
+        {
+            healthbar.SetActive(true);
+            healthbar.GetComponent<Healthbar>().health = health;
+        }
+        else if(healthbar.activeSelf)
+            healthbar.SetActive(false);
     }
 
     public void RecieveDamage(int damage)

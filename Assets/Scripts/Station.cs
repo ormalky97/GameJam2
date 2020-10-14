@@ -9,7 +9,7 @@ public class Station : MonoBehaviour
 
     private void Awake()
     {
-        rangeRenderer = transform.GetChild(0).gameObject;
+        rangeRenderer = transform.GetChild(1).gameObject;
         rangeRenderer.transform.localScale = new Vector2(range, range);
     }
 

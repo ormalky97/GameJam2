@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        firePoint = transform.GetChild(0).gameObject;
+        firePoint = transform.GetChild(1).gameObject;
         rb = GetComponent<Rigidbody2D>();
     }
 
