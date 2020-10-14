@@ -23,6 +23,7 @@ public class CameraController : MonoBehaviour
     Vector3 movement;
     float zoom;
     Vector3 startPos = new Vector3(0, 0, -10);
+    bool isResetting = false;
     
 
     private void Awake()
@@ -39,7 +40,13 @@ public class CameraController : MonoBehaviour
         zoom = Input.mouseScrollDelta.y;
 
         if (Input.GetKeyDown(KeyCode.Space))
+            isResetting = true;
+
+        
+
+        if(isResetting)
             movement = startPos - transform.position;
+            
 
         background.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
