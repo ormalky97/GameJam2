@@ -13,15 +13,22 @@ public class Resources : MonoBehaviour
     public int population;
     public int usedPopulation;
     public int maxPopulation;
-
+   
+    [Header("Audio Clips")]
+    public AudioClip noOil;
+    public AudioClip noMetal;
+    public AudioClip arrival;
+    
     GUI gui;
     Messages messages;
     bool oilZero = false;
+    AudioSource audioSource;
 
     void Awake()
     {
         gui = FindObjectOfType<GUI>();
         messages = FindObjectOfType<Messages>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -47,7 +54,8 @@ public class Resources : MonoBehaviour
     void NoOil()
     {
         oilZero = true;
-        foreach(GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        audioSource.PlayOneShot(noOil);
+        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
         {
             if(building.tag != "Turret" && building.name != "Colony Center")
             {
@@ -76,6 +84,8 @@ public class Resources : MonoBehaviour
             NoOil();
         else if (oilZero)
             RestartOil();
+        if (metal <= 0)
+            audioSource.PlayOneShot(noMetal);
     }
 
 
@@ -153,6 +163,7 @@ public class Resources : MonoBehaviour
 
 
                     DecreaseResources(0, 0, 0, 0, Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4)), 0);
+                    audioSource.PlayOneShot(arrival);
                     Debug.Log("New Colonists Arrived");
                  }
                  //elif (popConsumption > totalRes) //pop-

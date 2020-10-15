@@ -12,7 +12,7 @@ public class RocketTurret : MonoBehaviour
     public GameObject rocket;
 
     [Header("Audio Clips")]
-    public AudioClip shoot;
+    public AudioClip launch;
 
     [Header("Refs")]
     public GameObject shotEffect;
@@ -69,7 +69,7 @@ public class RocketTurret : MonoBehaviour
 
         //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);
-        audioSource.PlayOneShot(shoot);
+        audioSource.PlayOneShot(launch);
         audioSource.pitch = 1f;
 
         yield return new WaitForSeconds(1 / fireRate);

@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
     [Header("Hit Effect")]
     public GameObject hitEffect;
 
+    [Header("Hit Effect")]
+    public AudioClip attackSound;
+    public AudioClip scarySpawn;
+
+
     //Refs
     GameObject target;
     Rigidbody2D rb;
@@ -31,6 +36,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        GetComponent<AudioSource>().PlayOneShot(scarySpawn, 1f);
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
     }
@@ -72,6 +78,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
+        GetComponent<AudioSource>().PlayOneShot(attackSound, 1f);
         canAttack = false;
         target.GetComponent<Sites>().RecieveDamage(damage);
         yield return new WaitForSeconds(1 / attackRate);

@@ -50,6 +50,7 @@ public class Rocket : MonoBehaviour
             hit.GetComponent<Enemy>().RecieveDamage(damage);
 
             Vector2 dir = (hit.transform.position - transform.position);
+            GetComponent<AudioSource>().Play();
             hit.GetComponent<Rigidbody2D>().AddForce(dir * expForce / Vector2.Distance(transform.position, hit.transform.position), ForceMode2D.Impulse);
         }
         //vfx

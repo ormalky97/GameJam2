@@ -27,8 +27,10 @@ public class Sites : MonoBehaviour
     public GameObject hitEffect;
 
     [Header("Audio Clips")]
-    public AudioClip hitSound;
     public AudioClip buildSound;
+    public AudioClip hitSound;
+    public AudioClip destroyedSound;
+
 
     //Refs
     GameObject manager;
@@ -147,6 +149,7 @@ public class Sites : MonoBehaviour
         {
             if (gameObject == FindObjectOfType<BuildingsManager>().buildings[0])
                 FindObjectOfType<GameOverMenu>().GameOver();
+            audioSource.PlayOneShot(destroyedSound);
             res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
             if (res.population > res.maxPopulation)
             {
@@ -159,6 +162,7 @@ public class Sites : MonoBehaviour
         } 
         else if (undermanned)
         {
+            audioSource.PlayOneShot(destroyedSound);
             res.DecreaseResources(0, 0, 0, -populationUsage, 0, 0);
             FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
             FindObjectOfType<Messages>().ShowMessage("Your last " +title +" was destroyed due to being undermanned", new Color(1, 0, 0));
