@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around, and Space to reset view to Colony Center.";
+                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around, and Space to reset the view to the Colony Center.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
                     break;
 
@@ -156,7 +156,7 @@ public class TutorialManager : MonoBehaviour
                     nextMessage = "Once a minute, our colony pays it's Upkeep Costs, decreasing our Resources as follows:\n";
                     nextMessage += "5 Food per Free Colonist, 10 Food per Used Colonist\n";
                     nextMessage += "60 Metal per Turret and 60 Oil per Station\n";
-                    nextMessage += "If you don't have enough Resources to pay the Upkeep,\nTurrets will stop working, Buildings outside of the colony Center's range will become temporarily disabled,\n and Colonists will leave the colony.";
+                    nextMessage += "If you don't have enough Resources to pay the Upkeep,\nTurrets will stop working, Buildings outside of the Colony Center's range will become temporarily disabled,\n and Colonists will leave the colony.";
                     ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 500f), false);
                     break;
 

@@ -35,14 +35,14 @@ public class MenuBackground : MonoBehaviour
         background.uvRect = new Rect(newX, newY, background.uvRect.width, background.uvRect.height);
 
         //Move Buildings
-        foreach (GameObject building in activeBuildings)
+        for(int i = 0; i < activeBuildings.Count; i++)
         {
-            if (building.transform.position.x > xDestroy)
-                building.transform.position = new Vector2(building.transform.position.x - speed * Time.deltaTime, building.transform.position.y);
+            if (activeBuildings[i].transform.position.x > xDestroy)
+                activeBuildings[i].transform.position = new Vector2(activeBuildings[i].transform.position.x - speed * Time.deltaTime, activeBuildings[i].transform.position.y);
             else
             {
-                activeBuildings.Remove(building);
-                Destroy(building);
+                Destroy(activeBuildings[i]);
+                activeBuildings.RemoveAt(i);
             }
         }
     }
