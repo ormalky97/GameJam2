@@ -85,7 +85,7 @@ public class Resources : MonoBehaviour
         else if (oilZero)
             RestartOil();
         if (metal <= 0)
-            audioSource.PlayOneShot(noMetal);
+            audioSource.PlayOneShot(noMetal, 0.5f);
     }
 
 

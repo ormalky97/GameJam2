@@ -36,7 +36,6 @@ public class PanelGUI : MonoBehaviour
         oilCost = site.oilCost;
         metalCost = site.metalCost;
         populationCost = site.populationUsage;
-
         UpdatePanel();
     }
 

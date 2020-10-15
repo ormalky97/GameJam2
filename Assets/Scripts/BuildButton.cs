@@ -36,6 +36,7 @@ public class BuildButton : MonoBehaviour
     {
         Vector2 PanelPos = new Vector2(transform.position.x, transform.position.y + 15);
         buildPanel.SetActive(true);
+        buildPanel.GetComponent<PanelGUI>().SetPanel(building, desc);
         buildPanel.transform.position = PanelPos;
     }
 

@@ -58,6 +58,7 @@ public class Rocket : MonoBehaviour
         Destroy(exp, 2f);
 
         //sfx
+        GetComponent<AudioSource>().Play();
 
         Destroy(gameObject);
     }
