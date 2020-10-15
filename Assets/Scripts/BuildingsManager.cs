@@ -15,8 +15,6 @@ public class BuildingsManager : MonoBehaviour
     {
         buildings = new List<GameObject>();
         stations = new List<GameObject>();
-
-        NewBuilding(gameObject);
     }
 
     public float GetMaxDistance()

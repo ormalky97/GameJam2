@@ -15,11 +15,13 @@ public class Resources : MonoBehaviour
     public int maxPopulation;
 
     GUI gui;
+    Messages messages;
     bool oilZero = false;
 
     void Awake()
     {
-        gui = GameObject.FindObjectOfType<GUI>();
+        gui = FindObjectOfType<GUI>();
+        messages = FindObjectOfType<Messages>();
     }
 
     void Start()
@@ -168,6 +170,11 @@ public class Resources : MonoBehaviour
         maxPopulation += maxPopDiff;
 
         gui.DisplayChanges(foodCost * -1, metalCost * -1, oilCost * -1, populationDiff);
+
+        if (populationDiff > 0)
+            messages.ShowMessage(populationDiff + " new colonists have arrived to the colony", new Color(1, 1, 1));
+        else if(populationDiff < 0)
+            messages.ShowMessage(populationDiff + " colonists have left the colony", new Color(1, 0, 0));
     }
 
     public void AddResources(int foodAdd, int oilAdd, int metalAdd, int populationAdd, int populationDiff, int maxPopDiff)

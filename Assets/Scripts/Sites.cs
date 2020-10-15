@@ -34,6 +34,7 @@ public class Sites : MonoBehaviour
 
     //Inner Vars
     int health;
+    int fixCounter = 0;
 
     [Header("Destroy Methods, do not touch!")]
     public bool undermanned = false;
@@ -73,6 +74,17 @@ public class Sites : MonoBehaviour
         UpdateHealthbar();
     }
 
+    private void FixedUpdate()
+    {
+        if(fixCounter < 3000)
+            fixCounter++;
+        else
+        {
+            health++;
+        }
+        
+    }
+
     void UpdateHealthbar()
     {
         if (health < maxHealth)
@@ -89,10 +101,9 @@ public class Sites : MonoBehaviour
         Debug.Log(health);
         health -= damage;
         Hit();
+        fixCounter = 0;
         if (health <= 0 )
-        {
             Destroy(gameObject);
-        }
     }
 
     public void OnDestroy()
