@@ -26,15 +26,22 @@ public class Sites : MonoBehaviour
     public int maxHealth;
     public GameObject hitEffect;
 
+    [Header("Audio Clips")]
+    public AudioClip hitSound;
+    public AudioClip buildSound;
+
     //Refs
     GameObject manager;
     Resources res;
     SpriteRenderer spr;
     GameObject healthbar;
+    AudioSource audioSource;
+    Camera cam;
 
     //Inner Vars
     int health;
     int fixCounter = 0;
+    float distanceToCamera;
 
     [Header("Destroy Methods, do not touch!")]
     public bool undermanned = false;
@@ -49,6 +56,9 @@ public class Sites : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         healthbar = transform.GetChild(0).gameObject;
         healthbar.GetComponent<Healthbar>().maxHealth = maxHealth;
+        audioSource = GetComponent<AudioSource>();
+        cam = Camera.main;
+
         health = maxHealth;
     }
 
@@ -57,6 +67,7 @@ public class Sites : MonoBehaviour
         manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
         res.DecreaseResources(0, 0, 0, 0, 0, populationAdd);
+        audioSource.PlayOneShot(buildSound);
     }
 
     private void Update()
@@ -72,17 +83,36 @@ public class Sites : MonoBehaviour
             spr.color = new Color(1, 1, 1, 1);
 
         UpdateHealthbar();
+        distanceToCamera = Vector2.Distance(transform.position, cam.transform.position);
+    }
+
+    private void LateUpdate()
+    {
+        healthbar.transform.rotation = Quaternion.Euler(0, 0, 0);
+        healthbar.transform.position = new Vector2(transform.position.x, transform.position.y + 1.3f);
     }
 
     private void FixedUpdate()
     {
-        if(fixCounter < 3000)
+        if (fixCounter < 3000)
+        {
+            StopCoroutine("Fix");
             fixCounter++;
+        }
         else
         {
-            health++;
+            StartCoroutine("Fix");
         }
         
+    }
+
+    IEnumerator Fix()
+    {
+        while(health < maxHealth)
+        {
+            health++;
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     void UpdateHealthbar()
@@ -98,9 +128,14 @@ public class Sites : MonoBehaviour
 
     public void RecieveDamage(int damage)
     {
-        Debug.Log(health);
         health -= damage;
+
+        //Sound and VFX
         Hit();
+        audioSource.pitch = Random.Range(0.5f, 1.5f);
+        audioSource.PlayOneShot(hitSound);
+        audioSource.pitch = 1f;
+
         fixCounter = 0;
         if (health <= 0 )
             Destroy(gameObject);

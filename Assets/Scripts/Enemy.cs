@@ -49,13 +49,13 @@ public class Enemy : MonoBehaviour
         {
             //Move Toawrds Colony Center
             Vector2 dir = Vector3.zero - transform.position;
-            rb.velocity = dir.normalized * moveSpeed;
+            rb.AddForce(dir.normalized * moveSpeed);
         }
         else
         {
             if (Vector2.Distance(target.transform.position, transform.position) <= attackDistance || isTouching)
             {
-                rb.velocity = new Vector2(0, 0);
+                //rb.velocity = new Vector2(0, 0);
                 if (canAttack)
                     StartCoroutine("Attack");
             }
@@ -134,6 +134,6 @@ public class Enemy : MonoBehaviour
     void GoToTarget()
     {
         Vector2 dir = target.transform.position - transform.position;
-        rb.velocity = dir.normalized * moveSpeed;
+        rb.AddForce(dir.normalized * moveSpeed);
     }
 }

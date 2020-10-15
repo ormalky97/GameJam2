@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class SniperTurret : MonoBehaviour
 {
     [Header("Settings")]
     public int damage;
-    public float range;
+    //public float range;
     public float fireRate;
 
     [Header("Audio Clips")]
@@ -15,12 +15,14 @@ public class Turret : MonoBehaviour
 
     [Header("Refs")]
     public GameObject shotEffect;
+    public LineRenderer lineRenderer;
 
     //Refs
     GameObject target;
     GameObject firePoint;
     Rigidbody2D rb;
     AudioSource audioSource;
+    
 
     //Vars
     bool canShoot = true;
@@ -36,22 +38,16 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             FindTarget();
         }
         else
         {
-            if (Vector2.Distance(transform.position, target.transform.position) > range)
-                target = null;
-            else
+            SetRotation();
+            if (canShoot && FindObjectOfType<Resources>().metal != 0)
             {
-                SetRotation();
-                if (canShoot && FindObjectOfType<Resources>().metal != 0)
-                {
-                    StartCoroutine("Shoot");
-                }
-                      
+                StartCoroutine("Shoot");
             }
         }
     }
@@ -59,9 +55,25 @@ public class Turret : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
-        target.GetComponent<Enemy>().RecieveDamage(damage);
+        Vector2 dir = target.transform.position - transform.position;
 
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, dir, 100f, LayerMask.GetMask("Enemies"));
+        foreach(RaycastHit2D hit in hits)
+        {
+            hit.collider.GetComponent<Enemy>().RecieveDamage(damage);
+        }
+
+        //VFX
+        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        lineRenderer.SetPosition(0, Vector2.zero);
+        lineRenderer.SetPosition(1, transform.up);
+
+        lineRenderer.enabled = true;
+        yield return 0;
+        //lineRenderer.enabled = false;
+
+
+        //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);
         audioSource.PlayOneShot(shoot);
         audioSource.pitch = 1f;
@@ -79,10 +91,8 @@ public class Turret : MonoBehaviour
 
     void FindTarget()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, range, LayerMask.GetMask("Enemies"));
-        if (hit != null)
-        {
-            target = hit.gameObject;
-        }
+        GameObject temp = GameObject.FindGameObjectWithTag("Enemy");
+        if (temp != null)
+            target = temp;
     }
 }

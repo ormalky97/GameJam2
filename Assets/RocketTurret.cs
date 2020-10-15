@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class RocketTurret : MonoBehaviour
 {
     [Header("Settings")]
     public int damage;
     public float range;
     public float fireRate;
+    public GameObject rocket;
 
     [Header("Audio Clips")]
     public AudioClip shoot;
@@ -36,7 +37,7 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             FindTarget();
         }
@@ -51,7 +52,7 @@ public class Turret : MonoBehaviour
                 {
                     StartCoroutine("Shoot");
                 }
-                      
+
             }
         }
     }
@@ -59,9 +60,14 @@ public class Turret : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
-        target.GetComponent<Enemy>().RecieveDamage(damage);
+        GameObject temp = Instantiate(rocket, firePoint.transform.position, Quaternion.identity);
+        temp.GetComponent<Rocket>().target = target.transform.position;
+        temp.GetComponent<Rocket>().damage = damage;
 
+        //VFX
+        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+
+        //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);
         audioSource.PlayOneShot(shoot);
         audioSource.pitch = 1f;
