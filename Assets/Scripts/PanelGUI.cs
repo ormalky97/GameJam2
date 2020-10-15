@@ -27,14 +27,15 @@ public class PanelGUI : MonoBehaviour
             transform.position = new Vector2(150, transform.position.y);
     }
 
-    public void SetPanel(string t, string d, int food, int oil, int met, int pop)
+    public void SetPanel(GameObject obj, string d)
     {
-        title = t;
+        Sites site = obj.GetComponent<Sites>();
+        title = site.title;
         desc = d;
-        foodCost = food;
-        oilCost = oil;
-        metalCost = met;
-        populationCost = pop;
+        foodCost = site.foodCost;
+        oilCost = site.oilCost;
+        metalCost = site.metalCost;
+        populationCost = site.populationUsage;
 
         UpdatePanel();
     }

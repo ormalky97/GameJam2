@@ -13,6 +13,14 @@ public class Station : MonoBehaviour
         rangeRenderer.transform.localScale = new Vector2(range, range);
     }
 
+    public bool CheckInRange(GameObject toCheck)
+    {
+        if (Vector2.Distance(transform.position, toCheck.transform.position) <= range/2)
+            return true;
+        else
+            return false;
+    }
+
     public void ShowRange()
     {
         if(GetComponent<Sites>().active)
@@ -23,5 +31,10 @@ public class Station : MonoBehaviour
     {
         if (GetComponent<Sites>().active)
             rangeRenderer.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<BuildingsManager>().stations.Remove(gameObject);
     }
 }

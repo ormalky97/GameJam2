@@ -68,9 +68,7 @@ public class Replacer : MonoBehaviour
             Destroy(gameObject);
 
         if (Input.GetMouseButtonDown(1))
-        {
             Destroy(gameObject);
-        }
 
         if (CheckDistance())
         {

@@ -76,6 +76,12 @@ public class Enemy : MonoBehaviour
             isTouching = true;
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (target == collision.gameObject)
+            isTouching = false;
+    }
+
     IEnumerator Attack()
     {
         GetComponent<AudioSource>().PlayOneShot(attackSound, 1f);
@@ -114,7 +120,7 @@ public class Enemy : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, viewRange, LayerMask.GetMask("Building"));
         foreach (Collider2D hit in hits)
         {
-            if (hit.tag == prefTarget.tag)
+            if (hit.CompareTag(target.tag))
                 target = hit.gameObject;
         }
     }
@@ -129,7 +135,7 @@ public class Enemy : MonoBehaviour
                 target = hit.gameObject;
             else
             {
-                if (prefTarget != null && hit.tag == prefTarget.tag)
+                if (prefTarget != null && hit.CompareTag(target.tag))
                 {
                     target = hit.gameObject;
                     return;
