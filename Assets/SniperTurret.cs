@@ -66,11 +66,11 @@ public class SniperTurret : MonoBehaviour
         //VFX
         Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
         lineRenderer.SetPosition(0, Vector2.zero);
-        lineRenderer.SetPosition(1, transform.up);
+        lineRenderer.SetPosition(1, Vector2.up * 100f);
 
         lineRenderer.enabled = true;
-        yield return 0;
-        //lineRenderer.enabled = false;
+        yield return new WaitForSeconds(0.02f);
+        lineRenderer.enabled = false;
 
 
         //SFX
