@@ -9,6 +9,7 @@ public class Rocket : MonoBehaviour
     public float expRadius;
     public float expForce;
     public float lifeTime;
+    public GameObject expEffect;
 
     public Vector2 target;
 
@@ -48,11 +49,14 @@ public class Rocket : MonoBehaviour
         {
             hit.GetComponent<Enemy>().RecieveDamage(damage);
 
-            Vector2 dir = (hit.transform.position - transform.position)/Vector2.Distance(transform.position, hit.transform.position);
-            hit.GetComponent<Rigidbody2D>().AddForce(dir * expForce, ForceMode2D.Impulse);
+            Vector2 dir = (hit.transform.position - transform.position);
+            hit.GetComponent<Rigidbody2D>().AddForce(dir * expForce / Vector2.Distance(transform.position, hit.transform.position), ForceMode2D.Impulse);
         }
-        //sfx
         //vfx
+        GameObject exp = Instantiate(expEffect, transform.position, Quaternion.identity);
+        Destroy(exp, 2f);
+
+        //sfx
 
         Destroy(gameObject);
     }

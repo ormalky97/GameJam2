@@ -309,7 +309,7 @@ MonoBehaviour:
   damage: 5
   range: 10
   fireRate: 0.5
-  rocket: {fileID: 8444694207245174880, guid: f2aa477a85b805c43a2df196f6393762, type: 3}
+  rocket: {fileID: 8444694207245174880, guid: 9163b6fe14227e84fb010eb95b796c8b, type: 3}
   shoot: {fileID: 0}
   shotEffect: {fileID: 7881490575244311990, guid: 129adb0e43c6b114abb2975320374deb, type: 3}
 --- !u!1001 &1950023647323382237
