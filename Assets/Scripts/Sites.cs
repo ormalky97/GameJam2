@@ -39,6 +39,7 @@ public class Sites : MonoBehaviour
     GameObject healthbar;
     AudioSource audioSource;
     Camera cam;
+    GameObject toStation;
 
     //Inner Vars
     int health;
@@ -69,20 +70,44 @@ public class Sites : MonoBehaviour
         manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
         res.DecreaseResources(0, 0, 0, 0, 0, populationAdd);
+
+        //SFX
         audioSource.PlayOneShot(buildSound);
+    }
+
+    bool FindStation()
+    {
+        foreach (GameObject station in FindObjectOfType<BuildingsManager>().stations)
+        {
+            if (station.GetComponent<Station>().CheckInRange(gameObject))
+            {
+                toStation = station;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void ActiveColor()
+    {
+        if (!active)
+            spr.color = new Color(0.7f, 0.7f, 0.7f);
+        else
+            spr.color = new Color(1, 1, 1);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-            active = false;
-        if (Input.GetKeyDown(KeyCode.V))
-            active = true;
+        ActiveColor();
 
-        if (!active)
-            spr.color = new Color(0, 0, 0, 0.5f);
-        else
-            spr.color = new Color(1, 1, 1, 1);
+        if(toStation == null && !CompareTag("Turret"))
+        {
+            if (FindStation())
+                active = true;
+            else
+                active = false;
+        }
 
         UpdateHealthbar();
         distanceToCamera = Vector2.Distance(transform.position, cam.transform.position);
@@ -173,6 +198,7 @@ public class Sites : MonoBehaviour
             FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
         }
 
+        FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
     }
 
     void Hit()

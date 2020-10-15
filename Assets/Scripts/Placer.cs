@@ -66,6 +66,9 @@ public class Placer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && protect)
             Destroy(gameObject);
 
+        if (Input.GetMouseButtonDown(1))
+            Destroy(gameObject);
+
         if (CheckDistance())
         {
             if (CheckPlace())
@@ -84,16 +87,11 @@ public class Placer : MonoBehaviour
                     tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
                 }
             }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                Destroy(gameObject);
-            }
         }
         else
         {
             spr.color = new Color(1, 0, 0, 0.75f);
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !protect)
                 tooltip.ShowMessage("Can't build so far from a station", new Color(1, 1, 1, 1));
         }
     }

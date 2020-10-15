@@ -14,10 +14,11 @@ public class BuildButton : MonoBehaviour
     public GameObject building;
     public string title;
     public string desc;
-    
+
     [Header("Refs")]
+    public GameObject buildPanel;
     public GameObject placer;
-    public GameObject panel;
+
 
     //Refs
     GameObject manager;
@@ -29,6 +30,18 @@ public class BuildButton : MonoBehaviour
         manager = GameObject.Find("Game Manager");
         res = manager.GetComponent<Resources>();
         site = building.GetComponent<Sites>();
+    }
+
+    public void ShowBuildPanel()
+    {
+        Vector2 PanelPos = new Vector2(transform.position.x, transform.position.y + 15);
+        buildPanel.SetActive(true);
+        buildPanel.transform.position = PanelPos;
+    }
+
+    public void HideBuildPanel()
+    {
+        buildPanel.SetActive(false);
     }
 
     void ClearPlacers()
