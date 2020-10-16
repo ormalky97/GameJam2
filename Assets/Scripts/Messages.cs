@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Messages : MonoBehaviour
 {
+    [Header("Settings")]
     public float messageTime;   //How long to display before decay starts
     public float decayFactor;   //How fast to decay
 
@@ -27,6 +28,11 @@ public class Messages : MonoBehaviour
         ui.text = message;
         ui.color = color;
         StartCoroutine("Decay", messageTime);
+    }
+
+    public void ShowMessage(string message)
+    {
+        ShowMessage(message, new Color(1, 1, 1, 1));
     }
 
     // Update is called once per frame

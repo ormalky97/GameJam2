@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935873276657612183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0113983, y: -0.16, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6249966379591467362}
@@ -277,9 +277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Rocket Turret
-  foodCost: 800
-  oilCost: 800
-  metalCost: 800
+  foodCost: 700
+  oilCost: 700
+  metalCost: 700
   populationUsage: 0
   foodUp: 0
   metalUp: 0
@@ -312,7 +312,6 @@ MonoBehaviour:
   fireRate: 0.5
   rocket: {fileID: 8444694207245174880, guid: 9163b6fe14227e84fb010eb95b796c8b, type: 3}
   launch: {fileID: 8300000, guid: d078ca337baae7e42a3b5837745c3843, type: 3}
-  explode: {fileID: 8300000, guid: 31e08c858bd18e649af220fbc380d158, type: 3}
   shotEffect: {fileID: 7881490575244311990, guid: 129adb0e43c6b114abb2975320374deb, type: 3}
 --- !u!1001 &1950023647323382237
 PrefabInstance:

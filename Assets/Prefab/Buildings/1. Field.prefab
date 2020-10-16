@@ -232,6 +232,7 @@ MonoBehaviour:
   active: 1
   maxHealth: 150
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
+  resourcePopup: {fileID: 2477307937780980101, guid: 509b3150b1471884a95e89fc3174b5f7, type: 3}
   buildSound: {fileID: 8300000, guid: 7bdb441e54b3a8d48983beda65bf8d3b, type: 3}
   hitSound: {fileID: 8300000, guid: ee30c5548365d6549b2c159a1d25db42, type: 3}
   destroyedSound: {fileID: 8300000, guid: d651ed5149fc6fa4f998ef0f4f724d74, type: 3}

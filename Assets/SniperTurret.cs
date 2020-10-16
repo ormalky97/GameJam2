@@ -45,7 +45,7 @@ public class SniperTurret : MonoBehaviour
         else
         {
             SetRotation();
-            if (canShoot && FindObjectOfType<Resources>().metal != 0)
+            if (canShoot && FindObjectOfType<PlayerResources>().Metal() > 0)
             {
                 StartCoroutine("Shoot");
             }
@@ -64,7 +64,8 @@ public class SniperTurret : MonoBehaviour
         }
 
         //VFX
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        GameObject temp = Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        Destroy(temp, 2f);
         lineRenderer.SetPosition(0, Vector2.zero);
         lineRenderer.SetPosition(1, Vector2.up * 100f);
 

@@ -99,13 +99,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   maxHealth: 5
-  moveSpeed: 1
+  moveSpeed: 0.5
   viewRange: 5
   attackDistance: 1.5
   attackRate: 2
   prefTarget: {fileID: 0}
   onlyPref: 0
   hitEffect: {fileID: 5627736225707098770, guid: 9ee34e9d323832740a31ffb616645c38, type: 3}
+  attackSound: {fileID: 0}
+  scarySpawn: {fileID: 0}
 --- !u!50 &8585067804245777449
 Rigidbody2D:
   serializedVersion: 4

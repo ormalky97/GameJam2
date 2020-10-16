@@ -21,20 +21,20 @@ public class BuildButton : MonoBehaviour
 
 
     //Refs
-    GameObject manager;
-    Resources res;
+    PlayerResources res;
     Sites site;
+
+    string reason;
 
     private void Awake()
     {
-        manager = GameObject.Find("Game Manager");
-        res = manager.GetComponent<Resources>();
+        res = FindObjectOfType<PlayerResources>();
         site = building.GetComponent<Sites>();
     }
 
     public void ShowBuildPanel()
     {
-        Vector2 PanelPos = new Vector2(transform.position.x, transform.position.y + 15);
+        Vector2 PanelPos = transform.position + Vector3.up * 15;
         buildPanel.SetActive(true);
         buildPanel.GetComponent<PanelGUI>().SetPanel(building, desc);
         buildPanel.transform.position = PanelPos;
@@ -59,7 +59,7 @@ public class BuildButton : MonoBehaviour
     {
         ClearPlacers();
 
-        if (!GameObject.FindObjectOfType<PauseMenu>().isPaused)
+        if (!FindObjectOfType<PauseMenu>().isPaused)
         {
             if (CheckResources())
             {
@@ -79,27 +79,40 @@ public class BuildButton : MonoBehaviour
                 building.GetComponent<Sites>().metalCost = site.metalCost;
                 building.GetComponent<Sites>().populationUsage = site.populationUsage;
             }
-            else
-            {
-                GameObject.FindObjectOfType<Messages>().ShowMessage("Not enough resources or free population", new Color(1, 1, 1, 1));
-            }
         }
         else
         {
-            GameObject.FindObjectOfType<Messages>().ShowMessage("Can't build while game is paused", new Color(1, 1, 1, 1));
+            FindObjectOfType<Messages>().ShowMessage("Can't build while game is paused", new Color(1, 1, 1, 1));
         }
+    }
+
+    string CheckResource(Resource resource, Resource target)
+    {
+        if (resource < target)
+            return "Not enough " + resource.name + "\n";
+        else
+            return "";
+    }
+    string CheckResource(int pop)
+    {
+        if (res.Population().population < pop)
+            return "Not enough Population \n";
+        else
+            return "";
     }
 
     bool CheckResources()
     {
-        if(res.food >= site.foodCost &&
-           res.oil >= site.oilCost &&
-           res.metal >= site.metalCost &&
-           res.population - res.usedPopulation >= site.populationUsage)
-        {
+        reason = "";
+        reason += CheckResource(res.Food(), new Food(site.foodCost));
+        reason += CheckResource(res.Metal(), new Metal(site.metalCost));
+        reason += CheckResource(res.Oil(), new Oil (site.oilCost));
+        reason += CheckResource(site.populationUsage);
+
+        if (reason == "")
             return true;
-        }
-        else
-            return false;
+
+        FindObjectOfType<Messages>().ShowMessage(reason);
+        return false;
     }
 }

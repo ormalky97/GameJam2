@@ -19,7 +19,7 @@ public class Sites : MonoBehaviour
     public int foodUp; //per sec
     public int metalUp; //per sec
     public int oilUp; //per sec
-    public int populationAdd;
+    public int maxPopAdd;
 
     [Header("Settings")]
     public bool active = true;
@@ -31,10 +31,12 @@ public class Sites : MonoBehaviour
     public AudioClip hitSound;
     public AudioClip destroyedSound;
 
+    public Food costFood;
+    public Metal costMetal;
+    public Oil costOil;
 
     //Refs
-    GameObject manager;
-    Resources res;
+    PlayerResources res;
     SpriteRenderer spr;
     GameObject healthbar;
     AudioSource audioSource;
@@ -44,32 +46,33 @@ public class Sites : MonoBehaviour
     //Inner Vars
     int health;
     int fixCounter = 0;
-    float distanceToCamera;
 
     [Header("Destroy Methods, do not touch!")]
     public bool undermanned = false;
-    public bool replaced = false;
-    public int usageDiff;
-    public int maxDiff;
 
     private void Awake()
     {
-        manager = GameObject.Find("Game Manager");
-        res = manager.GetComponent<Resources>();
+        res = FindObjectOfType<PlayerResources>();
         spr = GetComponent<SpriteRenderer>();
         healthbar = transform.GetChild(0).gameObject;
         healthbar.GetComponent<Healthbar>().maxHealth = maxHealth;
         audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
 
+        costFood = new Food(foodCost);
+        costMetal = new Metal(metalCost);
+        costOil = new Oil(oilCost);
+
         health = maxHealth;
     }
 
     void Start()
     {
-        manager.GetComponent<BuildingsManager>().NewBuilding(gameObject);
+        FindObjectOfType<BuildingsManager>().NewBuilding(gameObject);
         StartCoroutine("GetResource");
-        res.DecreaseResources(0, 0, 0, 0, 0, populationAdd);
+
+        if (maxPopAdd > 0)
+            res.Population().Add(0, 0, maxPopAdd);
 
         //SFX
         audioSource.PlayOneShot(buildSound);
@@ -94,7 +97,7 @@ public class Sites : MonoBehaviour
         if (!active)
             spr.color = new Color(0.7f, 0.7f, 0.7f);
         else
-            spr.color = new Color(1, 1, 1);
+            spr.color = Color.white;
     }
 
     private void Update()
@@ -110,13 +113,12 @@ public class Sites : MonoBehaviour
         }
 
         UpdateHealthbar();
-        distanceToCamera = Vector2.Distance(transform.position, cam.transform.position);
     }
 
     private void LateUpdate()
     {
         healthbar.transform.rotation = Quaternion.Euler(0, 0, 0);
-        healthbar.transform.position = new Vector2(transform.position.x, transform.position.y + 1.3f);
+        healthbar.transform.position = transform.position + Vector3.up * 1.3f;
     }
 
     private void FixedUpdate()
@@ -129,6 +131,7 @@ public class Sites : MonoBehaviour
         else
         {
             StartCoroutine("Fix");
+            fixCounter = 0;
         }
         
     }
@@ -168,34 +171,28 @@ public class Sites : MonoBehaviour
             Destroy(gameObject);
     }
 
+    
+
     public void OnDestroy()
     {
         if (health <= 0)
         {
+            //Colony Center - Game Over
             if (gameObject == FindObjectOfType<BuildingsManager>().buildings[0])
                 FindObjectOfType<GameOverMenu>().GameOver();
-            audioSource.PlayOneShot(destroyedSound);
-            res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
-            if (res.population > res.maxPopulation)
-            {
-                res.DecreaseResources(0, 0, 0, 0, res.maxPopulation - res.population, 0);
-                if (res.usedPopulation > res.population)
-                {
-                    FindObjectOfType<BuildingsManager>().DestroyUndermanned();
-                }
-            }
+
+            //Decrease Population
+            res.Population().Decrease(populationUsage, populationUsage, maxPopAdd);
+
+            //Overdrafted
+            if (res.Population().isOverdraft())
+                FindObjectOfType<BuildingsManager>().Overdrafted();
         } 
         else if (undermanned)
         {
-            audioSource.PlayOneShot(destroyedSound);
-            res.DecreaseResources(0, 0, 0, -populationUsage, 0, 0);
-            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
-            FindObjectOfType<Messages>().ShowMessage("Your last " +title +" was destroyed due to being undermanned", new Color(1, 0, 0));
-        }
-        else if (replaced)
-        {
-            res.DecreaseResources(0, 0, 0, usageDiff, 0, maxDiff);
-            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
+            res.Population().Decrease(0, populationUsage, 0);
+
+            FindObjectOfType<Messages>().ShowMessage("Your last " +title +" was destroyed due to being undermanned", Color.red);
         }
 
         FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
@@ -216,8 +213,10 @@ public class Sites : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f); //resources add up every sec
-            if(active)
-                res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
+            if (active)
+            {
+                res.AddResources(foodUp, metalUp, oilUp);
+            }
         }
     }
 }

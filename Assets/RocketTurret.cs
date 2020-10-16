@@ -48,7 +48,7 @@ public class RocketTurret : MonoBehaviour
             else
             {
                 SetRotation();
-                if (canShoot && FindObjectOfType<Resources>().metal != 0)
+                if (canShoot && FindObjectOfType<PlayerResources>().Metal() > 0)
                 {
                     StartCoroutine("Shoot");
                 }
@@ -65,7 +65,8 @@ public class RocketTurret : MonoBehaviour
         temp.GetComponent<Rocket>().damage = damage;
 
         //VFX
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        temp = Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        Destroy(temp, 2f);
 
         //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);

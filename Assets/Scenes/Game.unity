@@ -2171,18 +2171,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 352217485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec338a8d289faa45b0846d228222294, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b5a3cfc9dd4624cacec68cf7ed2d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 1148099340}
-  oil: {fileID: 1273847554}
-  metal: {fileID: 874024460}
-  population: {fileID: 906808782}
-  foodCahnge: {fileID: 1697855221}
-  metalChange: {fileID: 1346214535}
-  oilChange: {fileID: 1358972075}
-  populationChange: {fileID: 1729299800}
-  decayFactor: 0.5
+  population: {fileID: 0}
+  populationChange: {fileID: 0}
+  decayFactor: 0
 --- !u!1 &354559109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,10 +4928,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740974409}
-  - component: {fileID: 740974408}
   - component: {fileID: 740974410}
   - component: {fileID: 740974411}
   - component: {fileID: 740974412}
+  - component: {fileID: 740974413}
+  - component: {fileID: 740974408}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -4954,18 +4949,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 740974407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d1d83b76b2af6a469cce3d55c363be0, type: 3}
+  m_Script: {fileID: 11500000, guid: b4e385013ae734849baedb6cefe25fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 1200
-  oil: 1200
-  metal: 1200
-  population: 20
-  usedPopulation: 0
-  maxPopulation: 0
-  noOil: {fileID: 8300000, guid: 04271f2bf0c1cd14ab199cd155673add, type: 3}
-  noMetal: {fileID: 8300000, guid: ce7477a9021c72545aa19dde5e72f592, type: 3}
-  arrival: {fileID: 8300000, guid: 509e35e03980c984b97d3e4e4b98975b, type: 3}
+  startFood: 2000
+  startMetal: 2000
+  startOil: 2000
+  startPopulation: 20
 --- !u!4 &740974409
 Transform:
   m_ObjectHideFlags: 0
@@ -4993,7 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  initialWaveTime: 5
+  initialWaveTime: 25
   waveTime: 20
   waveIncreaseTimer: 60
   newEnemyTimer: 120
@@ -5112,6 +5102,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &740974413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740974407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f051d910a63c154ab8b0c919d9bc5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noOil: {fileID: 0}
+  noMetal: {fileID: 0}
+  arrival: {fileID: 0}
 --- !u!1 &741136993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,7 +5986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a642253f77d1864b98ae8d8a223cee3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4e03aebfea7b0842a6c1133d92b35d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6491,7 +6496,7 @@ GameObject:
   - component: {fileID: 874024461}
   - component: {fileID: 874024460}
   m_Layer: 5
-  m_Name: Metal gui
+  m_Name: Metal GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6649,7 +6654,7 @@ GameObject:
   - component: {fileID: 906808783}
   - component: {fileID: 906808782}
   m_Layer: 5
-  m_Name: Population gui
+  m_Name: Population GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8288,7 +8293,7 @@ GameObject:
   - component: {fileID: 1148099341}
   - component: {fileID: 1148099340}
   m_Layer: 5
-  m_Name: Food gui
+  m_Name: Food GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8479,17 +8484,17 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 20
+  maxPopAdd: 20
   active: 1
   maxHealth: 1000
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
   buildSound: {fileID: 0}
   hitSound: {fileID: 8300000, guid: 355dae8487420a04fb6357cfd737c8dd, type: 3}
   destroyedSound: {fileID: 8300000, guid: 3d0bc1ac6a514f44e9af7e19abee2738, type: 3}
+  costFood: {fileID: 0}
+  costMetal: {fileID: 0}
+  costOil: {fileID: 0}
   undermanned: 0
-  replaced: 0
-  usageDiff: 0
-  maxDiff: 0
 --- !u!114 &1183357234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9062,7 +9067,7 @@ GameObject:
   - component: {fileID: 1273847555}
   - component: {fileID: 1273847554}
   m_Layer: 5
-  m_Name: Oil gui
+  m_Name: Oil GUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11052,7 +11057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5232203838056004578, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5232203838712474236, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
       propertyPath: m_AnchorMin.y

@@ -40,16 +40,15 @@ public class BuildingsManager : MonoBehaviour
         }
     }
 
-    public void DestroyUndermanned()
+    public void Overdrafted()
     {
-        int overdraft = GetComponent<Resources>().usedPopulation - GetComponent<Resources>().population;
-        for (int i = buildings.Count - 1; overdraft > 0; i--)
+        do
         {
-            if (buildings[i].tag == "Food" || buildings[i].tag == "oil" || buildings[i].tag == "Metal")
+            for (int i = buildings.Count - 1; i > 0; i++)
             {
-                buildings[i].GetComponent<Sites>().undermanned = true;
-                Destroy(buildings[i]);
+                if (buildings[i].CompareTag("Food") || buildings[i].CompareTag("Oil") || buildings[i].CompareTag("Metal"))
+                    Destroy(buildings[i]);
             }
-        }
+        } while (FindObjectOfType<PlayerResources>().Population().isOverdraft());
     }
 }

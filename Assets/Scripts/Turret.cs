@@ -47,7 +47,7 @@ public class Turret : MonoBehaviour
             else
             {
                 SetRotation();
-                if (canShoot && FindObjectOfType<Resources>().metal != 0)
+                if (canShoot && FindObjectOfType<PlayerResources>().Metal() > 0)
                 {
                     StartCoroutine("Shoot");
                 }
@@ -59,7 +59,8 @@ public class Turret : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        GameObject temp = Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        Destroy(temp, 2f);
         target.GetComponent<Enemy>().RecieveDamage(damage);
 
         audioSource.pitch = Random.Range(0.5f, 1.5f);

@@ -16,7 +16,7 @@ public class Placer : MonoBehaviour
     //Refs
     List<GameObject> stations;
     Camera cam;
-    Resources res;
+    PlayerResources playerResources;
     SpriteRenderer spr;
     Messages tooltip;
 
@@ -29,7 +29,7 @@ public class Placer : MonoBehaviour
         stations = FindObjectOfType<BuildingsManager>().stations;
         spr = GetComponent<SpriteRenderer>();
         cam = Camera.main;
-        res = GameObject.Find("Game Manager").GetComponent<Resources>();
+        playerResources = FindObjectOfType<PlayerResources>();
     }
     
     void Start()
@@ -37,10 +37,9 @@ public class Placer : MonoBehaviour
         site = building.GetComponent<Sites>();
         spr.sprite = building.GetComponent<SpriteRenderer>().sprite;
 
+        //Show all stations ranges
         foreach (GameObject station in stations)
-        {
             station.GetComponent<Station>().ShowRange();
-        }
     }
 
     bool GuiProtection()
@@ -63,10 +62,7 @@ public class Placer : MonoBehaviour
         transform.position = new Vector2(Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x), Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y));
         spr.enabled = !protect;
 
-        if (Input.GetMouseButtonDown(0) && protect)
-            Destroy(gameObject);
-
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) && protect || Input.GetMouseButtonDown(1))
             Destroy(gameObject);
 
         if (CheckDistance())
@@ -84,7 +80,7 @@ public class Placer : MonoBehaviour
                 spr.color = new Color(1, 0, 0, 0.75f);
                 if (Input.GetMouseButtonDown(0) && !protect)
                 {
-                    tooltip.ShowMessage(reason, new Color(1, 1, 1, 1));
+                    tooltip.ShowMessage(reason, Color.white);
                 }
             }
         }
@@ -92,7 +88,7 @@ public class Placer : MonoBehaviour
         {
             spr.color = new Color(1, 0, 0, 0.75f);
             if (Input.GetMouseButtonDown(0) && !protect)
-                tooltip.ShowMessage("Can't build so far from a station", new Color(1, 1, 1, 1));
+                tooltip.ShowMessage("Can't build so far from a station", Color.white);
         }
     }
 
@@ -130,7 +126,8 @@ public class Placer : MonoBehaviour
     void Build()
     {
         Instantiate(building, transform.position, Quaternion.identity);
-        res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage, 0, 0);
+        playerResources.DecreaseResources(site.foodCost, site.metalCost, site.oilCost);
+        playerResources.Population().Add(0, site.populationUsage, 0);
         Destroy(gameObject);
     }
 
