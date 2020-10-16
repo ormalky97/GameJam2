@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     [Header("Refs")]
+    public Text title;
     public Text text;
     public RectTransform panel;
 
     [Header("Debug")]
     public int stage = -1;
 
+    string nextTitle;
     string nextMessage;
     bool inMessage = false;
 
@@ -25,34 +27,39 @@ public class TutorialManager : MonoBehaviour
             {
                 case -1:
                     //tutorial start
+                    nextTitle = "Tutorial";
                     nextMessage = "Welcome!\nLet's get acquainted with our yet-to-be-colonized planet.\n\n Press OK to continue";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around, and Space to reset the view to the Colony Center.";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
+                    nextTitle = "Controls";
+                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around,\nand Space to reset the view to the Colony Center.";
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
                 case 1:
                     //resources 1
-                    nextMessage = "First let's go over the Resources.\n\n At the top left corner is our Respurces Panel.";
-                    nextMessage += "\n We will use them to build and defend our Colony. The icons, top to bottom, represent\nFood, Metal, Oil and Population.";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(500f, 300f), true);
+                    nextTitle = "Resources";
+                    nextMessage = "First let's go over the Resources.\n\n At the top left corner is our Resources Panel.";
+                    nextMessage += "\n We will use them to build and defend our Colony.\nThe icons, top to bottom, represent\nFood, Metal, Oil and Population.";
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
                 case 2:
                     //resources 2
-                    nextMessage = "Each resource is gathered by a different type of Building, the only exception is Population, of which we will learn about in a moment.";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
+                    nextTitle = "Resources";
+                    nextMessage = "Each resource is gathered by a different type of Building,\nwith the exception of Population,\nof which we will learn about in a moment.";
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
                 case 3:
                     //building 1
-                    nextMessage = "At the bottom we have the Build Menu, used to build different Buildings that gather resources, power or defend the colony";
-                    ShowTutorial(nextMessage, Vector2.zero, new Vector2(300f, 300f), true);
+                    nextTitle = "Building";
+                    nextMessage = "At the bottom we have the Build Menu,\nused to build different Buildings that gather\nresources, power or defend the colony";
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 500f), true);
                     break;
 
                 case 4:
@@ -201,7 +208,7 @@ public class TutorialManager : MonoBehaviour
         inMessage = false;
     }
 
-    public void ShowTutorial(string message, Vector2 position, Vector2 size, bool pause)
+    public void ShowTutorial(string headline, string message, Vector2 position, Vector2 size, bool pause)
     {
         panel.gameObject.SetActive(true);
 
@@ -214,6 +221,7 @@ public class TutorialManager : MonoBehaviour
         panel.sizeDelta = size;
         panel.localPosition = position;
 
+        title.text = headline;
         text.text = message;
         inMessage = true;
     }
