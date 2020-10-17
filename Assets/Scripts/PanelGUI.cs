@@ -41,13 +41,16 @@ public class PanelGUI : MonoBehaviour
 
     public void SetPanel(GameObject obj, string d)
     {
+        gameObject.SetActive(true);
         Sites site = obj.GetComponent<Sites>();
+
         title = site.title;
         desc = d;
         foodCost = site.foodCost;
         oilCost = site.oilCost;
         metalCost = site.metalCost;
         populationCost = site.populationUsage;
+
         UpdatePanel();
     }
 

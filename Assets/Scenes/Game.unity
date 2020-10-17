@@ -5981,7 +5981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a642253f77d1864b98ae8d8a223cee3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4e03aebfea7b0842a6c1133d92b35d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8479,7 +8479,7 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 0
+  populationAdd: 20
   active: 1
   maxHealth: 1000
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
@@ -11052,7 +11052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5232203838056004578, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5232203838712474236, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
       propertyPath: m_AnchorMin.y
