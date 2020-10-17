@@ -117,8 +117,11 @@ public class PlayerResources : MonoBehaviour
     public void DecreaseResources(int decFood, int decMetal, int decOil)
     {
         food.Decrease(decFood);
+        resourcesGUI.DisplayChange(new Food(-decFood));
         metal.Decrease(decMetal);
+        resourcesGUI.DisplayChange(new Metal(-decMetal));
         oil.Decrease(decOil);
+        resourcesGUI.DisplayChange(new Oil(-decOil));
     }
 
     public void AddResource(Food add)
@@ -141,11 +144,11 @@ public class PlayerResources : MonoBehaviour
     public void DecreaseResource(Metal dec)
     {
         metal.Decrease(dec);
-        resourcesGUI.DisplayChange(new Food(-dec.amount));
+        resourcesGUI.DisplayChange(new Metal(-dec.amount));
     }
     public void DecreaseResource(Oil dec)
     {
         oil.Decrease(dec);
-        resourcesGUI.DisplayChange(new Food(-dec.amount));
+        resourcesGUI.DisplayChange(new Oil(-dec.amount));
     }
 }

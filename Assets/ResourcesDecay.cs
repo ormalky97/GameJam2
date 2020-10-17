@@ -86,7 +86,13 @@ public class ResourcesDecay : MonoBehaviour
 
                     int popAdd = Random.Range(Mathf.RoundToInt(1 + newColonists / 3), Mathf.RoundToInt(2 + newColonists * 3 / 4));
                     playerResources.Population().Add(popAdd, 0, 0);
-                    audioSource.PlayOneShot(arrival);
+
+                    if (popAdd > 0)
+                    {
+                        FindObjectOfType<Messages>().ShowMessage(popAdd + " new colonists have joined the colony");
+                        audioSource.PlayOneShot(arrival);
+                    }
+
                     Debug.Log("New Colonists Arrived");
                 }
             }

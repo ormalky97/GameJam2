@@ -35,6 +35,8 @@ public class PanelGUI : MonoBehaviour
     {
         if (transform.position.x < 150f)
             transform.position = new Vector2(150, transform.position.y);
+
+        UpdatePanel();
     }
 
     public void SetPanel(GameObject obj, string d)

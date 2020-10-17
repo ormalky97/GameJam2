@@ -17,6 +17,8 @@ public class Food : Resource
     public Food(int newAmount) : base(newAmount)
     {
         name = "Food";
+        displayGUI = GameObject.Find("Resources GUI/Panel/Food GUI").GetComponent<Text>();
+        changeGUI = GameObject.Find("Resources GUI/Panel/Resources Changes/Food Change").GetComponent<Text>();
     }
 
     public void Add(Food food)

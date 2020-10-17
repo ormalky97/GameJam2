@@ -17,6 +17,8 @@ public class Oil : Resource
     public Oil(int newAmount) : base(newAmount)
     {
         name = "Oil";
+        displayGUI = GameObject.Find("Resources GUI/Panel/Oil GUI").GetComponent<Text>();
+        changeGUI = GameObject.Find("Resources GUI/Panel/Resources Changes/Oil Change").GetComponent<Text>();
     }
 
     public void Add(Oil oil)

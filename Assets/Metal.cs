@@ -17,6 +17,8 @@ public class Metal : Resource
     public Metal(int newAmount) : base(newAmount)
     {
         name = "Metal";
+        displayGUI = GameObject.Find("Resources GUI/Panel/Metal GUI").GetComponent<Text>();
+        changeGUI = GameObject.Find("Resources GUI/Panel/Resources Changes/Metal Change").GetComponent<Text>();
     }
 
     public void Add(Metal metal)

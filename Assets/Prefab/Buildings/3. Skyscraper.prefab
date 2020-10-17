@@ -228,17 +228,17 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 24
+  maxPopAdd: 16
   active: 1
   maxHealth: 500
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
   buildSound: {fileID: 8300000, guid: 603bac0aa6eb7934e879096f0e913e1a, type: 3}
   hitSound: {fileID: 8300000, guid: ee30c5548365d6549b2c159a1d25db42, type: 3}
   destroyedSound: {fileID: 8300000, guid: d651ed5149fc6fa4f998ef0f4f724d74, type: 3}
+  costFood: {fileID: 0}
+  costMetal: {fileID: 0}
+  costOil: {fileID: 0}
   undermanned: 0
-  replaced: 0
-  usageDiff: 0
-  maxDiff: 0
 --- !u!1001 &1466853021453080427
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -95,7 +95,7 @@ public class BuildButton : MonoBehaviour
     }
     string CheckResource(int pop)
     {
-        if (res.Population().population < pop)
+        if (res.Population().FreePopulation() < pop)
             return "Not enough Population \n";
         else
             return "";
