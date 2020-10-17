@@ -20,11 +20,23 @@ public class PanelGUI : MonoBehaviour
     int oilCost;
     int metalCost;
     int populationCost;
+    Resources res;
+
+    private void Awake()
+    {
+        res = FindObjectOfType<Resources>();
+    }
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void Update()
     {
-        if (transform.position.x < 150f)
-            transform.position = new Vector2(150, transform.position.y);
+        UpdatePanel();
+
+        if (transform.position.x < 80)
+            transform.position = new Vector2(80, transform.position.y);
     }
 
     public void SetPanel(GameObject obj, string d)
@@ -39,13 +51,38 @@ public class PanelGUI : MonoBehaviour
         UpdatePanel();
     }
 
-    public void UpdatePanel()
+    void UpdatePanel()
     {
         titleTxt.text = title;
         descTxt.text = desc;
         foodTxt.text = "  " + foodCost;
-        oilTxt.text = "Oil Cost: " + oilCost;
-        metalTxt.text = "Metal Cost: " + metalCost;
-        populationTxt.text = "Population Needed: " + populationCost;
+        oilTxt.text = "  " + oilCost;
+        metalTxt.text = "  " + metalCost;
+        populationTxt.text = "  " + populationCost;
+
+        SetColors();
+    }
+
+    void SetColors()
+    {
+        if (res.food < foodCost)
+            foodTxt.color = Color.red;
+        else
+            foodTxt.color = Color.white;
+
+        if (res.metal < metalCost)
+            metalTxt.color = Color.red;
+        else
+            metalTxt.color = Color.white;
+
+        if (res.oil < oilCost)
+            oilTxt.color = Color.red;
+        else
+            oilTxt.color = Color.white;
+
+        if (res.population - res.usedPopulation < populationCost)
+            populationTxt.color = Color.red;
+        else
+            populationTxt.color = Color.white;
     }
 }

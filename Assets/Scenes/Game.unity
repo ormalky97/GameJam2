@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740974407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4c36b1932813e4bb8900d62fd6d22a, type: 3}
   m_Name: 
@@ -8479,7 +8479,7 @@ MonoBehaviour:
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 20
+  populationAdd: 0
   active: 1
   maxHealth: 1000
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
