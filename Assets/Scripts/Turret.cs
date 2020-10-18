@@ -59,13 +59,21 @@ public class Turret : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+
+        //Deal damage to target
         target.GetComponent<Enemy>().RecieveDamage(damage);
 
+        //VFX
+        Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
+        GetComponent<Animator>().SetTrigger("Shoot");
+        //GetComponent<Animator>().ResetTrigger("Shoot");
+
+        //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);
         audioSource.PlayOneShot(shoot);
         audioSource.pitch = 1f;
 
+        //Reset canShoot
         yield return new WaitForSeconds(1 / fireRate);
         canShoot = true;
     }
