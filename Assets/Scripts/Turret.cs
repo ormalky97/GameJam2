@@ -24,6 +24,7 @@ public class Turret : MonoBehaviour
 
     //Vars
     bool canShoot = true;
+    bool shotSide = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -66,7 +67,8 @@ public class Turret : MonoBehaviour
         //VFX
         Instantiate(shotEffect, firePoint.transform.position, transform.rotation);
         GetComponent<Animator>().SetTrigger("Shoot");
-        //GetComponent<Animator>().ResetTrigger("Shoot");
+        GetComponent<Animator>().SetBool("ShootSide", shotSide);
+        shotSide = !shotSide;
 
         //SFX
         audioSource.pitch = Random.Range(0.5f, 1.5f);
