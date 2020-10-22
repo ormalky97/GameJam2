@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Turret
-  foodCost: 400
-  oilCost: 400
-  metalCost: 400
+  foodCost: 250
+  oilCost: 250
+  metalCost: 250
   populationUsage: 0
   foodUp: 0
   metalUp: 0
