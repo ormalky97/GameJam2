@@ -54,7 +54,7 @@ public class EnemiesSpawner : MonoBehaviour
         {
             i++;
             yield return new WaitForSeconds(waveIncreaseTimer);
-            waveSize += 2 * i;
+            waveSize += i;
             waveTime += 1f;
         }
     }

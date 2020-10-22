@@ -527,6 +527,10 @@ PrefabInstance:
       propertyPath: newEnemyTimer
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7850448316390418, guid: ca3239204eec6144b961434155a2400f, type: 3}
+      propertyPath: initialWaveTime
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7850448316390431, guid: ca3239204eec6144b961434155a2400f, type: 3}
       propertyPath: m_Name
       value: Game Manager

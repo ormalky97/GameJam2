@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 50
   maxHealth: 80
-  moveSpeed: 0.5
+  moveSpeed: 50
   viewRange: 10
   attackDistance: 1.5
   attackRate: 0.5
