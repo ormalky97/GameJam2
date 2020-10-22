@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  range: 12
+  range: 6
   fireRate: 4
   shoot: {fileID: 8300000, guid: 4c4aa7ee65b89994196aede738147331, type: 3}
   shotEffect: {fileID: 7881490575244311990, guid: 129adb0e43c6b114abb2975320374deb, type: 3}

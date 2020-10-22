@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  range: 10
+  range: 8
   fireRate: 0.5
   rocket: {fileID: 8444694207245174880, guid: 9163b6fe14227e84fb010eb95b796c8b, type: 3}
   launch: {fileID: 8300000, guid: d078ca337baae7e42a3b5837745c3843, type: 3}

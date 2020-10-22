@@ -71,21 +71,21 @@ public class PanelGUI : MonoBehaviour
         if (res.food < foodCost)
             foodTxt.color = Color.red;
         else
-            foodTxt.color = Color.white;
+            foodTxt.color = Color.black;
 
         if (res.metal < metalCost)
             metalTxt.color = Color.red;
         else
-            metalTxt.color = Color.white;
+            metalTxt.color = Color.black;
 
         if (res.oil < oilCost)
             oilTxt.color = Color.red;
         else
-            oilTxt.color = Color.white;
+            oilTxt.color = Color.black;
 
         if (res.population - res.usedPopulation < populationCost)
             populationTxt.color = Color.red;
         else
-            populationTxt.color = Color.white;
+            populationTxt.color = Color.black;
     }
 }
