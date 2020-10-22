@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: SkyScraper
-  foodCost: 1600
-  oilCost: 1600
-  metalCost: 1600
+  foodCost: 800
+  oilCost: 800
+  metalCost: 800
   populationUsage: 0
   foodUp: 0
   metalUp: 0

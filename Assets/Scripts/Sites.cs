@@ -11,8 +11,8 @@ public class Sites : MonoBehaviour
 
     [Header("Costs")]
     public int foodCost;
-    public int oilCost;
     public int metalCost;
+    public int oilCost;  
     public int populationUsage;
 
     [Header("Production")]

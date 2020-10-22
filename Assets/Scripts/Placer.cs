@@ -130,7 +130,7 @@ public class Placer : MonoBehaviour
     void Build()
     {
         Instantiate(building, transform.position, Quaternion.identity);
-        res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage, 0, 0);
+        res.DecreaseResources(site.foodCost, site.metalCost, site.oilCost, site.populationUsage, 0, 0);
         Destroy(gameObject);
     }
 

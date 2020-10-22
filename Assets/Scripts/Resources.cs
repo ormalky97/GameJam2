@@ -171,11 +171,11 @@ public class Resources : MonoBehaviour
         }
 
     }
-    public void DecreaseResources(int foodCost, int oilCost, int metalCost, int populationCost, int populationDiff, int maxPopDiff)
+    public void DecreaseResources(int foodCost, int metalCost, int oilCost, int populationCost, int populationDiff, int maxPopDiff)
     {
         food -= foodCost;
-        oil -= oilCost;
         metal -= metalCost;
+        oil -= oilCost;        
         usedPopulation += populationCost;
         population += populationDiff;
         maxPopulation += maxPopDiff;
@@ -188,11 +188,11 @@ public class Resources : MonoBehaviour
             messages.ShowMessage(populationDiff + " colonists have left the colony", new Color(1, 0, 0));
     }
 
-    public void AddResources(int foodAdd, int oilAdd, int metalAdd, int populationAdd, int populationDiff, int maxPopDiff)
+    public void AddResources(int foodAdd, int metalAdd, int oilAdd, int populationAdd, int populationDiff, int maxPopDiff)
     {
         food += foodAdd;
-        oil += oilAdd;
         metal += metalAdd;
+        oil += oilAdd;
         usedPopulation -= populationAdd;
         population -= populationDiff;
         maxPopulation -= maxPopDiff;
