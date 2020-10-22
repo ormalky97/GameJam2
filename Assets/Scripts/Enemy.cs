@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
         {
             //Move Toawrds Colony Center
             Vector2 dir = Vector3.zero - transform.position;
-            rb.AddForce(dir.normalized * moveSpeed);
+            rb.AddForce(dir.normalized * moveSpeed * Time.deltaTime);
         }
         else
         {
@@ -147,6 +147,6 @@ public class Enemy : MonoBehaviour
     void GoToTarget()
     {
         Vector2 dir = target.transform.position - transform.position;
-        rb.AddForce(dir.normalized * moveSpeed);
+        rb.AddForce(dir.normalized * moveSpeed * Time.deltaTime);
     }
 }

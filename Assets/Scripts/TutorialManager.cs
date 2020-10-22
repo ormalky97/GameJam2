@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
             {
                 case -1:
                     //tutorial start
-                    nextTitle = "Tutorial";
+                    nextTitle = "Tutorial (1/20)";
                     nextMessage = "Welcome!\nLet's get acquainted with our\nyet-to-be-colonized planet.\n\n Press OK to continue";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(350f, 350f), true);
                     break;
@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
 
                 case 0:
                     //Controls
-                    nextTitle = "Controls";
+                    nextTitle = "Controls (2/20)";
                     nextMessage = "Use the mouse to control the game,\nmouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around,\n";
                     nextMessage += "and Space to reset the view on the Colony Center.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(600f, 350f), true);
@@ -43,7 +43,7 @@ public class TutorialManager : MonoBehaviour
 
                 case 1:
                     //resources 1
-                    nextTitle = "Resources";
+                    nextTitle = "Resources (3/20)";
                     nextMessage = "First let's go over the Resources.\n\n At the top left corner is our Resources Panel.";
                     nextMessage += "\n We will use them to build and defend our Colony.\nThe icons represent\nFood, Metal, Oil and Population\ntop to bottom.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), true);
@@ -51,29 +51,29 @@ public class TutorialManager : MonoBehaviour
 
                 case 2:
                     //resources 2
-                    nextTitle = "Resources";
+                    nextTitle = "Resources (4/20)";
                     nextMessage = "Each resource is gathered by\na different type of Building,\nwith the exception of Population,\nof which you will learn about in a moment.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), true);
                     break;
 
                 case 3:
                     //building 1
-                    nextTitle = "Building";
+                    nextTitle = "Building  (5/20)";
                     nextMessage = "At the bottom we have the Build Menu,\nused to build different Buildings that gather\nresources, produce power or\ndefend the colony.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), true);
                     break;
 
                 case 4:
                     //building 2
-                    nextTitle = "Building";
+                    nextTitle = "Building  (6/20)";
                     nextMessage = "The Food, Metal and Oil categories contain buildings that gather the respective Resources.";
-                    nextMessage += "\n\n Click on Food now to open up the\nFood Category Building Menu";
+                    nextMessage += "\n\n<b> Click on Food now to open up the</b>\nFood Category Building Menu";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), true);
                     break;
 
                 case 5:
                     //building 3
-                    nextTitle = "Building";
+                    nextTitle = "Building  (7/20)";
                     nextMessage = "As you can see, three different Buildings gather food. You can hover over a building button";
                     nextMessage += " to see this Building's details: production, cost, etc.";
                     check = FindObjectOfType<BuildCategory>().GetActiveCategory();
@@ -83,17 +83,17 @@ public class TutorialManager : MonoBehaviour
 
                 case 6:
                     //building field
-                    nextTitle = "Build a Field";
-                    nextMessage = "Go ahead and build a Field to start producing Food.\n";
+                    nextTitle = "Building (8/20)";
+                    nextMessage = "<b>Go ahead and build a Field to start producing Food</b>.\n";
                     nextMessage += "You will notice that you can only build in a certain area around our Colony Center, this area is represented by the green circle";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), true);
                     break;
 
                 case 7:
                     //building mine and pump
-                    nextTitle = "Build a Surface Mine\nand an Oil Pump";
+                    nextTitle = "Building  (9/20)";
                     nextMessage = "Nice! now your Field will automatically produce Food every second.\n\n";
-                    nextMessage += "Now place a Surface Mine from the Metal Category, and an Oil Pump from the Oil Category, to start producing those as well.";
+                    nextMessage += "<b>Now place a Surface Mine from the Metal Category, and an Oil Pump from the Oil Category</b>, to start producing those as well.";
                     if (Stage7())
                     {
                         Time.timeScale = 0;
@@ -104,7 +104,7 @@ public class TutorialManager : MonoBehaviour
                 case 8:
                     //population 1
                     Time.timeScale = 1;
-                    nextTitle = "Population";
+                    nextTitle = "Population  (10/20)";
                     nextMessage = "Good job! now let's go over to the Population Catergory\nwhile you gain resources\n";
                     nextMessage += "Population is made out of three factors:\nAvailable Population\nUsed Population (working)\nMax Population.\n\n";
                     nextMessage += "Every time you build a new Building,\nthis Building's Population 'Cost' is the amount of\nAvailable Population needed in order to build it.\n";
@@ -118,16 +118,16 @@ public class TutorialManager : MonoBehaviour
 
                 case 9:
                     //build pod
-                    nextTitle = "Build a Pod";
+                    nextTitle = "Build a Pod  (11/20)";
                     nextMessage = "Max Population is the maximum amount of population our colony can house.\n ";
                     nextMessage += "To increase our Max Population, use the Population Category in the build menu.\n\n";
-                    nextMessage += "Try to build a Pod now";
+                    nextMessage += "<b>Try to build a Pod now</b>";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), false);
                     break;
 
                 case 10:
                     //population 2
-                    nextTitle = "Population";
+                    nextTitle = "Population (12/20)";
                     nextMessage = "Well done!\n";
                     nextMessage += "But as you can see in the Resources Panel,\nour Population hasn't increased just yet.\n";
                     nextMessage += "Building a Population Category Building only increases\nour potential housing ability.\n\n";
@@ -141,15 +141,15 @@ public class TutorialManager : MonoBehaviour
 
                 case 11:
                     //turrets 1
-                    nextTitle = "Turrets";
+                    nextTitle = "Turrets (13/20)";
                     nextMessage = "Various local habitants are marching towards our Colony,\n build Turrets from the Turrets Category in the Build Menu to defend it.\n";
-                    nextMessage += "There are different types of turrets, with different stats.\nFor now let's just build two basic turrets.";
+                    nextMessage += "There are different types of turrets, with different stats.\n<b>For now let's just build two basic turrets.</b>";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(600f, 350f), false);
                     break;
 
                 case 12:
                     //turrets 2
-                    nextTitle = "Turrets";
+                    nextTitle = "Turrets (14/20)";
                     nextMessage = "Good, now let's see our new Turrets in action!";
                     if (Stage12())
                     {
@@ -160,26 +160,26 @@ public class TutorialManager : MonoBehaviour
 
                 case 13:
                     //destroyed
-                    nextTitle = "Destruction";
+                    nextTitle = "Destruction (15/20)";
                     nextMessage = "Enemies can damage and destroy Buildings. Colonists who worked in destroyed buildings are lost as well.\n\n";
                     nextMessage += "In case of a destruction of a Population Category Building,\nOur Colony housing capacity (Max Population) will decrease.\n\nIf our Used Population exceeds our Available Population,\n";
                     nextMessage += "Our latest Building will be destroyed due to being undermanned, thus adjusting our Used Population.\n";
                     nextMessage += "This will repeat until our Used Population is no longer higher than our Available Population";
-                    nextMessage += "\n\n YOU WILL LOSE THE GAME WHEN OUR COLONY CENTER IS DESTROYED!";
+                    nextMessage += "\n\n<b> YOU WILL LOSE THE GAME WHEN OUR COLONY CENTER IS DESTROYED! </b>";
                     if (NoEnemies())
                         ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(650f, 550f), false);
                     break;
 
                 case 14:
                     //Stations
-                    nextTitle = "Power Stations";
+                    nextTitle = "Stations (16/20)";
                     nextMessage = "The last Building Category is Stations.\nA Power Station increases the range inside of which we can expand our Colony.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 350f), false);
                     break;
 
                 case 15:
                     //Upkeep
-                    nextTitle = "Upkeep";
+                    nextTitle = "Upkeep (17/20)";
                     nextMessage = "Once a minute, our colony pays it's Upkeep Costs,\ndecreasing our Resources as follows:\n";
                     nextMessage += "5 Food per Idle Colonist, 10 Food per Used Colonist\n";
                     nextMessage += "60 Metal per Turret and 60 Oil per Power Station.\n\n";
@@ -189,17 +189,17 @@ public class TutorialManager : MonoBehaviour
 
                 case 16:
                     //Upgrading
-                    nextTitle = "Let's Upgrade";
+                    nextTitle = "Upgrades (18/20)";
                     nextMessage = "In order to increase our production, let's upgrade some buildings.\n\n";
                     nextMessage += "An upgraded Building can only be placed on top of the previous tier Building of the same category.\nFor example, a Farm can only be placed on top of a Field, and a Castle can only be placed on top of a Farm.\n\n";
                     nextMessage += "Upgrading a building will replace the old building with the next tier one.\n";
-                    nextMessage += "Try upgrading our Field to a Farm";
+                    nextMessage += "<b>Try upgrading our Field to a Farm</b>";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(700f, 400f), false);
                     break;
 
                 case 17:
                     //Score
-                    nextTitle = "Score";
+                    nextTitle = "Score (19/20)";
                     nextMessage = "Awesome! Finally, let's go over the score.\n";
                     nextMessage += "The score is displayed in the top right corner of the screen, and consists of two factors:\n";
                     nextMessage += "Survival Time and Colony Max Radius.\n\nThis means playing safe and building close to the Colony Center will result in a lower score.";
@@ -209,8 +209,8 @@ public class TutorialManager : MonoBehaviour
 
                 case 18:
                     //End
-                    nextTitle = "End of Tutorial";
-                    nextMessage = "That's it! You're finally ready to Colonize!\n\n";
+                    nextTitle = "That's it!";
+                    nextMessage = "You're finally ready to Colonize!\n\n";
                     nextMessage += "There are additional hidden game mechanics\nfor you to discover...\n\n";
                     nextMessage += "You can go back to the Main Menu to play the game, or continue practicing the basics here.\nEnemies will not spawn here so you can take your time and learn.";
                     ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(500f, 400f), true);
