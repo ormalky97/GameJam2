@@ -250,9 +250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Rocket Turret
-  foodCost: 800
-  oilCost: 800
-  metalCost: 800
+  foodCost: 700
+  oilCost: 700
+  metalCost: 700
   populationUsage: 0
   foodUp: 0
   metalUp: 0

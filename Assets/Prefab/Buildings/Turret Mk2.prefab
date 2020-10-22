@@ -238,9 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Turret MK II
-  foodCost: 600
-  oilCost: 600
-  metalCost: 600
+  foodCost: 400
+  oilCost: 400
+  metalCost: 400
   populationUsage: 0
   foodUp: 0
   metalUp: 0
