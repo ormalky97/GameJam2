@@ -2876,7 +2876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -102.50013, y: 60}
+  m_AnchoredPosition: {x: -102.500244, y: 60}
   m_SizeDelta: {x: -204.99974, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &501834615
@@ -7422,6 +7422,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3927487985739768290, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3927487986034561094, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
       propertyPath: m_Name
       value: Tutorial GUI
@@ -7525,6 +7529,26 @@ PrefabInstance:
     - target: {fileID: 3927487986229713823, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927487986277484206, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927487986277484206, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -58.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927487986277484206, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 91.73337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927487986277484206, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000042915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3927487986277484207, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3927487986495325732, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8784,6 +8808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718fb827550993e48bb721c20f70926a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1415824950}
   text: {fileID: 426718302}
   panel: {fileID: 155276839}
   stage: -1
@@ -8996,7 +9021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -102.50013, y: 60}
+  m_AnchoredPosition: {x: -102.500244, y: 60}
   m_SizeDelta: {x: -204.99974, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1276042983
@@ -9650,6 +9675,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358972073}
   m_CullTransparentMesh: 0
+--- !u!114 &1415824950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3927487986277484207, guid: 80f3591d57988ef4b8ab9ab71eb65eba, type: 3}
+  m_PrefabInstance: {fileID: 1094340078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1415929491
 GameObject:
   m_ObjectHideFlags: 0
@@ -10141,6 +10177,10 @@ PrefabInstance:
     - target: {fileID: 5232203838056004578, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
       propertyPath: m_Name
       value: Build Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5232203838056004578, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89feef19b98c2bf4d81882204e3f7add, type: 3}
@@ -12438,7 +12478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -102.49524, y: 60}
+  m_AnchoredPosition: {x: -102.49512, y: 60}
   m_SizeDelta: {x: -205.00952, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &3857110983480365316
