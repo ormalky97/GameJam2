@@ -221,14 +221,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Cottage
-  foodCost: 600
-  oilCost: 600
-  metalCost: 600
+  foodCost: 450
+  metalCost: 450
+  oilCost: 450
   populationUsage: 0
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 12
+  populationAdd: 24
   active: 1
   maxHealth: 300
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}

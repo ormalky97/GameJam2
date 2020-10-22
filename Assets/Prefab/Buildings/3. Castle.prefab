@@ -222,8 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Castle
   foodCost: 0
-  oilCost: 600
-  metalCost: 1000
+  metalCost: 700
+  oilCost: 500
   populationUsage: 8
   foodUp: 40
   metalUp: 0
