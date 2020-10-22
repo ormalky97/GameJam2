@@ -1418,23 +1418,23 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 12
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 4
+  m_ShapeLightFalloffSize: 5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.19465756, y: 2.5159876, z: 0}
-  - {x: -3.5402246, y: 2.1521773, z: 0}
-  - {x: -5.153232, y: 1.685115, z: 0}
-  - {x: -5.8961663, y: 0.8783734, z: 0}
-  - {x: -5.9302793, y: -0.4698686, z: 0}
-  - {x: -4.940977, y: -1.2021694, z: 0}
-  - {x: -2.882158, y: -2.0089064, z: 0}
-  - {x: 0.021730423, y: -2.3778288, z: 0}
-  - {x: 2.8698654, y: -2.0513668, z: 0}
-  - {x: 5.0136685, y: -1.5630755, z: 0}
-  - {x: 5.968745, y: -0.45911628, z: 0}
-  - {x: 6.005764, y: 0.7399196, z: 0}
-  - {x: 4.949994, y: 1.6214248, z: 0}
-  - {x: 2.7848585, y: 2.3857095, z: 0}
+  - {x: 0.11785281, y: 2.0451946, z: 0}
+  - {x: -2.2249017, y: 1.9227427, z: 0}
+  - {x: -3.8886738, y: 1.4916476, z: 0}
+  - {x: -5.0601525, y: 0.23204228, z: 0}
+  - {x: -4.9551535, y: -0.20868304, z: 0}
+  - {x: -4.2349114, y: -0.741253, z: 0}
+  - {x: -3.2421038, y: -1.3996193, z: 0}
+  - {x: 0.10478598, y: -1.331367, z: 0}
+  - {x: 2.4683008, y: -1.4302275, z: 0}
+  - {x: 3.981195, y: -0.9834918, z: 0}
+  - {x: 4.9521103, y: -0.16833627, z: 0}
+  - {x: 5.0187874, y: 0.42737463, z: 0}
+  - {x: 4.291327, y: 1.2416443, z: 0}
+  - {x: 2.2369695, y: 1.910966, z: 0}
 --- !u!4 &1212699786
 Transform:
   m_ObjectHideFlags: 0
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.15
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}

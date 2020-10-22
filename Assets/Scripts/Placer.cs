@@ -56,11 +56,19 @@ public class Placer : MonoBehaviour
             return false;
     }
 
+    void SetPosition()
+    {
+        float x = Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x);
+        float y = Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y);
+        transform.position = new Vector3(x, y, 0f);
+        //Debug.Log(transform.position);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        SetPosition();
         bool protect = GuiProtection();
-        transform.position = new Vector2(Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).x), Mathf.Round(cam.ScreenToWorldPoint(Input.mousePosition).y));
         spr.enabled = !protect;
 
         if (Input.GetMouseButtonDown(0) && protect)
