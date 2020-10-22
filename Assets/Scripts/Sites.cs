@@ -216,8 +216,14 @@ public class Sites : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f); //resources add up every sec
-            if(active)
+            if (active)
+            {
                 res.AddResources(foodUp, metalUp, oilUp, 0, 0, 0);
+                if(title == "Surface Mine")
+                {
+                    transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                }
+            }
         }
     }
 }

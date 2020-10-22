@@ -55,11 +55,13 @@ public class Resources : MonoBehaviour
     {
         oilZero = true;
         audioSource.PlayOneShot(noOil);
+        Vector2 centerPos = FindObjectOfType<BuildingsManager>().buildings[0].transform.position;
         foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
         {
             if(building.tag != "Turret" && building.name != "Colony Center")
             {
-                building.GetComponent<Sites>().active = false;
+                if(Vector2.Distance(building.transform.position, centerPos) > 5f)
+                    building.GetComponent<Sites>().active = false;
             }
         }
     }
