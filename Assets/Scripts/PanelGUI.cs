@@ -35,8 +35,8 @@ public class PanelGUI : MonoBehaviour
     {
         UpdatePanel();
 
-        if (transform.position.x < 80)
-            transform.position = new Vector2(80, transform.position.y);
+        if (transform.position.x < 120)
+            transform.position += Vector3.right * 20f;
     }
 
     public void SetPanel(GameObject obj, string d)
