@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class CameraController : MonoBehaviour
 {
     [Header("Settings")]
-    public float moveSpeed;
-    public float maxZoom;
-    public float minZoom;
-    public float resetSpeed;
+    public float moveSpeed = 0.25f;
+    public float maxZoom = 10f;
+    public float minZoom = 5f;
+    public float resetSpeed = 1f;
 
     [Header("Background")]
     public GameObject background;
     public RawImage rawImage;
-    public float movementFactorX;
-    public float movementFactorY;
+    public float movementFactorX = 0.049f;
+    public float movementFactorY = 0.09f;
 
     //Refs & Vars
     Camera cam;
