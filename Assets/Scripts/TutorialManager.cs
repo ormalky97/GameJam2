@@ -28,14 +28,14 @@ public class TutorialManager : MonoBehaviour
                 case -1:
                     //tutorial start
                     nextMessage = "Welcome!\nLet's get acquainted with our yet-to-be-colonized planet.\n\n Press OK to continue";
-                    ShowTutorial("Welcome (1/20)", nextMessage, new Vector2(500f, 500f), true);
+                    ShowTutorial("Welcome (1/20)", nextMessage, new Vector2(300f, 300f), true);
                     break;
 
 
                 case 0:
                     //Controls
-                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\nUse the Arrow Keys or WASD to move the camera around,\nand Space to reset the view to the Colony Center.";
-                    ShowTutorial("Controls (2/20)", nextMessage, new Vector2(500f, 500f), true);
+                    nextMessage = "Use the mouse to control the game, Mouse wheel to zoom in and out.\n Use the Arrow Keys, WASD or Right Click & Drag to move the camera around,\n and Space to reset the view to the Colony Center.";
+                    ShowTutorial("Controls (2/20)", nextMessage, new Vector2(300f, 300f), true);
                     break;
 
                 case 1:
@@ -48,13 +48,13 @@ public class TutorialManager : MonoBehaviour
                 case 2:
                     //resources 2
                     nextMessage = "Each resource is gathered by a different type of Building,\nwith the exception of Population,\nof which we will learn about in a moment.";
-                    ShowTutorial("Resources (4/20)", nextMessage, new Vector2(500f, 500f), true);
+                    ShowTutorial("Resources (4/20)", nextMessage, new Vector2(300f, 300f), true);
                     break;
 
                 case 3:
                     //building 1
                     nextMessage = "At the bottom we have the Build Menu,\nused to build different Buildings that gather\nresources, power or defend the colony";
-                    ShowTutorial("Building (5/20)", nextMessage, new Vector2(500f, 500f), true);
+                    ShowTutorial("Building (5/20)", nextMessage, new Vector2(300f, 300f), true);
                     break;
 
                 case 4:
@@ -101,7 +101,7 @@ public class TutorialManager : MonoBehaviour
 
                 case 9:
                     //build pod
-                    nextMessage = "Max Habitants (or Max Population) is the maximum amount of population our colony can house\n ";
+                    nextMessage = "Max Population is the maximum amount of population our colony can house\n ";
                     nextMessage += "To increase our Max Population, use the Population Category in the build menu\n\n";
                     nextMessage += "<b>Try to build a Pod now</b>";
                     ShowTutorial("Population (11/20)", nextMessage, new Vector2(400f, 400f), false);
