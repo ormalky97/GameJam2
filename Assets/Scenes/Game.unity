@@ -1205,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Colony Center
       objectReference: {fileID: 0}
+    - target: {fileID: 2695521361961853640, guid: 503b70b2031a9094a9ae9e28a4cff189, type: 3}
+      propertyPath: m_TagString
+      value: Station
+      objectReference: {fileID: 0}
     - target: {fileID: 2695521361961853642, guid: 503b70b2031a9094a9ae9e28a4cff189, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
