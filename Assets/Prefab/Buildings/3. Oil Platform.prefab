@@ -221,9 +221,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Oil Platform
-  foodCost: 600
+  foodCost: 500
+  metalCost: 700
   oilCost: 0
-  metalCost: 1000
   populationUsage: 8
   foodUp: 0
   metalUp: 0

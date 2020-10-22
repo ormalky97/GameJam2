@@ -222,8 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Drilling Rig
   foodCost: 400
+  metalCost: 500
   oilCost: 0
-  metalCost: 600
   populationUsage: 6
   foodUp: 0
   metalUp: 0

@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Underground Mine
-  foodCost: 600
-  oilCost: 1000
+  foodCost: 500
   metalCost: 0
+  oilCost: 700
   populationUsage: 8
   foodUp: 0
   metalUp: 40

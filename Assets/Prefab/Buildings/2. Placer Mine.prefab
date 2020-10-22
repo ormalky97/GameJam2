@@ -196,8 +196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Placer Mine
   foodCost: 400
-  oilCost: 600
   metalCost: 0
+  oilCost: 500
   populationUsage: 6
   foodUp: 0
   metalUp: 20

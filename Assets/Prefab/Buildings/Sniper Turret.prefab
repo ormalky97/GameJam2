@@ -378,9 +378,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Sniper Turret
-  foodCost: 1000
-  oilCost: 1000
-  metalCost: 1000
+  foodCost: 600
+  metalCost: 600
+  oilCost: 600
   populationUsage: 0
   foodUp: 0
   metalUp: 0

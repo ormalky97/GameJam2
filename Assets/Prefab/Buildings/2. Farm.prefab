@@ -222,8 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Farm
   foodCost: 0
+  metalCost: 500
   oilCost: 400
-  metalCost: 600
   populationUsage: 6
   foodUp: 20
   metalUp: 0
