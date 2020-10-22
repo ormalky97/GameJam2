@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+<<<<<<< HEAD
   m_Name: test
   m_EditorClassIdentifier: 0
 =======
@@ -275,6 +276,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd71c559433eca4e863b5b81b9bd3d4, type: 3}
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of ecbb294... aa
 --- !u!1 &1890213797
 GameObject:
   m_ObjectHideFlags: 0
