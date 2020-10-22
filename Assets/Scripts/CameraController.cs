@@ -24,6 +24,7 @@ public class CameraController : MonoBehaviour
     float zoom;
     Vector3 startPos = new Vector3(0, 0, -10);
     bool isResetting = false;
+    Vector3 dragStart;
     
 
     private void Awake()
@@ -42,6 +43,12 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             isResetting = true;
 
+        if (Input.GetMouseButtonDown(1))
+            dragStart = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButton(1))
+            movement = -1 * (cam.ScreenToWorldPoint(Input.mousePosition) - dragStart);
+
         if (movement != Vector3.zero || transform.position == startPos)
             isResetting = false;
 
@@ -50,7 +57,7 @@ public class CameraController : MonoBehaviour
             
         background.transform.position = new Vector2(transform.position.x, transform.position.y);
     }
-    
+
 
     private void FixedUpdate()
     {

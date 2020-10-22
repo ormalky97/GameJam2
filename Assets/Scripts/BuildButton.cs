@@ -79,10 +79,6 @@ public class BuildButton : MonoBehaviour
                 building.GetComponent<Sites>().metalCost = site.metalCost;
                 building.GetComponent<Sites>().populationUsage = site.populationUsage;
             }
-            else
-            {
-                GameObject.FindObjectOfType<Messages>().ShowMessage("Not enough resources or free population", new Color(1, 1, 1, 1));
-            }
         }
         else
         {
@@ -92,14 +88,26 @@ public class BuildButton : MonoBehaviour
 
     bool CheckResources()
     {
-        if(res.food >= site.foodCost &&
-           res.oil >= site.oilCost &&
-           res.metal >= site.metalCost &&
-           res.population - res.usedPopulation >= site.populationUsage)
-        {
+        string message = "";
+
+        if (res.food < site.foodCost)
+            message += "Not enough Food \n";
+
+        if (res.metal < site.metalCost)
+            message += "Not enough Metal \n";
+
+        if (res.oil < site.oilCost)
+            message += "Not enough Oil \n";
+
+        if (res.population - res.usedPopulation < site.populationUsage)
+            message += "Not enough free Population \n";
+
+        if (message == "")
             return true;
-        }
         else
+        {
+            FindObjectOfType<Messages>().ShowMessage(message, Color.white);
             return false;
+        }  
     }
 }
