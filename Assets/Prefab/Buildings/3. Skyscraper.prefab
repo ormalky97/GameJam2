@@ -221,14 +221,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: SkyScraper
-  foodCost: 800
-  oilCost: 800
-  metalCost: 800
+  foodCost: 600
+  metalCost: 600
+  oilCost: 600
   populationUsage: 0
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 24
+  populationAdd: 48
   active: 1
   maxHealth: 500
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}

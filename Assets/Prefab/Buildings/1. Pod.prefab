@@ -221,14 +221,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Pod
-  foodCost: 400
-  oilCost: 400
-  metalCost: 400
+  foodCost: 300
+  metalCost: 300
+  oilCost: 300
   populationUsage: 0
   foodUp: 0
   metalUp: 0
   oilUp: 0
-  populationAdd: 4
+  populationAdd: 8
   active: 1
   maxHealth: 150
   hitEffect: {fileID: 4422689074269620920, guid: 93884a6b556f14f46bafe23526f07f12, type: 3}
