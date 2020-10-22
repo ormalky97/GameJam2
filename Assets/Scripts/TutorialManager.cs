@@ -184,7 +184,7 @@ public class TutorialManager : MonoBehaviour
                     nextMessage += "5 Food per Idle Colonist, 10 Food per Used Colonist\n";
                     nextMessage += "60 Metal per Turret and 60 Oil per Power Station.\n\n";
                     nextMessage += "If you don't have enough Resources to pay the Upkeep,\nTurrets will stop working, Buildings outside of the Colony Center's range\nwill become temporarily disabled,\n and Colonists will leave the colony.";
-                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(700f, 500f), false);
+                    ShowTutorial(nextTitle, nextMessage, Vector2.zero, new Vector2(700f, 400f), false);
                     break;
 
                 case 16:
