@@ -134,13 +134,13 @@ public class Replacer : MonoBehaviour
         //Soft destroy old building and get population usafe diff
         Sites targetSite = oldBuilding.GetComponent<Sites>();
         targetSite.replaced = true;
-        targetSite.usageDiff = building.GetComponent<Sites>().populationUsage - targetSite.populationUsage;
-        targetSite.maxDiff = building.GetComponent<Sites>().populationAdd - targetSite.populationAdd;
+        targetSite.usageDiff = site.populationUsage - targetSite.populationUsage;
+        targetSite.maxDiff = site.populationAdd - targetSite.populationAdd;
         Destroy(oldBuilding);
 
         //Create new building
         Instantiate(building, transform.position, Quaternion.identity);
-        res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, site.populationUsage, 0, 0);
+        res.DecreaseResources(site.foodCost, site.oilCost, site.metalCost, 0, 0, -site.populationAdd);
         Destroy(gameObject);
     }
 

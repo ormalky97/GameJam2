@@ -197,8 +197,6 @@ public class Sites : MonoBehaviour
             res.DecreaseResources(0, 0, 0, usageDiff, 0, maxDiff);
             FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
         }
-
-        FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
     }
 
     void Hit()

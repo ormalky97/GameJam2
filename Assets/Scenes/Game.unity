@@ -632,6 +632,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 221432960739955943, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: Increases Maximum Population by 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432960786194830, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: Increases Maximum Population by 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432961482407998, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: Increases Maximum Population by 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5444348036114397457, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: m_Color.r
       value: 0
