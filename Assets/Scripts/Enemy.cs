@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        GetComponent<AudioSource>().PlayOneShot(scarySpawn, 1f);
+        //GetComponent<AudioSource>().PlayOneShot(scarySpawn, 1f);
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
     }

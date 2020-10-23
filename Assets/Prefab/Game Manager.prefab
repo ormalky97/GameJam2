@@ -46,15 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1d83b76b2af6a469cce3d55c363be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 1200
-  oil: 1200
-  metal: 1200
-  population: 20
+  food: 1500
+  oil: 1500
+  metal: 1500
+  population: 24
   usedPopulation: 0
   maxPopulation: 0
   noOil: {fileID: 8300000, guid: 04271f2bf0c1cd14ab199cd155673add, type: 3}
   noMetal: {fileID: 8300000, guid: ce7477a9021c72545aa19dde5e72f592, type: 3}
   arrival: {fileID: 8300000, guid: 509e35e03980c984b97d3e4e4b98975b, type: 3}
+  foodDecay: 0
+  metalDecay: 0
+  oilDecay: 0
 --- !u!114 &7850448316390418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,16 +65,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850448316390431}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4c36b1932813e4bb8900d62fd6d22a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waveSize: 5
-  initialWaveTime: 5
+  initialWaveTime: 20
   waveTime: 20
-  waveIncreaseTimer: 60
-  newEnemyTimer: 120
+  waveIncreaseTimer: 40
+  newEnemyTimer: 60
   enemies:
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}
   - {fileID: 8585067804245777455, guid: be6747933eaba1641b13b550b3e01fef, type: 3}

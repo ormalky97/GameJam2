@@ -107,7 +107,7 @@ MonoBehaviour:
   prefTarget: {fileID: 0}
   onlyPref: 0
   hitEffect: {fileID: 5627736225707098770, guid: 9ee34e9d323832740a31ffb616645c38, type: 3}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 9a2ede90661d4134e8e881c8fa139f65, type: 3}
   scarySpawn: {fileID: 8300000, guid: 2095d82b3c4d30c4b859f1cd3cbd20e1, type: 3}
 --- !u!50 &4725096637889953760
 Rigidbody2D:
