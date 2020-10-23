@@ -633,6 +633,40 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 221432959777164585, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: 'Damage: 5, Fire Rate: 0.5,
+
+        Range: 8, Explosion Radius: 2
+
+        (upkeep:
+        60 Metal / min.)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432960087814051, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: 'Damage: 1, Fire Rate: 4, Range: 6
+
+        (Upkeep: 60 Metal / min.)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432960087814062, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: m_Name
+      value: 2. Turret MK II Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432960226273345, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: 'Increases buildings''
+
+        placement radius
+
+        (Upkeep: 60
+        Oil / min.)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432960230422283, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: 'Damage: 2, Fire Rate: 1.5, Range: 6
+
+        (Upkeep: 60 Metal / min.)'
+      objectReference: {fileID: 0}
     - target: {fileID: 221432960739955943, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: desc
       value: Increases Maximum Population by 24
@@ -640,6 +674,15 @@ PrefabInstance:
     - target: {fileID: 221432960786194830, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: desc
       value: Increases Maximum Population by 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 221432961400762372, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: desc
+      value: 'Damage: 10, Fire Rate: 0.5,
+
+        Range: unlimited
+
+        (Upkeep:
+        60 Metal / min.)'
       objectReference: {fileID: 0}
     - target: {fileID: 221432961482407998, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: desc
@@ -772,6 +815,14 @@ PrefabInstance:
     - target: {fileID: 5444348037353901632, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: m_Color.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444348037353901635, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444348037403838656, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 196.14938
       objectReference: {fileID: 0}
     - target: {fileID: 5444348037440670796, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: m_Material

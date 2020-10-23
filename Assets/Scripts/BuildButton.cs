@@ -13,6 +13,7 @@ public class BuildButton : MonoBehaviour
     [Header("Settings")]
     public GameObject building;
     public string title;
+    [TextArea]
     public string desc;
 
     [Header("Refs")]
