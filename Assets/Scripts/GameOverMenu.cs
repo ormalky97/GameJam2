@@ -11,25 +11,29 @@ public class GameOverMenu : MonoBehaviour
     void Awake()
     {
         gameOverMenu = transform.GetChild(0).gameObject;
+        Time.timeScale = 1f;
     }
 
     public void GameOver()
     {
         Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
-      
     }
 
     public void Restart()
     {
-        
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        StartCoroutine("ReloadScene");
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 

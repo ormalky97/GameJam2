@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198746030 stripped
 GameObject:
@@ -347,6 +347,7 @@ MonoBehaviour:
   maxZoom: 10
   minZoom: 5
   resetSpeed: 1
+  canDrag: 1
   background: {fileID: 198746030}
   rawImage: {fileID: 1095559445}
   movementFactorX: 0.049
@@ -501,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850448316390417, guid: ca3239204eec6144b961434155a2400f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7850448316390417, guid: ca3239204eec6144b961434155a2400f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -578,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221432959678250772, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 221432959678250772, guid: 3352598c7ff72a8468c92852e85c4049, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1116,6 +1117,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2678338209212966787, guid: 4f50196a8c9560b4d99b5679b33681db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameOverMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2678338209212966787, guid: 4f50196a8c9560b4d99b5679b33681db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 2678338209261878050, guid: 4f50196a8c9560b4d99b5679b33681db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1409,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758057674712635115, guid: fd13e89660fcc094a9ff1b077f6ddb53, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5758057674712635115, guid: fd13e89660fcc094a9ff1b077f6ddb53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1510,7 +1519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6725789370706793176, guid: 524701d001fddc245a18cb1f28153ea5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6725789370706793176, guid: 524701d001fddc245a18cb1f28153ea5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
