@@ -43,12 +43,16 @@ public class BuildingsManager : MonoBehaviour
     public void DestroyUndermanned()
     {
         int overdraft = GetComponent<Resources>().usedPopulation - GetComponent<Resources>().population;
-        for (int i = buildings.Count - 1; overdraft > 0; i--)
+        for (int i = buildings.Count - 1; i >= 0; i--)
         {
             if (buildings[i].tag == "Food" || buildings[i].tag == "oil" || buildings[i].tag == "Metal")
             {
                 buildings[i].GetComponent<Sites>().undermanned = true;
+                overdraft -= buildings[i].GetComponent<Sites>().populationUsage;
                 Destroy(buildings[i]);
+
+                if (overdraft <= 0)
+                    i = -1;
             }
         }
     }

@@ -17,6 +17,11 @@ public class GUI : MonoBehaviour
     public Text populationChange;
     public float decayFactor;
 
+    [Header("Upkeep Texts")]
+    public Text foodUK;
+    public Text metalUK;
+    public Text oilUK;
+
     //refs
     GameObject manager;
     Resources res;
@@ -30,6 +35,13 @@ public class GUI : MonoBehaviour
     {
         manager = GameObject.Find("Game Manager");
         res = manager.GetComponent<Resources>();
+    }
+
+    void DisplayUpkeeps()
+    {
+        foodUK.text = " -" + res.foodDecay;
+        metalUK.text = " -" + res.metalDecay;
+        oilUK.text = " -" + res.oilDecay;
     }
 
     public void DisplayChanges(int f, int m, int o, int p)
@@ -82,6 +94,7 @@ public class GUI : MonoBehaviour
     void Update()
     {
         UpdateResources();
+        DisplayUpkeeps();
 
         if (!DecayDone())
         {

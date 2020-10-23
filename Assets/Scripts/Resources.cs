@@ -18,7 +18,13 @@ public class Resources : MonoBehaviour
     public AudioClip noOil;
     public AudioClip noMetal;
     public AudioClip arrival;
-    
+
+    [Header("Decays")]
+    public int foodDecay;
+    public int metalDecay;
+    public int oilDecay;
+
+
     GUI gui;
     Messages messages;
     bool oilZero = false;
@@ -81,6 +87,7 @@ public class Resources : MonoBehaviour
     private void Update()
     {
         FixMinus();
+        UpdateDecyas();
 
         if (oil == 0)
             NoOil();
@@ -90,14 +97,35 @@ public class Resources : MonoBehaviour
             audioSource.PlayOneShot(noMetal, 0.5f);
     }
 
+    void UpdateDecyas()
+    {
+        //food decay
+        foodDecay = (population - usedPopulation) * 5 + usedPopulation * 10;
 
+        //metal decay
+        int turrets = 0;
+        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        {
+            if (building.tag == "Turret")
+                turrets++;
+        }
+        metalDecay = 60 * turrets;
+
+        //oil decay
+        int stations = 0;
+        foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
+        {
+            if (building.tag == "Station")
+                stations++;
+        }
+        oilDecay = 60 * stations;
+    }
 
     IEnumerator FoodDecay()
     {
         while (true)
         {
             yield return new WaitForSeconds(60f);
-            int foodDecay = (population - usedPopulation) * 5 + usedPopulation * 10;
             if (food < foodDecay)
             {
                 DecreaseResources(0, 0, 0, 0, (food-foodDecay)/10, 0);
@@ -105,6 +133,9 @@ public class Resources : MonoBehaviour
             }
             else
                 DecreaseResources(foodDecay, 0, 0, 0, 0, 0);
+
+            if (usedPopulation > population)
+                FindObjectOfType<BuildingsManager>().DestroyUndermanned();
         }
     }
 
@@ -113,13 +144,6 @@ public class Resources : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(60f);
-            int turrets = 0;
-            foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
-            {
-                if (building.tag == "Turret")
-                    turrets++;
-            }
-            int metalDecay = 60 * turrets;
             if (metalDecay > metal)
                 DecreaseResources(0, 0, metal, 0, 0, 0);
             else
@@ -132,13 +156,6 @@ public class Resources : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(60f);
-            int stations = 0;
-            foreach (GameObject building in FindObjectOfType<BuildingsManager>().buildings)
-            {
-                if (building.tag == "Station")
-                    stations++;
-            }
-            int oilDecay = 60 * stations;
             if (oilDecay > oil)
                 DecreaseResources(0, oil, 0 , 0, 0, 0);
             else

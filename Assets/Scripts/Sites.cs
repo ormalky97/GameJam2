@@ -174,7 +174,9 @@ public class Sites : MonoBehaviour
         {
             if (gameObject == FindObjectOfType<BuildingsManager>().buildings[0])
                 FindObjectOfType<GameOverMenu>().GameOver();
+
             audioSource.PlayOneShot(destroyedSound);
+
             res.DecreaseResources(0, 0, 0, -populationUsage, -populationUsage, -populationAdd);
             if (res.population > res.maxPopulation)
             {
@@ -189,14 +191,14 @@ public class Sites : MonoBehaviour
         {
             audioSource.PlayOneShot(destroyedSound);
             res.DecreaseResources(0, 0, 0, -populationUsage, 0, 0);
-            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
             FindObjectOfType<Messages>().ShowMessage("Your last " +title +" was destroyed due to being undermanned", new Color(1, 0, 0));
         }
         else if (replaced)
         {
             res.DecreaseResources(0, 0, 0, usageDiff, 0, maxDiff);
-            FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
         }
+
+        FindObjectOfType<BuildingsManager>().buildings.Remove(gameObject);
     }
 
     void Hit()
