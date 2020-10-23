@@ -20,19 +20,6 @@ public class Station : MonoBehaviour
         else
             return false;
     }
-
-    public void ShowRange()
-    {
-        if(GetComponent<Sites>().active)
-            rangeRenderer.SetActive(true);
-    }
-
-    public void HideRange()
-    {
-        if (GetComponent<Sites>().active)
-            rangeRenderer.SetActive(false);
-    }
-
     private void OnDestroy()
     {
         FindObjectOfType<BuildingsManager>().stations.Remove(gameObject);

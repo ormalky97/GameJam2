@@ -43,7 +43,7 @@ public class Replacer : MonoBehaviour
 
         foreach (GameObject station in stations)
         {
-            station.GetComponent<Station>().ShowRange();
+            station.GetComponent<ShowRange>().Show();
         }
     }
     bool GuiProtection()
@@ -173,7 +173,7 @@ public class Replacer : MonoBehaviour
     {
         foreach (GameObject station in stations)
         {
-            station.GetComponent<Station>().HideRange();
+            station.GetComponent<ShowRange>().Hide();
         }
     }
 }

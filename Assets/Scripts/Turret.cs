@@ -21,6 +21,7 @@ public class Turret : MonoBehaviour
     GameObject firePoint;
     Rigidbody2D rb;
     AudioSource audioSource;
+    GameObject rangeRenderer;
 
     //Vars
     bool canShoot = true;
@@ -32,6 +33,8 @@ public class Turret : MonoBehaviour
         firePoint = transform.GetChild(1).gameObject;
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        rangeRenderer = transform.Find("Range").gameObject;
+        rangeRenderer.transform.localScale = new Vector2(range, range);
     }
 
     // Update is called once per frame

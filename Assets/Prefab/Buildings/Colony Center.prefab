@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2695521361961853655}
   - component: {fileID: 2695521361961853654}
   - component: {fileID: 2431458263944740296}
+  - component: {fileID: 3075846854386114012}
   m_Layer: 9
   m_Name: Colony Center
   m_TagString: Station
@@ -119,8 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Colony Center
   foodCost: 0
-  oilCost: 0
   metalCost: 0
+  oilCost: 0
   populationUsage: 0
   foodUp: 0
   metalUp: 0
@@ -285,6 +286,18 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3075846854386114012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2695521361961853640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85363a8e5612434cb13c4c3cce79e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2695521362356156121
 GameObject:
   m_ObjectHideFlags: 0

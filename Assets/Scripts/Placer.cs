@@ -41,7 +41,7 @@ public class Placer : MonoBehaviour
 
         foreach (GameObject station in stations)
         {
-            station.GetComponent<Station>().ShowRange();
+            station.GetComponent<ShowRange>().Show();
         }
     }
 
@@ -160,7 +160,7 @@ public class Placer : MonoBehaviour
     {
         foreach (GameObject station in stations)
         {
-            station.GetComponent<Station>().HideRange();
-        }
+            station.GetComponent<ShowRange>().Hide();
+        }       
     }
 }

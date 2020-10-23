@@ -50,7 +50,7 @@ public class SniperTurret : MonoBehaviour
                 StartCoroutine("Shoot");
             }
         }
-        Debug.Log(target);
+        //Debug.Log(target);
     }
 
     IEnumerator Shoot()
