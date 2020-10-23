@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public float maxZoom = 10f;
     public float minZoom = 5f;
     public float resetSpeed = 1f;
+    public bool canDrag = true;
 
     [Header("Background")]
     public GameObject background;
@@ -46,8 +47,14 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
             dragStart = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && canDrag)
             movement = -1 * (cam.ScreenToWorldPoint(Input.mousePosition) - dragStart);
+
+        if(Input.GetMouseButtonUp(1))
+        {
+            dragStart = new Vector3();
+            canDrag = true;
+        }
 
         if (movement != Vector3.zero || transform.position == startPos)
             isResetting = false;

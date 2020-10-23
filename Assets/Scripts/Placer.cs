@@ -37,6 +37,8 @@ public class Placer : MonoBehaviour
         site = building.GetComponent<Sites>();
         spr.sprite = building.GetComponent<SpriteRenderer>().sprite;
 
+        FindObjectOfType<CameraController>().canDrag = false;
+
         foreach (GameObject station in stations)
         {
             station.GetComponent<Station>().ShowRange();
